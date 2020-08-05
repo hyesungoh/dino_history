@@ -26,7 +26,7 @@ urlpatterns = [
     path('map/', heritage.views.map, name='map'),
 
     # user_app
-    path('mypage/', user.views.mypage, name='user'),
+    path('mypage/', user.views.mypage, name='mypage'),
     path('ranking/', user.views.ranking, name='ranking'),
     path('problem/', user.views.problem, name='problem'),
 ]
