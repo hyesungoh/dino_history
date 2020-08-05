@@ -21,4 +21,12 @@ import user.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # heritage_app
+    path('', heritage.views.main, name='main'),
+    path('map/', heritage.views.map, name='map'),
+
+    # user_app
+    path('mypage/', user.views.mypage, name='user'),
+    path('ranking/', user.views.ranking, name='ranking'),
+    path('problem/', user.views.problem, name='problem'),
 ]
