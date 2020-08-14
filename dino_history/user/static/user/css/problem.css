@@ -1,0 +1,22 @@
+.flex-problems {
+    margin: 10px;
+    padding: 50px;
+    text-align: center;
+    border-radius: 5px;
+    background: antiquewhite;
+    }
+
+hr.line1 {
+    position: relative;
+    right: 300px;
+    height: 50px; 
+    width: 0px; 
+    border-right: 0px;
+}
+hr.line2 {
+    position: relative;
+    right: 0px;
+    height: 50px; 
+    width: 0px; 
+    border-right: 0px;
+}

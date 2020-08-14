@@ -1,5 +1,22 @@
 {% extends 'user/base.html' %}
-
+<link rel="stylesheet" href="user/problem.css" >
 {% block header %}
-<h4> this is problem.html </h4>
+<link href="{% static 'dino_history/css/problem.css' %}" rel="stylesheet">
+<div>
+    <div class="flex-problems">1
+        <hr class="line1"> 문제
+        <hr class="line2">맞춘사람
+        <hr class="line3">푼 사람
+        <hr class="line4">정답
+    </div>
+    <div class="flex-problems">2
+        <hr class="line">
+    </div>
+    <div class="flex-problems">3
+        <hr class="line">
+    </div>
+    <div class="flex-problems">4
+        <hr class="line">
+    </div>
+</div>
 {% endblock %}
