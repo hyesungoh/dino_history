@@ -29,4 +29,4 @@ urlpatterns = [
     path('mypage/', user.views.mypage, name='mypage'),
     path('ranking/', user.views.ranking, name='ranking'),
     path('problem/', user.views.problem, name='problem'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
