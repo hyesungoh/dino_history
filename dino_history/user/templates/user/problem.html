@@ -1,22 +1,21 @@
 {% extends 'user/base.html' %}
-<link rel="stylesheet" href="user/problem.css" >
-{% block header %}
-<link href="{% static 'dino_history/css/problem.css' %}" rel="stylesheet">
-<div>
-    <div class="flex-problems">1
-        <hr class="line1"> 문제
-        <hr class="line2">맞춘사람
-        <hr class="line3">푼 사람
-        <hr class="line4">정답
-    </div>
-    <div class="flex-problems">2
-        <hr class="line">
-    </div>
-    <div class="flex-problems">3
-        <hr class="line">
-    </div>
-    <div class="flex-problems">4
-        <hr class="line">
-    </div>
-</div>
+{% load static %}
+{% block pro %}
+<div class="container container1">
+    <div class="item" id="items">1001</div><hr>
+    <div class="item">한글을 만든 사람은?</div><hr class="hr1">
+    <div class="item" id="items">조선</div><hr class="hr1">
+    <div class="item" id="items">1</div><hr class="hr1">
+    <div class="item" id="items">3</div><hr class="hr1">
+    <div class="item" id="items">33%</div>
+    <div id="answers">
+      <br><br>
+        <span><form name="input" method="post" action="">
+            <input type="text" name="answer">
+            <button type="submit" id="btn-primary"><b>제출하기</b></button>
+          </form>
+        </span>
+        </div>
+      </div>
+  <br><br>
 {% endblock %}

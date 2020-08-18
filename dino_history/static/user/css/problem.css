@@ -1,0 +1,19 @@
+.container {
+    width: 960px;
+    height: 180px;
+    margin-bottom: 10px;
+    background: antiquewhite;
+    display: flex;
+  }
+  .item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: rgb(16, 90, 16);
+    background-color:whitesmoke;
+    height: 150px;
+  }
