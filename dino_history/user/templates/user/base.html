@@ -1,7 +1,5 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> master
+HEAD
+
 <!-- 헤드 -->
 {% load static %}
 <html lang="en">
@@ -12,27 +10,88 @@
 </head>
   <!-- cdn, title -->
 <!-- 헤드 끝 -->
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Dino_history</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'heritage/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="{% static 'heritage/css/all.min.css' %}" rel="stylesheet">
+  <link href="{% static 'heritage/css/simple-line-icons.css' %}" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="{% static 'heritage/css/text.css' %}">
+  <!-- Custom styles for this template -->
+  <link href="{% static 'heritage/css/landing-page.min.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+>>>>>>> master
 <!-- nav -->
-<<<<<<< HEAD
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a href="{% url 'main' %}">
+  <img src="/static/heritage/img/logo.png" alt="logo" width="75px" height="65px" style="padding-left: 20px">
+  </a>
+  <a class="navbar-brand" href="{% url 'main' %}" style="color: green; padding-left: 5px; font-size: 30px; padding-top: 15px;">공아역</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-{% block header %}
-{% endblock %}
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" style="padding-left: 50%; font-size: 14px;">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'main' %}">main </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'mypage' %}">mypage</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'map' %}">map</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'ranking' %}">ranking</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'problem' %}">problem</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" size="15">
+      <a href="{% url 'mypage' %}">
+      <img src="/static/heritage/img/button2.jpg" alt="search" width="35px">
+      </a>
+    </form>
 
-<!-- footer -->
-=======
+  </div>
+</nav>
 
 {% block pro %}
 {% endblock %}
 
-<!-- footer -->
-=======
-<a href="{% url 'main' %}">main</a>
-<a href="{% url 'map' %}">map</a>
-<a href="{% url 'mypage' %}">mypage</a>
-<a href="{% url 'ranking' %}">ranking</a>
-<a href="{% url 'problem' %}">problem</a>
 
+HEAD
 {% block foot %}
 {% endblock %}
->>>>>>> f4701f586d7f2c332f0462443391c4b37f90773f
->>>>>>> master
+f4701f586d7f2c332f0462443391c4b37f90773f
+
+ <footer class="footer bg-light" style="margin-top:200px; margin-bottom: 20px; margin-right: 20px;">
+
+  <p class="text-muted small mb-4 mb-lg-0" style="text-align: right"> Copyright &copy; 2020 gong-ah-york</p>
+
+</footer>
+
+<script src="{% static 'heritage/css/jquery.min.js' %}"></script>
+<script src="{% static 'heritage/css/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+</html>

@@ -1,8 +1,9 @@
 {% extends 'user/base.html' %}
 {% load static %}
 {% block pro %}
+<br>
 <div class="container container1">
-    <div class="item" id="items">1001</div><hr>
+    <div class="item" id="items">1001</div><hr class="hr0">
     <div class="item">한글을 만든 사람은?</div><hr class="hr1">
     <div class="item" id="items">조선</div><hr class="hr1">
     <div class="item" id="items">1</div><hr class="hr1">
@@ -17,5 +18,39 @@
         </span>
         </div>
       </div>
-  <br><br>
+  <br>
+  <div class="container container1">
+    <div class="item" id="items">1002</div><hr class="hr0">
+    <div class="item">문제문제</div><hr class="hr1">
+    <div class="item" id="items">근현대</div><hr class="hr1">
+    <div class="item" id="items">3</div><hr class="hr1">
+    <div class="item" id="items">3</div><hr class="hr1">
+    <div class="item" id="items">100%</div>
+    <div id="answers">
+      <br><br>
+        <span><form name="input" method="post" action="">
+            <input type="text" name="answer">
+            <button type="submit" id="btn-primary"><b>제출하기</b></button>
+          </form>
+        </span>
+        </div>
+      </div>
+  <br>
+  <div class="container container1">
+    <div class="item" id="items">1003</div><hr class="hr0">
+    <div class="item">문제문제</div><hr class="hr1">
+    <div class="item" id="items">석기</div><hr class="hr1">
+    <div class="item" id="items">0</div><hr class="hr1">
+    <div class="item" id="items">100</div><hr class="hr1">
+    <div class="item" id="items">0%</div>
+    <div id="answers">
+      <br><br>
+        <span><form name="input" method="post" action="">
+            <input type="text" name="answer">
+            <button type="submit" id="btn-primary"><b>제출하기</b></button>
+          </form>
+        </span>
+        </div>
+      </div>
+  <br>
 {% endblock %}
