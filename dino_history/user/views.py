@@ -9,3 +9,6 @@ def ranking(request):
 
 def problem(request):
     return render(request, 'user/problem.html')
+
+def aproblem(request):
+    return render(requerst, 'user/aproblem.html')

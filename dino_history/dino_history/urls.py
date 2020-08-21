@@ -29,4 +29,5 @@ urlpatterns = [
     path('mypage/', user.views.mypage, name='mypage'),
     path('ranking/', user.views.ranking, name='ranking'),
     path('problem/', user.views.problem, name='problem'),
+    path('aproblem/', user.views.problem, name='aproblem'),
 ]
