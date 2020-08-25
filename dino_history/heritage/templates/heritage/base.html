@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
@@ -19,6 +20,7 @@
   <link rel="stylesheet" type="text/css" href="{% static 'heritage/css/text.css' %}">
   <!-- Custom styles for this template -->
   <link href="{% static 'heritage/css/landing-page.min.css' %}" rel="stylesheet">
+
 </head>
 
 <body>
@@ -49,23 +51,18 @@
       <li class="nav-item">
         <a class="nav-link" href="{% url 'problem' %}">문제</a>
       </li>
-
     </ul>
-    <form class="form-inline my-2 my-lg-0" style="padding-right:35%">
-      <input class="form-control mr-sm-2" type="search" placeholder="뭐든지 물어봐!" aria-label="Search" size="30">
+    <form class="form-inline my-2 my-lg-0" >
+      <input class="form-control mr-sm-2" type="search" placeholder="뭐든지 물어봐!" aria-label="Search" size="20">
       <!--result페이지로 이동 수정하기!-->
       <a href="{% url 'mypage' %}">
       <img src="/static/heritage/img/button2.jpg" alt="search" width="35px">
       </a>
-      <ul class="nav-item" style="padding-top: 20px;">
-        <a class="nav-link" href="#">로그인</a>  
-      </ul>
     </form>
 
 
   </div>
 </nav>
-
 {% block header %}
 {% endblock %}
 
