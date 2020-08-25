@@ -1,5 +1,26 @@
 {% extends 'user/base.html' %}
 
 {% block header %}
-<h4> this is ranking.html </h4>
+<div class="rank1">
+    <h1>전체랭킹</h1>
+    <div class="circles">
+        <div id="circle2">
+            <div class="box"><p style="font-size:30px; color:#DDDDDB;">2</p></div>
+        </div>
+        <div id="circle1">
+            <div class="box1"><p style="font-size:45px; color:#EED880;">1</p></div>
+        </div>
+        <div id="circle3">
+            <div class="box"><p style="font-size:30px; color:#CD9859;">3</p></div>
+        </div>
+    </div>
+    <br><br><br>
+    <div class="rank2">
+        <div class="item_rank" id="id_rank">순위<hr class="hrhr">
+        <div class="item_rank" id="id_nick">닉네임</div><hr class="hrhr">
+        <div class="item_rank" id="id_pro">푼 문제</div>    
+    </div> 
+    <hr>
+</div>
+
 {% endblock %}

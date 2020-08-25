@@ -1,0 +1,109 @@
+#circle1 {
+    position: relative;
+    z-index: 2;
+    background-color:#EED880;
+    width:170px;
+    height:170px;
+    border-radius:90px;
+    text-align:center;
+    margin:0 auto;
+    font-size:12px;
+    vertical-align:middle;
+    line-height:150px;
+}
+#circle2 {
+    position: relative;
+    z-index: 2;
+    background-color:#DDDDDB;
+    width:140px;
+    height:140px;
+    border-radius:90px;
+    text-align:center;
+    margin:0 auto;
+    vertical-align:middle;
+    line-height:100px;
+}
+#circle3 {
+    position: relative;
+    z-index: 2;
+    background-color:#CD9859;
+    width:140px;
+    height:140px;
+    border-radius:90px;
+    text-align:center;
+    margin:0 auto;
+    font-size:12px; color:#fff;
+    vertical-align:middle;
+    line-height:100px;
+}
+.circles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box {
+    position: relative;
+    z-index: 1;
+    top: 100px;
+    width: 140px;
+    height: 70px;
+    background-color:white;
+    text-align: center;
+    justify-items: center;
+    border-radius: 10px 10px 10px 10px;
+}
+.box1 {
+    position: relative;
+    z-index: 1;
+    top: 120px;
+    width: 170px;
+    height: 90px;
+    background-color:white;
+    text-align: center;
+    justify-items: center;
+    border-radius: 10px 10px 10px 10px;
+}
+.rank1{
+    width: 500px;
+    height: 650px;
+    margin: 5px 20px 50px 50px;
+    align-content: center;
+    float:left;
+    background-color: #FEF9F3;
+}
+.rank2{
+    width: 450px;
+    height: 340px;
+    margin:auto;
+    background-color: white;
+}
+.hrhr{
+    height: 100%;
+    width: 1px;
+    border-left: 1px solid;
+    margin: 20px auto;
+}
+.item_rank {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color:#818181;
+    height: 70px;
+}
+/* .item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: rgb(16, 90, 16);
+    height: 70px;
+}  */
+#id_rank {
+    flex-basis: 30%;
+}
+#id_nick {
+    flex-basis: 40%;
+}
+#id_pro {
+    flex-basis: 20%;}
