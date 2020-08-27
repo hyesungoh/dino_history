@@ -36,5 +36,13 @@ urlpatterns = [
 
     path('login/', user.views.login, name='login'),
     path('signup/', user.views.signup, name='signup'),
+
+    #social login test
+     # 로그인
+    path('account/', include('rest_auth.urls')),
+    path('account/registration/', include('rest_auth.registration.urls')),
+    path('account/', include('allauth.urls')),
+
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
