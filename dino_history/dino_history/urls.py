@@ -14,7 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+
+from django.conf import settings
+from django.conf.urls.static import static
 
 import heritage.views
 import user.views
@@ -29,5 +32,9 @@ urlpatterns = [
     path('mypage/', user.views.mypage, name='mypage'),
     path('ranking/', user.views.ranking, name='ranking'),
     path('problem/', user.views.problem, name='problem'),
-    path('aproblem/', user.views.problem, name='aproblem'),
-]
+    path('aproblem/', user.views.aproblem, name='aproblem'),
+    path('anew/create/', user.views.create, name='create'),
+    path('login/', user.views.login, name='login'),
+    path('signup/', user.views.signup, name='signup'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
