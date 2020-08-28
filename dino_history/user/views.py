@@ -43,3 +43,6 @@ def signup(request):
     else:
         form = UserForm()
         return render(request, 'user/signup.html', {'form': form})
+
+def Result_Search(request):
+    return render(request, 'user/Result_Search.html')
