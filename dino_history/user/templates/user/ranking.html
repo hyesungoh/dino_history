@@ -1,16 +1,22 @@
 {% extends 'user/base.html' %}
 
 {% block header %}
-<div class="rank1">
-    <h1>전체랭킹</h1>
+<!-- <div class="rank1">
+    <form>
+        <br>
+        <h2>전체 랭킹</h2>
+      </form>
     <div class="circles">
         <div id="circle2">
+            <img src="/static/user/img/sing.png" width="70%" style="margin-top:10%;">
             <div class="box"><p style="font-size:30px; color:#DDDDDB;">2</p></div>
         </div>
         <div id="circle1">
+            <img src="/static/user/img/dinosaur.png" width="70%" style="margin-top:10%;">
             <div class="box1"><p style="font-size:45px; color:#EED880;">1</p></div>
         </div>
         <div id="circle3">
+            <img src="/static/user/img/dinosaur (1).png" width="70%" style="margin-top:10%;">
             <div class="box"><p style="font-size:30px; color:#CD9859;">3</p></div>
         </div>
     </div>
@@ -21,6 +27,40 @@
         <div class="item_rank" id="id_pro">푼 문제</div>    
     </div> 
     <hr>
-</div>
+</div> -->
 
+<div class="rank1">
+    <form>
+        <br>
+        <h2>
+        <select name="where" >
+          <option value="s">서울특별시 구로구</option>
+          <option value="i">인천광역시 중구</option>
+          <option value="k">경기도 수원시</option>
+          <option value="j">제주도 서귀포시</option>
+        </select>
+        랭킹</h2>
+      </form>
+    <div class="circles">
+        <div id="circle2">
+            <img src="/static/user/img/sing.png" width="70%" style="margin-top:10%;">
+            <div class="box" style="top:5px;"><p style="font-size:30px; color:#DDDDDB;">2</p></div>
+        </div>
+        <div id="circle1">
+            <img src="/static/user/img/dinosaur.png" width="70%" style="margin-top:10%;">
+            <div class="box1" style="top:2px;"><p style="font-size:45px; color:#EED880;">1</p></div>
+        </div>
+        <div id="circle3">
+            <img src="/static/user/img/dinosaur (1).png" width="70%" style="margin-top:10%;">
+            <div class="box" style="top:5px;"><p style="font-size:30px; color:#CD9859;">3</p></div>
+        </div>
+    </div>
+    <br><br><br><br>
+    <div class="rank2">
+        <div class="item_rank" id="id_rank">순위<hr class="hrhr">
+        <div class="item_rank" id="id_nick">닉네임</div><hr class="hrhr">
+        <div class="item_rank" id="id_pro">푼 문제</div>    
+    </div>
+    <hr>
+</div>
 {% endblock %}

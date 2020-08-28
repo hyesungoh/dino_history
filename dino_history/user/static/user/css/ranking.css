@@ -8,8 +8,6 @@
     text-align:center;
     margin:0 auto;
     font-size:12px;
-    vertical-align:middle;
-    line-height:150px;
 }
 #circle2 {
     position: relative;
@@ -44,7 +42,6 @@
 .box {
     position: relative;
     z-index: 1;
-    top: 100px;
     width: 140px;
     height: 70px;
     background-color:white;
@@ -55,21 +52,24 @@
 .box1 {
     position: relative;
     z-index: 1;
-    top: 120px;
     width: 170px;
-    height: 90px;
+    height: 80px;
     background-color:white;
     text-align: center;
     justify-items: center;
     border-radius: 10px 10px 10px 10px;
 }
 .rank1{
+    overflow:visible;
     width: 500px;
-    height: 650px;
+    height: 700px;
     margin: 5px 20px 50px 50px;
     align-content: center;
     float:left;
     background-color: #FEF9F3;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
 }
 .rank2{
     width: 450px;
@@ -106,4 +106,5 @@
     flex-basis: 40%;
 }
 #id_pro {
-    flex-basis: 20%;}
+    flex-basis: 20%;
+}

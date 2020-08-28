@@ -1,31 +1,71 @@
 {% extends 'heritage/base.html' %}
 
 {% block header %}
-<h4> this is main.html </h4>
 
 <section style="margin: 20px;">
-  <div style="background-color: #FEF9F3; height: 450px; width: 100%;">
-    <p style="padding-top: 120px; padding-left: 120px; font-size: 50px;">윤동열씨</p> 
-    <p style="color: grey; padding-left: 120px; font-size: 20px;">지금까지 23개의 문제를 맞추셨어용<br>7개를 더 맞추면 오오혜성이 더 커져용</p>
-    <img src="/static/heritage/img/star.png" style="padding-left: 120px;">
-    <img src="/static/heritage/img/star.png" style="padding-left: 10px;">
-    <img src="/static/heritage/img/star.png" style="padding-left: 10px;">
+  <div style="background-color: #FEF9F3; height: 635px; width: 100%;">
+    <img src="/static/heritage/img/dino_ch.png" width="340px" height="340px" style="float: right; margin-top: 120px; margin-right: 40%;">
+    <!--<img src="/static/heritage/img/back_dino.svg.png" width="340px" height="450px" style="float: right ; margin-left: 50%; margin-bottom: 50px;"> -->
+    <p style="padding-top: 120px; padding-left: 160px; font-size: 50px; display: inline-block;">윤동열짱</p> 
+    <p style="color: gray; font-size: 20px; padding-left: 15px; display:inline-block;">LV.2</p>
+    <p style="color: grey; padding-left: 160px; font-size: 20px;">지금까지 23개의 문제를 맞추셨어용<br>7개를 더 맞추면 윤동열씨가 더 커져용</p>
+    <div id="medla" style="padding-top: 10px;">
+      <img src="/static/heritage/img/star.png" style="padding-left: 150px;"> 
+      <img src="/static/heritage/img/star.png" style="padding-left: 13px;">
+      <img src="/static/heritage/img/star.png" style="padding-left: 13px;">
+      <p style="padding-left: 158px; padding-top: 20px; font-size: 15px;">전체 100등&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서울시 50등 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 현대사 11등</p>
+      </div>
   </div>
+</section>
+
+<section style="margin: 20px;">
+  <div style="background-color: #F3FEF3; height: 635px; width: 100%;">
+    <img src="/static/heritage/img/map.png" height="500px" style="float: left; margin-top: 32px ; margin-left: 160px;">
+    <p style="padding-top: 120px; padding-left: 42%; font-size: 50px;">여긴 어떤게 있을까?</p> 
+    <p style="color: grey; padding-left: 42%; font-size: 20px;">지도를 이용해 원하는 지역의 문화재와 역사를 알아볼 수 있어용</p>
+    <!-- Example single danger button -->
+<!-- Large button groups (default and split) -->
+  <div class="btn-group" style="padding-left: 4%; padding-top: 15px;">
+    <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    지역 선택
+      </button>
+      <img src="/static/heritage/img/button2.jpg" alt="search" width="50px">
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">서울</a>
+        <a class="dropdown-item" href="#">경기도</a>
+        <a class="dropdown-item" href="#">강원도</a>
+        <a class="dropdown-item" href="#">경상도</a>
+        <a class="dropdown-item" href="#">전라도</a>
+        <a class="dropdown-item" href="#">제주도</a>
+        <a class="dropdown-item" href="#">모르</a>
+        <a class="dropdown-item" href="#">게따</a>
+       </div>
+      </div>
+    </div>
 
 </section>
 
 <section style="margin: 20px;">
-  <div style="background-color: #F3FEF3; height: 450px; width: 100%;"></div>
+  <div style="background-color: #FDFEF3; height: 635px; width: 100%;">
+    <img src="/static/heritage/img/input_main.png" width="50%" style="margin-top:10%; margin-left: 10%;">
+    <p style="font-size: 50px; padding-left: 45%; padding-top: 20px;">궁금한 게 있으면 물어봐 !</p>
+    <p style="color:gray; font-size: 20px; padding-left: 45%;">궁금한 문화재, 키워드를 시대별로 검색 할 수 있어 !!</p>
+  </div>
 </section>
 
 <section style="margin: 20px;">
-  <div style="background-color: #FDFEF3; height: 450px; width: 100%;"></div>
-
+  <div style="background-color: #F3FEFC;  height: 635px; width: 100%;">
+    <a href="#">
+  <img src="/static/heritage/img/quiz_dino.png" width="700" style="float: right; margin-right: 20px; margin-top: 7%;">
+    </a>
+  <p style="font-size: 50px; padding-top: 150px; padding-left: 150px;">윤동열짱을 키워줘 !</p>
+  <p style="color: gray; font-size: 20px; padding-left: 150px;">문제를 풀어서 윤동열짱을 키워줘 ! <br> 푸는 문제에 따라 어떻게 커질 지 모른다구 ?!</p>
+  </div>
 </section>
 
-<section style="margin: 20px;">
-  <div style="background-color: #F3FEFC;  height: 450px; width: 100%;"></div>
-</section>
 
-
+<!--dropdown 작동 코드-->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 {% endblock %}
