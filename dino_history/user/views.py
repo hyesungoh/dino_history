@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Student, Problem, Example, Aproblem
-from .forms import SigninForm, UserForm, CreateForm
+from .models import Student, Problem, Example
+from .forms import SigninForm, UserForm, ProblemForm
 
 from django.contrib.auth import login, authenticate
 from django.http import HttpResponse
@@ -13,24 +13,33 @@ def ranking(request):
     return render(request, 'user/ranking.html')
 
 def problem(request):
-    return render(request, 'user/problem.html')
-
-def aproblem(request):
-    aproblem = Aproblem.objects.all()
-    return render(request, 'user/aproblem.html', {'aproblem':aproblem})
+    problem = Problem.objects.all()
+    return render(request, 'user/problem.html', {'problem':problem})
 
 def anew(request):
     return render(request, 'user/anew.html')
 
 def create(request):
     if request.method == 'POST':
-        form = CreateForm(request.POST)
+        form = ProblemForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('aproblem')
+            return redirect('problem')
     else:
-        form = CreateForm()
+        form = ProblemForm()
         return render(request, 'user/anew.html', {'form':form})
+
+def update(request, pk):
+    porblem = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        form = ProblemForm(request.POST, instance=problem)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.save()
+            return redirect('main')
+    else:
+        form = ProblemForm(instance=problem)
+        return render(request, 'user/anew.html', {'form': form})
 
 def login(request):
     signin_form = SigninForm()

@@ -1,10 +1,10 @@
 from django import forms
-from .models import Student, Aproblem
+from .models import Student, Problem
 
-class CreateForm(forms.ModelForm):
+class ProblemForm(forms.ModelForm):
     class Meta:
-        model = Aproblem
-        fields = ['a_title', 'a_content', 'a_answer']
+        model = Problem
+        fields = ['p_title', 'p_content', 'answer']
         
 class SigninForm(forms.ModelForm):
     class Meta:

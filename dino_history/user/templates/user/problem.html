@@ -9,6 +9,17 @@
     </head>
     <body>
         <h1>html이랑 css 연결이 안돼요 help</h1>
+        <p>문제 적는 곳!</p>
+        <a href = "{% url 'create' %}"> 글쓰기</a>
+        {% for x in problem.all %}
+          <p>문제 : </p>
+          {{x.p_title}}<br>
+          <p>내용 : </p>
+          {{x.p_content}}<br>
+          <p>정답 : </p>
+          {{x.answer}}
+          <a href="{% url 'update' pk=problem.pk %}"> 수정하기</a>
+        {% endfor %}
     </body>
 </html>
 <h4> this is problem.html </h4>

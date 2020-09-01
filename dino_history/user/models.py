@@ -25,8 +25,3 @@ class Example(models.Model):
     e2 = models.CharField(max_length=20)
     e3 = models.CharField(max_length=20)
     e4 = models.CharField(max_length=20)
-
-class Aproblem(models.Model):
-    a_title = models.CharField(max_length=200)
-    a_content = models.TextField()
-    a_answer = models.CharField(max_length=50)

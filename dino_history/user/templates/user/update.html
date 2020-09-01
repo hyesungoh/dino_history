@@ -2,7 +2,7 @@
 
 {% block header %}
 
-<form method = 'POST'>
+<form method = "POST">
     {% csrf_token %}
     <table>
         {{form.as_table}}
