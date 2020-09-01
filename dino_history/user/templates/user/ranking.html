@@ -1,5 +1,50 @@
 {% extends 'user/base.html' %}
 
 {% block header %}
-<h4> this is ranking.html </h4>
+
+<div class="rank1">
+    <form>
+        <br>
+        <h2>
+        <select name="where" >
+          <option value="s">서울특별시 구로구</option>
+          <option value="i">인천광역시 중구</option>
+          <option value="k">경기도 수원시</option>
+          <option value="j">제주도 서귀포시</option>
+        </select>
+         랭킹</h2>
+      </form>
+    <div class="circles">
+        <div id="circle2">
+            <img src="/static/user/img/sing.png" width="70%" style="margin-top:10%;">
+            <div class="box" style="top:5px;"><p style="font-size:30px; color:#DDDDDB;">2</p></div>
+        </div>
+        <div id="circle1">
+            <img src="/static/user/img/dinosaur.png" width="70%" style="margin-top:10%;">
+            <div class="box1" style="top:2px;"><p style="font-size:45px; color:#EED880;">1</p></div>
+        </div>
+        <div id="circle3">
+            <img src="/static/user/img/dinosaur (1).png" width="70%" style="margin-top:10%;">
+            <div class="box" style="top:5px;"><p style="font-size:30px; color:#CD9859;">3</p></div>
+        </div>
+    </div>
+    <br><br><br>
+    <div class="rank2">
+        <div class="item_rank" id="id_rank">순위<hr class="hrhr">
+        <div class="item_rank" id="id_nick">닉네임</div><hr class="hrhr">
+        <div class="item_rank" id="id_pro">푼 문제</div>
+    </div>
+    <hr class="hrhr2">
+    <div class="scroll" style="overflow:auto; width:450px; height:250px;">
+    <div style="font-size: 20px; color: rgba(129,129,129,1); padding-left: 1.6em"></
+    <p>1 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;윤동열&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 543</p>
+    <p>2 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;오혜성&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 432</p>
+    <p>3 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;한희정&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 321</p>
+    <p>4 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;유혜지&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 210</p>
+    <p>5 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;박다은&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 100</p>
+    <br>
+    <p>23 &emsp;&emsp;&emsp;&emsp;&emsp;토마토&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 80</p>
+</div>
+    </div>
+    <p style="font-size: 20px; color: black; padding-left: 1.7em">234 &emsp;&emsp;&emsp;&emsp;박박디라라&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 10</p>
 {% endblock %}
