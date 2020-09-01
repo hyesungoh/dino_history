@@ -17,8 +17,9 @@
           <p>내용 : </p>
           {{x.p_content}}<br>
           <p>정답 : </p>
-          {{x.answer}}
-          <a href="{% url 'update' pk=problem.pk %}"> 수정하기</a>
+          {{x.answer}}<br>
+          <a href="{% url 'update' pk=x.pk %}"> 수정하기</a>
+          <a href="{% url 'delete' pk=x.pk %}"> 삭제하기</a>
         {% endfor %}
     </body>
 </html>

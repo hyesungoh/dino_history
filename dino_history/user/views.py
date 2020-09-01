@@ -30,16 +30,21 @@ def create(request):
         return render(request, 'user/anew.html', {'form':form})
 
 def update(request, pk):
-    porblem = get_object_or_404(Post, pk=pk)
+    problem = get_object_or_404(Problem, pk=pk)
     if request.method == "POST":
         form = ProblemForm(request.POST, instance=problem)
         if form.is_valid():
             form = form.save(commit=False)
             form.save()
-            return redirect('main')
+            return redirect('problem')
     else:
         form = ProblemForm(instance=problem)
         return render(request, 'user/anew.html', {'form': form})
+
+def delete(request, pk):
+    problem = get_object_or_404(Problem, pk=pk)
+    problem.delete()
+    return redirect('problem')
 
 def login(request):
     signin_form = SigninForm()

@@ -34,6 +34,7 @@ urlpatterns = [
     path('problem/', user.views.problem, name='problem'),
     path('anew/create/', user.views.create, name='create'),
     path('update/<int:pk>', user.views.update, name='update'),
+    path('delete/<int:pk>', user.views.delete, name='delete'),
     path('login/', user.views.login, name='login'),
     path('signup/', user.views.signup, name='signup'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
