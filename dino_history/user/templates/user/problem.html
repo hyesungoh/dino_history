@@ -17,6 +17,17 @@
           {{x.p_content}}<br>
           <p>정답 : </p>
           {{x.answer}}<br>
+          <p>객관식 1번 : </p>
+          {{x.e1}}<br>
+          <p>객관식 2번 : </p>
+          {{x.e2}}<br>
+          <p>객관식 3번 : </p>
+          {{x.e3}}<br>
+          <p>객관식 4번 : </p>
+          {{x.e4}}<br>
+          <p>정답 : </p>
+          {{x.p_num}}<br>
+
           <a href="{% url 'update' pk=x.pk %}"> 수정하기</a>
           <a href="{% url 'delete' pk=x.pk %}"> 삭제하기</a>
         {% endfor %}

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Student, Problem, Example
-from .forms import SigninForm, UserForm, ProblemForm
+from .forms import SigninForm, UserForm, ProblemForm, ExampleForm, ProblemMultiForm
 
 from django.contrib.auth import login, authenticate
 from django.http import HttpResponse
@@ -21,24 +21,27 @@ def anew(request):
 
 def create(request):
     if request.method == 'POST':
-        form = ProblemForm(request.POST)
+        form = ProblemMultiForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('problem')
     else:
-        form = ProblemForm()
+        form = ProblemMultiForm()
         return render(request, 'user/anew.html', {'form':form})
+    
+ # model에서 Example 받아서 e1, e2...e4까지 받아오기
+#  저장할때 p_num       
 
 def update(request, pk):
     problem = get_object_or_404(Problem, pk=pk)
     if request.method == "POST":
-        form = ProblemForm(request.POST, instance=problem)
+        form = ProblemMultiForm(request.POST, instance=problem)
         if form.is_valid():
             form = form.save(commit=False)
             form.save()
             return redirect('problem')
     else:
-        form = ProblemForm(instance=problem)
+        form = ProblemMultiForm(instance=problem)
         return render(request, 'user/anew.html', {'form': form})
 
 def delete(request, pk):
