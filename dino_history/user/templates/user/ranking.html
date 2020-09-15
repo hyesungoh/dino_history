@@ -164,6 +164,14 @@
         margin: 5px auto;
     } */
     </style>
+<div>
+    {% for x in users.all %}
+
+    {{ x.username }}
+    <br>
+    {% endfor %}
+</div>
+
 <div class="flex">
 <div class="rank1">
     <form>

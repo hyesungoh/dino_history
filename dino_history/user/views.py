@@ -10,7 +10,8 @@ def mypage(request):
     return render(request, 'user/mypage.html')
 
 def ranking(request):
-    return render(request, 'user/ranking.html')
+    users = Student.objects.all().order_by('-cor_num')
+    return render(request, 'user/ranking.html', {'users': users})
 
 def problem(request):
     problem = Problem.objects.all()
