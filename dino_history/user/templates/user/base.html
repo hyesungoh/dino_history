@@ -23,6 +23,8 @@
 
   <!-- Custom styles for this template -->
   <link href="{% static 'heritage/css/landing-page.min.css' %}" rel="stylesheet">
+  <link href="{% static 'user/css/problem.css' %}" rel="stylesheet">
+  <link href="{% static 'user/css/ranking.css' %}" rel="stylesheet">
 </head>
 
 <body>
@@ -68,10 +70,13 @@
 {% block header %}
 {% endblock %}
 
-
  <footer class="footer bg-light" style="margin-top:200px; margin-bottom: 20px; margin-right: 20px;">
 
   <p class="text-muted small mb-4 mb-lg-0" style="text-align: right"> Copyright &copy; 2020 gong-ah-york</p>
+
+{% block foot %}
+{% endblock %}
+
 
 </footer>
 

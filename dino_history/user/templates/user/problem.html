@@ -1,18 +1,28 @@
 {% extends 'user/base.html' %}
 {% load static %}
 
-=======
 {% block header %}
-<<<<<<< HEAD
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'user/css/problem.css' %}">
+    </head>
+    <body>
+        <h1>html이랑 css 연결이 안돼요 help</h1>
+        <p>문제 적는 곳!</p>
+        <a href = "{% url 'create' %}"> 글쓰기</a>
+        {% for x in problem.all %}
+          <p>문제 : </p>
+          {{x.p_title}}<br>
+          <p>내용 : </p>
+          {{x.p_content}}<br>
+          <p>정답 : </p>
+          {{x.answer}}<br>
+          <a href="{% url 'update' pk=x.pk %}"> 수정하기</a>
+          <a href="{% url 'delete' pk=x.pk %}"> 삭제하기</a>
+        {% endfor %}
+    </body>
+</html>
 <h4> this is problem.html </h4>
-
-<section style="margin: 20px;">
-    <div style="background-color: #F3FEF3; height: 80px; width: 100%;">
-        <p style="color:gray; font-size: 30px; padding: 20px; padding-left:15% ;">문제 검색하기</p>
-    </div>
-  </section>
-
-=======
 <style>
   .hr0 {
   height: 65%;
@@ -20,12 +30,12 @@
   border-left: 1px solid;
   margin: 12px auto;
 }
-/* hr {
+hr {
   height: 70%;
   width: 1px;
   border-left: 1px solid;
   margin: 20px auto;
-} */
+} 
 .hr1 {
   height: 30%;
   width: 1px;
@@ -94,6 +104,7 @@ input {
   border-radius: 10px 10px 10px 10px;
 }
 </style>
+
 <br>
 <div class="container">
     <div class="item" id="items">1001</div><hr class="hr0">
@@ -105,7 +116,7 @@ input {
     <div id="answers">
       <br><br>
         <span><form name="input" method="post" action="">
-            <input type="text" name="answer">
+            <input type="text" name="answer" style="width: 245px;">
             <button type="submit" id="btn-primary"><b>제출하기</b></button>
           </form>
         </span>
@@ -122,7 +133,7 @@ input {
     <div id="answers">
       <br><br>
         <span><form name="input" method="post" action="">
-            <input type="text" name="answer">
+            <input type="text" name="answer" style="width: 245px;">
             <button type="submit" id="btn-primary"><b>제출하기</b></button>
           </form>
         </span>
@@ -138,13 +149,13 @@ input {
     <div class="item" id="items">0%</div>
     <div id="answers">
       <br><br>
-        <span><form name="input" method="post" action="">
-            <input type="text" name="answer">
+        <span>
+          <form name="input" method="post" action="">
+            <input type="text" name="answer" style="width: 245px;">
             <button type="submit" id="btn-primary"><b>제출하기</b></button>
           </form>
         </span>
         </div>
       </div>
   <br>
->>>>>>> bbff1b92f572a1ffbcabf0dbd841f3b3dcc45e6c
 {% endblock %}

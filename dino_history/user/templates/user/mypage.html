@@ -1,15 +1,72 @@
 {% extends 'user/base.html' %}
 
 {% block header %}
-<h4> this is mypage.html </h4>
 
 
 <section style="margin: 20px;">
-    <div style="background-color: #FEF9F3; height: 560px; width: 100%;">
+    <div style="background-color: #FEF9F3; height: 635px; width: 100%;">
+      <img src="/static/heritage/img/dino_ch.png" width="470px" height="470px" style="float: right; margin-top: 100px; margin-right: 8%;">
+      <p style="padding-top: 55px; padding-left: 5%; font-size: 50px; display: inline-block;">윤동열짱</p> 
+      <p style="color: #818181; font-size: 20px; padding-left: 10px; display:inline-block;">LV.2</p>
+
+      <div id="level" style="background-color: #FFFFFF; height: 50px; width: 50%; margin-left: 5%; margin-bottom: 20px">
+        <p style=" font-size:25px; color: #85B598;">경험치!!</p>
+      </div>
+
+      <p style=" font-size:25px; padding-left: 5%; padding-top: 15px;">지금까지 푼 문제</p>
+      <div  id="quiz" style="background-color: #FFFFFF; height: 150px; width: 50%; margin-left: 5%; margin-bottom: 20px " >
+        <p style="color: #818181; font-size: 20px;">1번&nbsp;2번&nbsp;3번</p>
+      </div>
+
+      <p style=" font-size:25px; padding-left: 5%; padding-top: 15px;">실패한 문제</p>
+      <div id="failed-quiz" style="background-color: #FFFFFF; height: 45px; width: 50%; margin-left: 5%;">
+        <p style=" font-size:20px; color:#818181;"> 4번&nbsp;5번&nbsp;6번</p>
+      </div>
+
     </div>
   </section>
 
 <section style="margin: 20px;">
-    <div style="background-color: #F3FEF3; height: 560px; width: 100%;"></div>
+  <div style="background-color: #F3FEF3; height: 635px; width: 100%;">
+    <div id="mypage_info">
+      <p style="padding-top: 3%; padding-left: 5%; font-size: 50px; display: inline-block;">내 정보</p> 
+      <div id="mypage_rank" style="color: #464E45;">
+        <hr style="width:16%; border:solid 2px; color: gray; margin-left: 5%;">
+        <p style="margin-left: 6%; font-size: 25px;">전체 랭킹&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;23</p>
+        <hr style="width:16%; border:solid 2px; color: gray; margin-left: 5%;">
+        <p style="margin-left: 6%; font-size: 25px;">지역 랭킹&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;25</p>
+        <hr style="width:16%; border:solid 2px; color: gray; margin-left: 5%;">
+        <p style="margin-left: 6%; font-size: 25px;">근현대 랭킹&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;222</p>
+        <hr style="width:16%; border:solid 2px; color: gray; margin-left: 5%;">
+        <p style="margin-left: 6%; font-size: 25px;">조선시대 랭킹&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;232</p>
+        <hr style="width:16%; border:solid 2px; color: gray; margin-left: 5%;">
+        <p style="margin-left: 6%; font-size: 25px;">삼국시대 랭킹&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;23</p>
+        <hr style="width:16%; border:solid 2px; color: gray; margin-left: 5%;">
+        <p style="margin-left: 6%; font-size: 25px;">선사시대 랭킹&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;234</p>
+        <hr style="width:16%; border:solid 2px; color: gray; margin-left: 5%;">
+       </div>
+    </div>
+    <div style="font-size: 30px; color: #818181;">
+    <div id="my_name" style="width: 50%; height: 52px; background-color: white; position: absolute; left: 28%; top: 121%;">
+      &nbsp; 이름: 윤동열        
+    </div>
+    <div id="my_local" style="width: 50%; height: 52px; background-color: white; position: absolute; left: 28%; top: 131%;">
+      &nbsp; 거주 지역: 서울시 구로구        
+    </div>
+    <div id="my_mail" style="width: 50%; height: 52px; background-color: white; position: absolute; left: 28%; top: 141%;">
+      &nbsp; 이메일: dong@naver.com         
+    </div>
+    <div id="my_pet" style="width: 50%; height: 52px; background-color: white; position: absolute; left: 28%; top: 151%;">
+      &nbsp; 공룡 이름: 윤동열씨         
+    </div>
+    <div id="my_etc1" style="width: 50%; height: 52px; background-color: white; position: absolute; left: 28%; top: 161%;">
+      &nbsp; 밍
+    </div>
+    <div id="my_etc2" style="width: 50%; height: 52px; background-color: white; position: absolute; left: 28%; top: 171%;">
+      &nbsp; 먕        
+    </div>
+  </div>
+  </div>
+</div>
   </section>
 {% endblock %}
