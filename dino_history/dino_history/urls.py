@@ -44,7 +44,7 @@ urlpatterns = [
     path('account/', include('rest_auth.urls')),
     path('account/registration/', include('rest_auth.registration.urls')),
     path('account/', include('allauth.urls')),
-
+    path('accounts/profile/', user.views.profile, name='profiles')
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

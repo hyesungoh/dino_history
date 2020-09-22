@@ -11,7 +11,8 @@ def mypage(request):
     return render(request, 'user/mypage.html')
 
 def ranking(request):
-    return render(request, 'user/ranking.html')
+    users = Student.objects.all().order_by('-cor_num')
+    return render(request, 'user/ranking.html', {'users': users})
 
 def problem(request):
     p = Problem.objects.all() 
@@ -95,3 +96,6 @@ def signup(request):
 
 def Result_Search(request):
     return render(request, 'user/Result_Search.html')
+
+def profile(request):
+    return render(request, 'user/main.html')
