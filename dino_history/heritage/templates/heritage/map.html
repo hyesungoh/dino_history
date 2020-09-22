@@ -1,14 +1,174 @@
 {% extends 'heritage/base.html' %}
+{% load static %}
 
 {% block header %}
-<!-- <h4> this is map.html </h4> -->
 
+<head>
+  <script>
+    function address(e) {
+      var seoul = ["강남", "종로", "영등포", "노원"];
+      var gyeonggi = ["수원", "성남", "부천"];
+      var incheon = ["강화", "웅진", "미추홀"]
+      var target = document.getElementById("addressact");
+
+      if (e.value == "s") var d = seoul;
+      else if (e.value == "g") var d = gyeonggi;
+      else if (e.value == "i") var d = incheon;
+
+      target.options.length = 0;
+
+      for (x in d) {
+        var opt = document.createElement("option");
+        opt.value = d[x];
+        opt.innerHTML = d[x];
+        target.appendChild(opt);
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" type="text/css" href="{% static 'map.css' %}">
+</head>
 <section style="margin: 20px;">
-    <div style="background-color: #FEF9F3; height: 635px; width: 100%;">
+  <div class="item" style="background-color: #FEF9F3; height: 635px; width: 80%; margin: auto;">
+    <!-- <div style="float:left;">
+      <img src="/static/heritage/img/map.png" style="width: 325px; margin-top: 15px; margin-left: 75px; width: 300px;">
+    </div> -->
+    <div id="choice" style="float: left;">
+      <br><br><br>
+      <h2 style="text-align: center;">오늘의 추천 지역</h2>
+      <br>
+      <div id="slide">
+        <input type="radio" name="pos" id="pos1" checked>
+        <input type="radio" name="pos" id="pos2">
+        <input type="radio" name="pos" id="pos3">
+        <input type="radio" name="pos" id="pos4">
+        <ul class="ul_img">
+          <li class="li_img"><img id="c_pic" src="/static/heritage/img/soo.png"></li>
+          <li class="li_img"><img id="c_pic"
+              src="https://lh5.googleusercontent.com/p/AF1QipP9DO9GkI4xDzPtOo-HiKpsL8Gmv_prWJ3PZIvP=w425-h240-k-no">
+          </li>
+          <li class="li_img"><img id="c_pic"
+              src="https://lh5.googleusercontent.com/p/AF1QipOm0QZvKmbvcnumkCR1xsxoMkl1wYu-EraJJxmY=w408-h306-k-no">
+          </li>
+          <li class="li_img"><img id="c_pic"
+              src="https://post-phinf.pstatic.net/MjAxODEwMThfMjcx/MDAxNTM5ODUwMzY3NjE4.jOJFWgpu7LFV2xOW4hfNDDBQ4wZId4la1lJ7c7G2-9kg.B_9wjhBrckAoWELhUTv3R_yIz3-KC2MgNua2trgnSbEg.JPEG/%EA%B2%BD%EC%A3%BC%EC%B2%A8%EC%84%B1%EB%8C%80_%281%29.JPG?type=w1200">
+          </li>
+        </ul>
+        <p class="pos">
+          <label for="pos1"></label>
+          <label for="pos2"></label>
+          <label for="pos3"></label>
+          <label for="pos4"></label>
+        </p>
+      </div>
+      <div id="txt">
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-down-fill" fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+        </svg>수원화성
+        <br>
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-down-fill" fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+        </svg>시흥 능곡 선사유적지
+        <br>
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-down-fill" fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+        </svg>강화 연무당 옛터
+        <br>
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-down-fill" fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+        </svg>경주 첨성대
+        <br>
+      </div>
     </div>
-  </section>
-
+    <div style="float: left; width: 30%; margin-top: 7%;">
+      <br>
+      <div>
+        <h2>
+          <label for="addresscity">&nbsp;도/시 선택</label>
+          <select class="form-control" id="addresscity" name="addresscity" style="font-size: 25px;"
+            onchange="address(this)">
+            <option>주소를 선택하세요</option>
+            <option value="s">서울</option>
+            <option value="g">경기도</option>
+            <option value="i">인천</option>
+          </select>
+        </h2>
+      </div>
+      <br>
+      <div>
+        <h2>
+          <label for="addressact">&nbsp;지역</label>
+          <select class="form-control" id="addressact" name="addressact" style="font-size: 25px;">
+            <option>선택해주세요.</option>
+          </select>
+        </h2>
+      </div>
+    </div>
+    <!-- <div style="width: 30%; float:left; margin-left: 3%; margin-top: 10%;">
+      <img src="/static/user/img/sing.png" width="400px">
+    </div> -->
+  </div>
+</section>
 <section style="margin: 20px;">
-    <div style="background-color: #F3FEF3; height: 635px; width: 100%;"></div>
-  </section>
+  <div style="background-color: #F3FEF3; height: 635px; width: 80%; margin: auto;">
+    <br><br>
+    <h1 style="color: teal; text-align: center;">인천광역시 강화군의 유적지</h1>
+    <br>
+    <div class="heritages" style="padding: 50px;">
+      <div class="h_nav">
+        <hr class="h_hr">
+        순서
+        <hr class="h_hr">
+        종목
+        <hr class="h_hr">
+        명칭
+        <hr class="h_hr">
+      </div>
+      <br>
+      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+      &emsp;1
+      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;보물 제10호
+      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;강화 장정리 오층석탑(江華 長井里 五層石塔)
+      <hr style="width: 90%;">
+      <br>
+      <hr style="width: 90%;">
+      <br>
+      <hr style="width: 90%;">
+      <br>
+      <hr style="width: 90%;">
+      <br>
+      <hr style="width: 90%;">
+    </div>
+  </div>
+</section>
+<section style="margin: 20px;">
+  <div class="history">
+    <br>
+    <h3 style="text-align: center; color: gray;">보물 제10호</h3>
+    <h1 style="text-align: center; color: rgb(24, 153, 24);">강화 장정리 오층석탑(江華 長井里 五層石塔)</h1>
+    <br>
+    <div style="float:left; width: 40%; margin: auto;">
+      <img class="he_img" src="http://www.cha.go.kr/unisearch/images/treasure/thumb/1615329.jpg">
+      <br><br>
+    </div>
+    <div class="his_txt">
+      <h5>시대 - 고려시대</h5>
+      <h5>위치 - 인천 강화군 하점면 장정리 산193번지</h5>
+      <hr class="hr">
+      <p>이 탑은 무너져 있었으나 1960년 수리하여 다시 세운 것이다. 
+        <br>파손된 곳도 많고, 없어진 부재도 많아서 3층 이상의 몸돌과 5층의 지붕돌, 
+        <br>머리장식 부분 등이 모두 사라진 상태이다.</p>
+      </div>
+  </div>
+</section>
 {% endblock %}

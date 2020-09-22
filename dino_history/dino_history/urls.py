@@ -32,8 +32,10 @@ urlpatterns = [
     path('mypage/', user.views.mypage, name='mypage'),
     path('ranking/', user.views.ranking, name='ranking'),
     path('problem/', user.views.problem, name='problem'),
+    path('anew/create/', user.views.create, name='create'),
+    path('update/<int:pk>', user.views.update, name='update'),
+    path('delete/<int:pk>', user.views.delete, name='delete'),
     path('Result_Search/', user.views.Result_Search, name='Result_Search'),
-
     path('login/', user.views.login, name='login'),
     path('signup/', user.views.signup, name='signup'),
 
@@ -42,7 +44,7 @@ urlpatterns = [
     path('account/', include('rest_auth.urls')),
     path('account/registration/', include('rest_auth.registration.urls')),
     path('account/', include('allauth.urls')),
-
+    path('accounts/profile/', user.views.profile, name='profiles')
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
