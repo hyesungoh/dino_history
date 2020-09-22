@@ -10,12 +10,12 @@ class ProblemForm(forms.ModelForm):
 class ExampleForm(forms.ModelForm):
     class Meta:
         model = Example
-        fields = ['e1', 'e2', 'e3', 'e4', 'p_num']
+        fields = ['e1', 'e2', 'e3', 'e4']
 
 class ProblemMultiForm(MultiModelForm):
     form_classes = {
         'problem' : ProblemForm,
-        'Example' : ExampleForm,
+        'example' : ExampleForm,
     }
        
 class SigninForm(forms.ModelForm):

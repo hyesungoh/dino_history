@@ -10,23 +10,27 @@
         <h1>html이랑 css 연결이 안돼요 help</h1>
         <p>문제 적는 곳!</p>
         <a href = "{% url 'create' %}"> 글쓰기</a>
-        {% for x in problem.all %}
-          <p>문제 : </p>
-          {{x.p_title}}<br>
-          <p>내용 : </p>
-          {{x.p_content}}<br>
-          <p>정답 : </p>
-          {{x.answer}}<br>
-          <p>객관식 1번 : </p>
-          {{x.e1}}<br>
-          <p>객관식 2번 : </p>
-          {{x.e2}}<br>
-          <p>객관식 3번 : </p>
-          {{x.e3}}<br>
-          <p>객관식 4번 : </p>
-          {{x.e4}}<br>
-          <p>정답 : </p>
-          {{x.p_num}}<br>
+        {% for x in p.all %}
+          <p>문제 : 
+          {{x.p_title}}</p>
+          <p>내용 :
+          {{x.p_content}}  </p>
+          <p>정답 :
+          {{x.answer}} </p> </br>
+
+          
+          {% for y in x.problem.all %}
+            <p>객관식 1번 : 
+            {{y.e1}}</p>
+            <p>객관식 2번 :
+            {{y.e2}} </p>
+            <p>객관식 3번 :
+            {{y.e3}} </p>
+            <p>객관식 4번 :
+            {{y.e4}} </p>
+            <p>해당 문제 : 
+            {{y.p_num}}</p>
+          {% endfor %}
 
           <a href="{% url 'update' pk=x.pk %}"> 수정하기</a>
           <a href="{% url 'delete' pk=x.pk %}"> 삭제하기</a>
