@@ -1,89 +1,160 @@
-.hr0 {
-    height: 65%;
-    width: 1px;
-    border-left: 1px solid;
-    margin: 12px auto;
-  }
-
-  hr {
-    height: 70%;
-    width: 1px;
-    border-left: 1px solid;
-    margin: 20px auto;
-  }
-
-  .hr1 {
-    height: 30%;
-    width: 1px;
-    border-left: 1px solid;
-    margin: 20px auto;
-  }
-
-  .container {
-    height: 180px;
-    margin-bottom: 10px;
-    background-color: #FEF9F3;
-    margin: 0 auto;
-  }
-
-  .item1 {
-    align-items: flex-start;
-    color: rgb(16, 90, 16);
-  }
-
-  .item {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    flex-grow: 2;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-    color: rgb(16, 90, 16);
-    height: 70px;
-  }
-
-  /* .item:nth-child(3) {
-flex-basis: 10%;
+.flex {
+  /* left:50%; */
+  position:relative;
+  display: table;
+  margin: 20px auto;
 }
-.item:nth-child(4) {
-flex-basis: 10%;
+.flex > div { 
+  float:left;
+  box-sizing:border-box; /* border 또한 위치값을 갖기에 div크기가 더 커짐을 방지하기 위한 */
 }
-.item:nth-child(5) {
-flex-basis: 10%;
+.flex > div:nth-child(3) {
+  clear:both; /* float:left 의 줄바꿈을 위한 */
 }
-.item:nth-child(6) {
-flex-basis: 10%;
+#circle1 {
+  position: relative;
+  z-index: 2;
+  background-color:#EED880;
+  width:170px;
+  height:170px;
+  border-radius:90px;
+  text-align:center;
+  margin:0 auto;
+  filter: drop-shadow(0px 6px 6px rgba(0, 0, 0, 0.161));
+}
+#circle2 {
+  position: relative;
+  background-color:#DDDDDB;
+  width:140px;
+  height:140px;
+  border-radius:90px;
+  text-align:center;
+  margin:0 auto;
+  margin-top:4%;
+  filter: drop-shadow(0px 6px 6px rgba(0, 0, 0, 0.161));
+}
+#circle3 {
+  position: relative;
+  background-color:#CD9859;
+  width:140px;
+  height:140px;
+  border-radius:90px;
+  text-align:center;
+  margin:0 auto;
+  margin-top:4%;
+  filter: drop-shadow(0px 6px 6px rgba(0, 0, 0, 0.161));
+}
+.circles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box {
+  position: relative;
+  z-index: 1;
+  width: 140px;
+  height: 50px;
+  background-color:white;
+  text-align: center;
+  justify-items: center;
+  border-radius: 10px 10px 10px 10px;
+  border: 1px solid rgba(129,129,129,1);
+}
+.box1 {
+  position: relative;
+  z-index: 1;
+  width: 170px;
+  height: 55px;
+  background-color:white;
+  text-align: center;
+  justify-items: center;
+  border-radius: 10px 10px 10px 10px;
+  border: 1px solid rgba(129,129,129,1);
+}
+/* .names {
+  filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+  font-size:15px;
+  width: 80px;
+  height: 30px;
+  background-color:white;
+  border-radius: 5px 5px 5px 5px;
 } */
-  #items {
-    flex-basis: 10%;
-  }
+.rank1{
+  flex-basis: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  overflow:visible;
+  /* width: 45%; */
+  height: 730px;
+  /* margin : 0 auto; */
+  align-content: center;
+  background-color: #FEF9F3;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+.rank2{
+  width: 450px;
+  height: 400px;
+  margin:auto;
+  background-color: white;
+}
+.hrhr {
+  height: 110%;
+  width: 1px;
+  border-left: solid;
+  margin: 20px;
+  margin-bottom: 0.5em;  
+}
+.hrhr2 {
+  display: block;
+  margin-top: 0.5em; 
+  margin-bottom: 0.5em;  
+  margin-left: auto; 
+  margin-right: auto;  
+  border-style: solid;  
+  border-width: 1px;
+}
+.item_rank {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color:#818181;
+  height: 70px;
+}
+/* .item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: rgb(16, 90, 16);
+  height: 70px;
+}  */
+#id_rank {
+  flex-basis: 30%;
+}
+#id_nick {
+  flex-basis: 40%;
+}
+#id_pro {
+  flex-basis: 20%;
+}
+::-webkit-scrollbar {
+  width: 10px;  /* 세로축 스크롤바 길이 */
+  height: 2px;  /* 가로축 스크롤바 길이 */
+  overflow: auto;
+}
 
-  #quiz {
-    font-size: 35px;
-    flex-basis: 50%;
-  }
-
-  #answers {
-    position: relative;
-    top: 70px;
-    right: 70px;
-    flex-basis: 55%;
-  }
-
-  #btn-primary {
-    height: 38px;
-    border: 1px solid #5D9169;
-    background-color: #5D9169;
-    border-radius: 10px 10px 10px 10px;
-    color: white;
-    padding: 7px;
-    font-size: 17px;
-  }
-
-  input {
-    width: 300px;
-    height: 42px;
-    border: 0.5px solid #5D9169;
-    border-radius: 10px 10px 10px 10px;
-  }
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: #818181;
+}
+  /* .flex-2 {
+      position:relative;
+      display: table;
+      margin: 5px auto;
+  } */
