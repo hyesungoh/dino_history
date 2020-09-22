@@ -78,3 +78,6 @@ def signup(request):
 
 def Result_Search(request):
     return render(request, 'user/Result_Search.html')
+
+def profile(request):
+    return render(request, 'user/main.html')
