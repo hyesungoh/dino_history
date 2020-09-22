@@ -7,12 +7,13 @@
         <link rel="stylesheet" type="text/css" href="{% static 'user/css/problem.css' %}">
     </head>
     <body>
-        <h1>html이랑 css 연결이 안돼요 help</h1>
         <p>문제 적는 곳!</p>
         <a href = "{% url 'create' %}"> 글쓰기</a>
         {% for x in p.all %}
           <p>문제 : 
           {{x.p_title}}</p>
+          <p>시대/구분 :
+            {{x.p_sort}}  </p>
           <p>내용 :
           {{x.p_content}}  </p>
           <p>정답 :

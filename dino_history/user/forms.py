@@ -5,7 +5,7 @@ from betterforms.multiform import MultiModelForm
 class ProblemForm(forms.ModelForm):
     class Meta:
         model = Problem
-        fields = ['p_title', 'p_content', 'answer']
+        fields = ['p_title', 'p_sort', 'p_content', 'answer']
 
 class ExampleForm(forms.ModelForm):
     class Meta:

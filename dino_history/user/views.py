@@ -26,6 +26,7 @@ def create(request):
         if form.is_valid():
             temp_problem = Problem()
             temp_problem.p_title = form['problem'].cleaned_data['p_title']
+            temp_problem.p_sort = form['problem'].cleaned_data['p_sort']
             temp_problem.p_content = form['problem'].cleaned_data['p_content']
             temp_problem.answer = form['problem'].cleaned_data['answer']
             temp_problem.save()
