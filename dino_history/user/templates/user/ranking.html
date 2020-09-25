@@ -3,6 +3,14 @@
 
 {% block header %}
 
+<div>
+    {% for x in users.all %}
+
+    {{ x.username }}
+    <br>
+    {% endfor %}
+</div>
+
 <head>
     <link rel="stylesheet" type="text/css" href="{% static 'user/css/ranking.css' %}">
     <style>

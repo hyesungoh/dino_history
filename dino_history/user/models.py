@@ -15,9 +15,14 @@ class Student(AbstractUser):
     
 
 class Problem(models.Model):
+    def __str__(self):
+        return self.p_title
+
     p_title = models.CharField(max_length=45)
+    p_sort = models.CharField(max_length=20, null=True)
     p_content = models.TextField()
     answer = models.CharField(max_length=20)
+
 
 class Example(models.Model):
     p_num = models.ForeignKey(Problem, on_delete=models.CASCADE, related_name="problem", default="")
