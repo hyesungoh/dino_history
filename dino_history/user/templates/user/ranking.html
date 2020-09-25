@@ -1,49 +1,292 @@
 {% extends 'user/base.html' %}
+{% load static %}
 
 {% block header %}
 
-<div class="rank1">
-    <form>
-        <br>
-        <h2>
-        <select name="where" >
-          <option value="s">서울특별시 구로구</option>
-          <option value="i">인천광역시 중구</option>
-          <option value="k">경기도 수원시</option>
-          <option value="j">제주도 서귀포시</option>
-        </select>
-         랭킹</h2>
-      </form>
-    <div class="circles">
-        <div id="circle2">
-            <img src="/static/user/img/sing.png" width="70%" style="margin-top:10%;">
-            <div class="box" style="top:5px;"><p style="font-size:30px; color:#DDDDDB;">2</p></div>
-        </div>
-        <div id="circle1">
-            <img src="/static/user/img/dinosaur.png" width="70%" style="margin-top:10%;">
-            <div class="box1" style="top:2px;"><p style="font-size:45px; color:#EED880;">1</p></div>
-        </div>
-        <div id="circle3">
-            <img src="/static/user/img/dinosaur (1).png" width="70%" style="margin-top:10%;">
-            <div class="box" style="top:5px;"><p style="font-size:30px; color:#CD9859;">3</p></div>
-        </div>
-    </div>
-    <br><br><br>
-    <div class="rank2">
-        <div class="item_rank" id="id_rank">순위<hr class="hrhr">
-        <div class="item_rank" id="id_nick">닉네임</div><hr class="hrhr">
-        <div class="item_rank" id="id_pro">푼 문제</div>
-    </div>
-    <div class="scroll" style="overflow:auto; width:450px; height:250px;">
-    <div style="font-size: 20px; color: rgba(129,129,129,1); padding-left: 1.6em"></
-    <p>1 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;윤동열&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 543</p>
-    <p>2 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;오혜성&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 432</p>
-    <p>3 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;한희정&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 321</p>
-    <p>4 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;유혜지&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 210</p>
-    <p>5 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;박다은&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 100</p>
+<div>
+    {% for x in users.all %}
+
+    {{ x.username }}
     <br>
-    <p>23 &emsp;&emsp;&emsp;&emsp;&emsp;토마토&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 80</p>
+    {% endfor %}
 </div>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'user/css/ranking.css' %}">
+</head>
+<div class="flex">
+    <div class="rank1">
+        <form>
+            <br>
+            <h2>&nbsp;전체 랭킹</h2>
+        </form>
+        <div class="flex-2">
+            <div class="circles">
+                <div id="circle2">
+                    <img src="/static/user/img/sing.png" width="70%" style=" margin-top:10%;">
+                    <div class="names"
+                        style="margin-left: 30px; width: 80px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
+                        <span style="color: #DDDDDB; display: inline;">2등</span>
+                        <span style="font-size:15px; color:rgba(0,0,0,1); display: inline;"> 오혜성</span>
+                    </div>
+                    <div class="box" style="top:5px;">
+                        <p style="font-size:30px; color:#DDDDDB;">2</p>
+                    </div>
+                </div>
+                <div id="circle1">
+                    <img src="/static/user/img/dinosaur.png" width="70%" style="margin-top:10%; margin-right: 5px;">
+                    <br>
+                    <div class="names"
+                        style="margin-left: 40px; width: 80px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
+                        <span style="color: #EED880">1등</span><span style="font-size:15px; color:rgba(0,0,0,1);">
+                            윤동열</span>
+                    </div>
+                    <div class="box1" style="top:2px;">
+                        <p style="font-size:45px; color:#EED880;">1</p>
+                    </div>
+                </div>
+                <div id="circle3">
+                    <img src="/static/user/img/dinosaur (1).png" width="70%" style="margin-top:10%;">
+                    <div class="names"
+                        style="margin-left: 30px; width: 80px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
+                        <span style="color: #CD9859">3등</span><span style="font-size:15px; color:rgba(0,0,0,1);">
+                            한희정</span>
+                    </div>
+                    <div class="box" style="top:5px;">
+                        <p style="font-size:30px; color:#CD9859;">3</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+        <div class="rank2">
+            <div class="item_rank" id="id_rank">순위
+                <hr class="hrhr">
+                <div class="item_rank" id="id_nick">닉네임</div>
+                <hr class="hrhr">
+                <div class="item_rank" id="id_pro">푼 문제</div>
+            </div>
+            <br>
+            <!-- <hr class="hrhr2"> -->
+            <div class="scroll" style="overflow:auto; width:450px; height:250px;">
+                <div style="font-size: 20px; color: rgba(129,129,129,1); padding-left: 1.6em">
+                    <p>1 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;윤동열&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 543</p>
+                    <p>2 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;오혜성&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 432</p>
+                    <p>3 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;한희정&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 321</p>
+                    <p>4 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;유혜지&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 210</p>
+                    <p>5 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;박다은&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 100</p>
+                    <br>
+                    <p>23 &emsp;&emsp;&emsp;&emsp;&emsp;토마토&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 80</p>
+                </div>
+            </div>
+            <p style="font-size: 20px; color: black; padding-left: 1.7em">234
+                &emsp;&emsp;&emsp;&emsp;박박디라라&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 10</p>
+        </div>
     </div>
-    <p style="font-size: 20px; color: black; padding-left: 1.7em">234 &emsp;&emsp;&emsp;&emsp;박박디라라&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 10</p>
-{% endblock %}
+    <div class="rank1">
+        <form>
+            <br>
+            <h2>&nbsp;
+                <select name="where">
+                    <option value="s">서울특별시 구로구</option>
+                    <option value="i">인천광역시 중구</option>
+                    <option value="k">경기도 수원시</option>
+                    <option value="j">제주도 서귀포시</option>
+                </select>
+                랭킹</h2>
+        </form>
+
+        <div class="circles">
+            <div id="circle2">
+                <img src="/static/user/img/sing.png" width="70%" style=" margin-top:10%;">
+                <div class="names"
+                    style="margin-left: 30px; width: 80px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
+                    <span style="color: #DDDDDB; display: inline;">2등</span>
+                    <span style="font-size:15px; color:rgba(0,0,0,1); display: inline;"> 오혜성</span>
+                </div>
+                <div class="box" style="top:5px;">
+                    <p style="font-size:30px; color:#DDDDDB;">2</p>
+                </div>
+            </div>
+            <div id="circle1">
+                <img src="/static/user/img/dinosaur.png" width="70%" style="margin-top:10%;">
+                <br>
+                <div class="names"
+                    style="margin-left: 40px; width: 80px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
+                    <span style="color: #EED880">1등</span><span style="font-size:15px; color:rgba(0,0,0,1);"> 윤동열</span>
+                </div>
+                <div class="box1" style="top:2px;">
+                    <p style="font-size:45px; color:#EED880;">1</p>
+                </div>
+            </div>
+            <div id="circle3">
+                <img src="/static/user/img/dinosaur (1).png" width="70%" style="margin-top:10%;">
+                <div class="names"
+                    style="margin-left: 30px; width: 80px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
+                    <span style="color: #CD9859">3등</span><span style="font-size:15px; color:rgba(0,0,0,1);"> 한희정</span>
+                </div>
+                <div class="box" style="top:5px;">
+                    <p style="font-size:30px; color:#CD9859;">3</p>
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+        <div class="rank2">
+            <div class="item_rank" id="id_rank">순위
+                <hr class="hrhr">
+                <div class="item_rank" id="id_nick">닉네임</div>
+                <hr class="hrhr">
+                <div class="item_rank" id="id_pro">푼 문제</div>
+            </div>
+            <br>
+            <!-- <hr class="hrhr2"> -->
+            <div class="scroll" style="overflow:auto; width:450px; height:250px;">
+                <div style="font-size: 20px; color: rgba(129,129,129,1); padding-left: 1.6em">
+                    <p>1 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;윤동열&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 543</p>
+                    <p>2 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;오혜성&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 432</p>
+                    <p>3 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;한희정&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 321</p>
+                    <p>4 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;유혜지&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 210</p>
+                    <p>5 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;박다은&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 100</p>
+                    <br>
+                    <p>23 &emsp;&emsp;&emsp;&emsp;&emsp;토마토&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 80</p>
+                </div>
+            </div>
+            <p style="font-size: 20px; color: black; padding-left: 1.7em">234
+                &emsp;&emsp;&emsp;&emsp;박박디라라&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 10</p>
+        </div>
+    </div>
+
+    <div class="rank1">
+        <form>
+            <br>
+            <h2>&nbsp;근현대 랭킹</h2>
+        </form>
+        <div class="flex-2">
+            <div class="circles">
+                <div id="circle2">
+                    <img src="/static/user/img/sing.png" width="70%" style=" margin-top:10%;">
+                    <div class="names"
+                        style="margin-left: 30px; width: 80px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
+                        <span style="color: #DDDDDB; display: inline;">2등</span>
+                        <span style="font-size:15px; color:rgba(0,0,0,1); display: inline;"> 오혜성</span>
+                    </div>
+                    <div class="box" style="top:5px;">
+                        <p style="font-size:30px; color:#DDDDDB;">2</p>
+                    </div>
+                </div>
+                <div id="circle1">
+                    <img src="/static/user/img/dinosaur.png" width="70%" style="margin-top:10%; margin-right: 5px;">
+                    <br>
+                    <div class="names"
+                        style="margin-left: 40px; width: 80px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
+                        <span style="color: #EED880">1등</span><span style="font-size:15px; color:rgba(0,0,0,1);">
+                            윤동열</span>
+                    </div>
+                    <div class="box1" style="top:2px;">
+                        <p style="font-size:45px; color:#EED880;">1</p>
+                    </div>
+                </div>
+                <div id="circle3">
+                    <img src="/static/user/img/dinosaur (1).png" width="70%" style="margin-top:10%;">
+                    <div class="names"
+                        style="margin-left: 30px; width: 80px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
+                        <span style="color: #CD9859">3등</span><span style="font-size:15px; color:rgba(0,0,0,1);">
+                            한희정</span>
+                    </div>
+                    <div class="box" style="top:5px;">
+                        <p style="font-size:30px; color:#CD9859;">3</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+        <div class="rank2">
+            <div class="item_rank" id="id_rank">순위
+                <hr class="hrhr">
+                <div class="item_rank" id="id_nick">닉네임</div>
+                <hr class="hrhr">
+                <div class="item_rank" id="id_pro">푼 문제</div>
+            </div>
+            <br>
+            <!-- <hr class="hrhr2"> -->
+            <div class="scroll" style="overflow:auto; width:450px; height:250px;">
+                <div style="font-size: 20px; color: rgba(129,129,129,1); padding-left: 1.6em">
+                    </ <p>1 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;윤동열&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 543</p>
+                    <p>2 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;오혜성&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 432</p>
+                    <p>3 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;한희정&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 321</p>
+                    <p>4 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;유혜지&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 210</p>
+                    <p>5 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;박다은&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 100</p>
+                    <br>
+                    <p>23 &emsp;&emsp;&emsp;&emsp;&emsp;토마토&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 80</p>
+                </div>
+            </div>
+            <p style="font-size: 20px; color: black; padding-left: 1.7em">234
+                &emsp;&emsp;&emsp;&emsp;박박디라라&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 10</p>
+        </div>
+    </div>
+    <div class="rank1">
+        <form>
+            <br>
+            <h2>&nbsp;조선시대 랭킹</h2>
+        </form>
+
+        <div class="circles">
+            <div id="circle2">
+                <img src="/static/user/img/sing.png" width="70%" style=" margin-top:10%;">
+                <div class="names"
+                    style="margin-left: 30px; width: 80px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
+                    <span style="color: #DDDDDB; display: inline;">2등</span>
+                    <span style="font-size:15px; color:rgba(0,0,0,1); display: inline;"> 오혜성</span>
+                </div>
+                <div class="box" style="top:5px;">
+                    <p style="font-size:30px; color:#DDDDDB;">2</p>
+                </div>
+            </div>
+            <div id="circle1">
+                <img src="/static/user/img/dinosaur.png" width="70%" style="margin-top:10%;">
+                <br>
+                <div class="names"
+                    style="margin-left: 40px; width: 80px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
+                    <span style="color: #EED880">1등</span><span style="font-size:15px; color:rgba(0,0,0,1);"> 윤동열</span>
+                </div>
+                <div class="box1" style="top:2px;">
+                    <p style="font-size:45px; color:#EED880;">1</p>
+                </div>
+            </div>
+            <div id="circle3">
+                <img src="/static/user/img/dinosaur (1).png" width="70%" style="margin-top:10%;">
+                <div class="names"
+                    style="margin-left: 30px; width: 80px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
+                    <span style="color: #CD9859">3등</span><span style="font-size:15px; color:rgba(0,0,0,1);"> 한희정</span>
+                </div>
+                <div class="box" style="top:5px;">
+                    <p style="font-size:30px; color:#CD9859;">3</p>
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+        <div class="rank2">
+            <div class="item_rank" id="id_rank">순위
+                <hr class="hrhr">
+                <div class="item_rank" id="id_nick">닉네임</div>
+                <hr class="hrhr">
+                <div class="item_rank" id="id_pro">푼 문제</div>
+            </div>
+            <br>
+            <!-- <hr class="hrhr2"> -->
+            <div class="scroll" style="overflow:auto; width:450px; height:250px;">
+                <div style="font-size: 20px; color: rgba(129,129,129,1); padding-left: 1.6em">
+                    </ <p>1 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;윤동열&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 543</p>
+                    <p>2 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;오혜성&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 432</p>
+                    <p>3 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;한희정&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 321</p>
+                    <p>4 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;유혜지&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 210</p>
+                    <p>5 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;박다은&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 100</p>
+                    <br>
+                    <p>23 &emsp;&emsp;&emsp;&emsp;&emsp;토마토&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 80</p>
+                </div>
+            </div>
+            <p style="font-size: 20px; color: black; padding-left: 1.7em">234
+                &emsp;&emsp;&emsp;&emsp;박박디라라&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 10</p>
+        </div>
+
+        {% endblock %}

@@ -1,5 +1,5 @@
 {% extends 'user/base.html' %}
-
+{% load static %}
 {% block header %}
 
 
@@ -50,14 +50,14 @@
        </div>
     </div>
     <div style="font-size: 30px; color: #818181;">
-    <div id="my_name" style="width: 50%; height: 52px; background-color: white; position: absolute; left: 28%; top: 121%; ">
-      <p style="padding-top: 6px;">&nbsp; 이름: 윤동열 </p>       
+    <div id="my_name" style="width: 50%; height: 52px; background-color: white; position: absolute; left: 28%; top: 121%;">
+      &nbsp; 이름: {{ user.username }}
     </div>
     <div id="my_local" style="width: 50%; height: 52px; background-color: white; position: absolute; left: 28%; top: 131%;">
       <p style="padding-top: 6px;">&nbsp; 거주 지역: 서울시 구로구</p>        
     </div>
     <div id="my_mail" style="width: 50%; height: 52px; background-color: white; position: absolute; left: 28%; top: 141%;">
-      <p style="padding-top: 6px;">&nbsp; 이메일: dong@naver.com </p>        
+      &nbsp; 이메일: {{ user.email }}        
     </div>
     <div id="my_pet" style="width: 50%; height: 52px; background-color: white; position: absolute; left: 28%; top: 151%;">
       <p style="padding-top: 6px;">&nbsp; 공룡 이름: 윤동열씨</p>         

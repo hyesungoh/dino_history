@@ -1,11 +1,23 @@
 from django import forms
-from .models import Student, Problem
+from .models import Student, Problem, Example
+from betterforms.multiform import MultiModelForm
 
 class ProblemForm(forms.ModelForm):
     class Meta:
         model = Problem
-        fields = ['p_title', 'p_content', 'answer']
-        
+        fields = ['p_title', 'p_sort', 'p_content', 'answer']
+
+class ExampleForm(forms.ModelForm):
+    class Meta:
+        model = Example
+        fields = ['e1', 'e2', 'e3', 'e4']
+
+class ProblemMultiForm(MultiModelForm):
+    form_classes = {
+        'problem' : ProblemForm,
+        'example' : ExampleForm,
+    }
+       
 class SigninForm(forms.ModelForm):
     class Meta:
         model = Student
