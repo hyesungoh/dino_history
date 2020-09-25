@@ -1,5 +1,127 @@
-<h1>login test</h1>
+{% extends 'user/base.html' %}
+{% load static %}
 
-{% load socialaccount %}
- <a href=" {% provider_login_url 'naver' %}">NAVER 로그인</a>
- <a href=" {% provider_login_url 'google' %}">GOOGLE 로그인</a>
+=======
+{% block header %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+        body {
+            font-size: 10pt;
+        }
+
+        div div {
+            margin-bottom: 10px;
+        }
+
+        label:first-child {
+            display: inline-block;
+            width: 70px;
+            text-align: right;
+        }
+
+        label:not(:first-child) {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        input[type=text],
+        select {
+            padding: 4px;
+            width: 200px;
+        }
+
+        input[readonly] {
+            background-color: #eee;
+            color: gray;
+            width: 50px
+        }
+
+        input[type=text]:focus {
+            background-color: #efe;
+        }
+
+        .login {
+            border: 1px solid #ddd;
+            box-shadow: 3px 3px 3px #aaa;
+            width: 400px;
+            height: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 50px;
+            padding: 0px;
+        }
+
+        div.header {
+            padding: 10px 10px 10px 40px;
+            margin: 0px;
+            background: #58c070;
+            border-bottom: 1px solid #ddd;
+            color: white;
+        }
+
+        h2 {
+            margin: 0px;
+        }
+
+        div.body {
+            padding: 20px 10px 10px 40px;
+            border-bottom: 1px solid #aaa;
+        }
+
+        .va_login {
+            display: inline-block;
+            padding: 5px 50px 0px 80px;
+            text-align: right;
+        }
+
+        button {
+            padding: 5px 20px;
+            font-size: 12pt;
+            border: 1px solid gray;
+            border-radius: 5px;
+            background: linear-gradient(#fff, #ddd);
+        }
+
+        button:active {
+            -ms-transform: translateY(2px);
+            -webkit-transform: translateY(2px);
+            transform: translateY(2px);
+            background: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="post" class="login">
+        <div class="header">
+            <h2>LOGIN</h2>
+        </div>
+        <div class="body">
+            <div>
+                <label>아이디:</label>
+                <input type="text" name="username" />
+            </div>
+            <div>
+                <label>비밀번호:</label>
+                <input type="text" name="email" />
+            </div>
+            <div>
+            </div>
+            <div class="va_login">
+                <button type="submit">로그인</button>
+                <br>
+                <br>
+                {% load socialaccount %}
+                <a href=" {% provider_login_url 'naver' %}">NAVER 로그인</a>
+                <a href=" {% provider_login_url 'google' %}">GOOGLE 로그인</a>
+            </div>
+    </form>
+</body>
+
+</html>
+
+{% endblock %}
