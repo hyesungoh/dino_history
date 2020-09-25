@@ -18,13 +18,9 @@
   <link href="{% static 'heritage/css/simple-line-icons.css' %}" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
   <link rel="stylesheet" type="text/css" href="{% static 'heritage/css/text.css' %}">
-  
-  <link rel="stylesheet" type="text/css" href="{% static 'user/css/Result_Search.css' %}">
-
   <!-- Custom styles for this template -->
   <link href="{% static 'heritage/css/landing-page.min.css' %}" rel="stylesheet">
-  <link href="{% static 'user/css/problem.css' %}" rel="stylesheet">
-  <link href="{% static 'user/css/ranking.css' %}" rel="stylesheet">
+
 </head>
 
 <body>
@@ -55,28 +51,29 @@
       <li class="nav-item">
         <a class="nav-link" href="{% url 'problem' %}">문제</a>
       </li>
+      <li class="nav-item" style="padding-left: 700px;">
+        <a class="nav-link" href="{% url 'login' %}">로그인</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'signup' %}">회원가입</a>
+      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0" >
-      <input class="form-control mr-sm-2" type="search" placeholder="뭐든지 물어봐!" aria-label="Search" size="20">
+      <input class="form-control mr-sm-2" type="search" placeholder="뭐든지 물어봐!" aria-label="Search" size="46" style="position: absolute; left: 38%;">
       <!--result페이지로 이동 수정하기!-->
       <a href="{% url 'mypage' %}">
-      <img src="/static/heritage/img/button2.jpg" alt="search" width="35px">
+      <img src="/static/heritage/img/button2.jpg" alt="search" width="35px" style="position: absolute; left: 66.8%; bottom: 14px;">
       </a>
     </form>
-
-
   </div>
 </nav>
 {% block header %}
 {% endblock %}
 
+
  <footer class="footer bg-light" style="margin-top:200px; margin-bottom: 20px; margin-right: 20px;">
 
   <p class="text-muted small mb-4 mb-lg-0" style="text-align: right"> Copyright &copy; 2020 gong-ah-york</p>
-
-{% block foot %}
-{% endblock %}
-
 
 </footer>
 

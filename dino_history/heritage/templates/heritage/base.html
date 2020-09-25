@@ -51,16 +51,20 @@
       <li class="nav-item">
         <a class="nav-link" href="{% url 'problem' %}">문제</a>
       </li>
+      <li class="nav-item" style="padding-left: 700px;">
+        <a class="nav-link" href="{% url 'login' %}">로그인</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'signup' %}">회원가입</a>
+      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0" >
-      <input class="form-control mr-sm-2" type="search" placeholder="뭐든지 물어봐!" aria-label="Search" size="20">
+      <input class="form-control mr-sm-2" type="search" placeholder="뭐든지 물어봐!" aria-label="Search" size="46" style="position: absolute; left: 38%;">
       <!--result페이지로 이동 수정하기!-->
       <a href="{% url 'mypage' %}">
-      <img src="/static/heritage/img/button2.jpg" alt="search" width="35px">
+      <img src="/static/heritage/img/button2.jpg" alt="search" width="35px" style="position: absolute; left: 66.8%; bottom: 14px;">
       </a>
     </form>
-
-
   </div>
 </nav>
 {% block header %}
