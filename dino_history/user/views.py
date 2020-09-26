@@ -15,7 +15,7 @@ def ranking(request):
     return render(request, 'user/ranking.html', {'users': users})
 
 def problem(request):
-    p = Problem.objects.all() 
+    p = Problem.objects.all()
     return render(request, 'user/problem.html', {'p':p})
 
 def anew(request):
@@ -39,14 +39,14 @@ def create(request):
             temp_example.e3 = form['example'].cleaned_data['e3']
             temp_example.e4 = form['example'].cleaned_data['e4']
             temp_example.save()
-            
+
             return redirect('problem')
     else:
         form = ProblemMultiForm()
         return render(request, 'user/anew.html', {'form':form})
-    
+
  # model에서 Example 받아서 e1, e2...e4까지 받아오기
-#  저장할때 p_num       
+#  저장할때 p_num
 
 def update(request, pk):
     problem = get_object_or_404(Problem, pk=pk)
@@ -93,9 +93,6 @@ def signup(request):
     else:
         form = UserForm()
         return render(request, 'user/signup.html', {'form': form})
-
-def Result_Search(request):
-    return render(request, 'user/Result_Search.html')
 
 def profile(request):
     return render(request, 'user/main.html')

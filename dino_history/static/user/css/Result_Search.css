@@ -1,0 +1,837 @@
+.mediaViewInfo {
+    --web-view-name: Result - Search;
+    --web-view-id: Result_-_Search;
+    --web-scale-on-resize: true;
+    --web-enable-deep-linking: true;
+}
+:root {
+    --web-view-ids: Result_-_Search;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+}
+#Result_-_Search {
+    position: absolute;
+    width: 1920px;
+    height: 1942px;
+    background-color: rgba(255,255,255,1);
+    overflow: hidden;
+    --web-view-name: Result - Search;
+    --web-view-id: Result_-_Search;
+    --web-scale-on-resize: true;
+    --web-enable-deep-linking: true;
+}
+@keyframes fadein {
+
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+
+}
+#_1 {
+    fill: rgba(78,145,105,1);
+}
+._1 {
+    overflow: visible;
+    position: absolute;
+    width: 91.183px;
+    height: 109.659px;
+    left: 89.5px;
+    top: 56.5px;
+    transform: matrix(1,0,0,1,0,0);
+}
+# {
+    left: 188px;
+    top: 75px;
+    position: absolute;
+    overflow: visible;
+    width: 137px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: TmonMonsori;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 50px;
+    color: rgba(77,145,105,1);
+}
+#MAP {
+    left: 850px;
+    top: 97px;
+    position: absolute;
+    overflow: visible;
+    width: 47px;
+    white-space: nowrap;
+    text-align: center;
+    font-family: TmonMonsori;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: rgba(129,129,129,1);
+}
+#MYPAGE {
+    left: 942px;
+    top: 97px;
+    position: absolute;
+    overflow: visible;
+    width: 87px;
+    white-space: nowrap;
+    text-align: center;
+    font-family: TmonMonsori;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: rgba(129,129,129,1);
+}
+#RANKING {
+    left: 1222px;
+    top: 97px;
+    position: absolute;
+    overflow: visible;
+    width: 97px;
+    white-space: nowrap;
+    text-align: center;
+    font-family: TmonMonsori;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: rgba(129,129,129,1);
+}
+#_2 {
+    fill: rgba(255,255,255,1);
+    stroke: rgba(181,181,181,1);
+    stroke-width: 1px;
+    stroke-linejoin: miter;
+    stroke-linecap: butt;
+    stroke-miterlimit: 4;
+    shape-rendering: auto;
+}
+._2 {
+    position: absolute;
+    overflow: visible;
+    width: 477px;
+    height: 74px;
+    left: 1379px;
+    top: 73px;
+}
+#_3 {
+    fill: rgba(77,145,105,1);
+}
+._3 {
+    position: absolute;
+    overflow: visible;
+    width: 70px;
+    height: 68px;
+    left: 1783px;
+    top: 76px;
+}
+#_4 {
+    fill: rgba(77,145,105,1);
+}
+._4 {
+    position: absolute;
+    overflow: visible;
+    width: 126px;
+    height: 68px;
+    left: 1382px;
+    top: 76px;
+}
+#Search {
+    position: absolute;
+    width: 38px;
+    height: 38px;
+    left: 1799px;
+    top: 91px;
+    overflow: visible;
+}
+#_2_z {
+    fill: rgba(255,255,255,1);
+}
+._2_z {
+    overflow: visible;
+    position: absolute;
+    width: 38px;
+    height: 38px;
+    left: 0px;
+    top: 0px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#ALL {
+    left: 1409px;
+    top: 98px;
+    position: absolute;
+    overflow: visible;
+    width: 41px;
+    white-space: nowrap;
+    text-align: center;
+    font-family: TmonMonsori;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: rgba(255,255,255,1);
+}
+#_1_ {
+    fill: rgba(255,255,255,1);
+}
+._1_ {
+    overflow: hidden;
+    position: absolute;
+    width: 23px;
+    height: 20px;
+    transform: matrix(1,0,0,1,1459,100) rotate(180deg);
+    transform-origin: center;
+    left: 0px;
+    top: 0px;
+}
+#PROBLEM {
+    left: 1074px;
+    top: 97px;
+    position: absolute;
+    overflow: visible;
+    width: 103px;
+    white-space: nowrap;
+    text-align: center;
+    font-family: TmonMonsori;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: rgba(129,129,129,1);
+}
+#MAIN {
+    left: 748px;
+    top: 97px;
+    position: absolute;
+    overflow: visible;
+    width: 57px;
+    white-space: nowrap;
+    --web-animation: fadein 0.3s ease-out;
+    --web-action-type: page;
+    --web-action-target: Main___signed.html;
+    cursor: pointer;
+    text-align: center;
+    font-family: TmonMonsori;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: rgba(13,13,13,1);
+}
+#_173 {
+    fill: rgba(77,145,105,1);
+}
+._173 {
+    position: absolute;
+    overflow: visible;
+    width: 28px;
+    height: 6px;
+    left: 748px;
+    top: 122px;
+}
+#_10 {
+    fill: rgba(243,254,243,1);
+}
+._10 {
+    position: absolute;
+    overflow: visible;
+    width: 1829px;
+    height: 731px;
+    left: 46px;
+    top: 1066px;
+}
+#_1_ba {
+    fill: rgba(254,249,243,1);
+}
+._1_ba {
+    position: absolute;
+    overflow: visible;
+    width: 1829px;
+    height: 797px;
+    left: 46px;
+    top: 210px;
+}
+#_2_ {
+    fill: rgba(248,240,231,1);
+}
+._2_ {
+    overflow: visible;
+    position: absolute;
+    width: 508.183px;
+    height: 615.659px;
+    left: 1300.5px;
+    top: 289.5px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#_ {
+    left: 125px;
+    top: 251px;
+    position: absolute;
+    overflow: visible;
+    width: 146px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: TmonMonsori;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 80px;
+    color: rgba(0,0,0,1);
+}
+#__ {
+    left: 280px;
+    top: 292px;
+    position: absolute;
+    overflow: visible;
+    width: 275px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: TmonMonsori;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    color: rgba(129,129,129,1);
+}
+#Copyright__2020_gong-ah-york {
+    left: 1384px;
+    top: 1855px;
+    position: absolute;
+    overflow: visible;
+    width: 485px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: TmonMonsori;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    color: rgba(129,129,129,1);
+}
+#_bb {
+    left: 1546px;
+    top: 81px;
+    position: absolute;
+    overflow: visible;
+    width: 92px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: TmonMonsori;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 50px;
+    color: rgba(0,0,0,1);
+}
+#_157 {
+    fill: rgba(255,255,255,1);
+}
+._157 {
+    filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+    position: absolute;
+    overflow: visible;
+    width: 870px;
+    height: 292px;
+    left: 88px;
+    top: 362px;
+}
+#_158 {
+    fill: rgba(255,255,255,1);
+}
+._158 {
+    filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+    position: absolute;
+    overflow: visible;
+    width: 870px;
+    height: 292px;
+    left: 981px;
+    top: 362px;
+}
+#_159 {
+    fill: rgba(255,255,255,1);
+}
+._159 {
+    filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+    position: absolute;
+    overflow: visible;
+    width: 870px;
+    height: 292px;
+    left: 88px;
+    top: 656px;
+}
+#_160 {
+    fill: rgba(255,255,255,1);
+}
+._160 {
+    filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+    position: absolute;
+    overflow: visible;
+    width: 870px;
+    height: 292px;
+    left: 981px;
+    top: 656px;
+}
+#_161 {
+    fill: rgba(255,255,255,1);
+}
+._161 {
+    position: absolute;
+    overflow: visible;
+    width: 852px;
+    height: 79px;
+    left: 88px;
+    top: 956px;
+}
+#_162 {
+    fill: rgba(255,255,255,1);
+}
+._162 {
+    position: absolute;
+    overflow: visible;
+    width: 852px;
+    height: 79px;
+    left: 981px;
+    top: 956px;
+}
+#_163 {
+    fill: rgba(129,129,129,1);
+}
+._163 {
+    position: absolute;
+    overflow: visible;
+    width: 16px;
+    height: 90px;
+    left: 1845px;
+    top: 365px;
+}
+#_1_bj {
+    position: absolute;
+    width: 288px;
+    height: 201px;
+    left: 112px;
+    top: 396px;
+    overflow: visible;
+}
+#_bk {
+    left: 424px;
+    top: 404px;
+    position: absolute;
+    overflow: visible;
+    width: 182px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: TmonMonsori;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 50px;
+    color: rgba(0,0,0,1);
+}
+#_2_bl {
+    position: absolute;
+    width: 303px;
+    height: 201px;
+    left: 1007px;
+    top: 396px;
+    overflow: visible;
+}
+#_bm {
+    left: 1334px;
+    top: 404px;
+    position: absolute;
+    overflow: visible;
+    width: 137px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: TmonMonsori;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 50px;
+    color: rgba(0,0,0,1);
+}
+#_____ {
+    left: 424px;
+    top: 472px;
+    position: absolute;
+    overflow: visible;
+    width: 372px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: TmonMonsori;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    color: rgba(129,129,129,1);
+}
+#______bo {
+    left: 1334px;
+    top: 472px;
+    position: absolute;
+    overflow: visible;
+    width: 372px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: TmonMonsori;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    color: rgba(129,129,129,1);
+}
+#_1_bp {
+    position: absolute;
+    width: 288px;
+    height: 201px;
+    left: 112px;
+    top: 695px;
+    overflow: visible;
+}
+#_bq {
+    left: 424px;
+    top: 703px;
+    position: absolute;
+    overflow: visible;
+    width: 182px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: TmonMonsori;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 50px;
+    color: rgba(0,0,0,1);
+}
+#_2_br {
+    position: absolute;
+    width: 303px;
+    height: 201px;
+    left: 1007px;
+    top: 695px;
+    overflow: visible;
+}
+#_bs {
+    left: 1334px;
+    top: 703px;
+    position: absolute;
+    overflow: visible;
+    width: 137px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: TmonMonsori;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 50px;
+    color: rgba(0,0,0,1);
+}
+#______bt {
+    left: 424px;
+    top: 771px;
+    position: absolute;
+    overflow: visible;
+    width: 372px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: TmonMonsori;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    color: rgba(129,129,129,1);
+}
+#______bu {
+    left: 1334px;
+    top: 771px;
+    position: absolute;
+    overflow: visible;
+    width: 372px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: TmonMonsori;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    color: rgba(129,129,129,1);
+}
+#_164 {
+    fill: rgba(77,145,105,1);
+}
+._164 {
+    position: absolute;
+    overflow: visible;
+    width: 254px;
+    height: 81px;
+    left: 695px;
+    top: 564px;
+}
+#_165 {
+    fill: rgba(77,145,105,1);
+}
+._165 {
+    position: absolute;
+    overflow: visible;
+    width: 254px;
+    height: 81px;
+    left: 1591px;
+    top: 564px;
+}
+#__bx {
+    left: 727px;
+    top: 580px;
+    position: absolute;
+    overflow: visible;
+    width: 192px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: TmonMonsori;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    color: rgba(255,255,255,1);
+}
+#__by {
+    left: 1623px;
+    top: 579px;
+    position: absolute;
+    overflow: visible;
+    width: 192px;
+    white-space: nowrap;
+    --web-animation: fadein 0.3s ease-out;
+    --web-action-type: page;
+    --web-action-target: Result___Search___1.html;
+    cursor: pointer;
+    text-align: left;
+    font-family: TmonMonsori;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    color: rgba(255,255,255,1);
+}
+#_166 {
+    fill: rgba(77,145,105,1);
+}
+._166 {
+    position: absolute;
+    overflow: visible;
+    width: 254px;
+    height: 81px;
+    left: 695px;
+    top: 863px;
+}
+#_167 {
+    fill: rgba(77,145,105,1);
+}
+._167 {
+    position: absolute;
+    overflow: visible;
+    width: 254px;
+    height: 81px;
+    left: 1591px;
+    top: 863px;
+}
+#__b {
+    left: 727px;
+    top: 878px;
+    position: absolute;
+    overflow: visible;
+    width: 192px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: TmonMonsori;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    color: rgba(255,255,255,1);
+}
+#__ca {
+    left: 1623px;
+    top: 878px;
+    position: absolute;
+    overflow: visible;
+    width: 192px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: TmonMonsori;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    color: rgba(255,255,255,1);
+}
+#_b {
+    left: 125px;
+    top: 1101px;
+    position: absolute;
+    overflow: visible;
+    width: 146px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: TmonMonsori;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 80px;
+    color: rgba(0,0,0,1);
+}
+#___b {
+    left: 280px;
+    top: 1142px;
+    position: absolute;
+    overflow: visible;
+    width: 239px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: TmonMonsori;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    color: rgba(129,129,129,1);
+}
+#_168 {
+    fill: rgba(255,255,255,1);
+}
+._168 {
+    filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+    position: absolute;
+    overflow: visible;
+    width: 1763px;
+    height: 250px;
+    left: 88px;
+    top: 1212px;
+}
+#_3_b {
+    position: absolute;
+    width: 199px;
+    height: 199px;
+    left: 108px;
+    top: 1229px;
+    overflow: visible;
+}
+#___ {
+    left: 325px;
+    top: 1257px;
+    position: absolute;
+    overflow: visible;
+    width: 1151px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: TmonMonsori;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 50px;
+    color: rgba(0,0,0,1);
+}
+#___________22__com____________ {
+    left: 325px;
+    top: 1325px;
+    position: absolute;
+    overflow: visible;
+    width: 1437px;
+    height: 99px;
+    text-align: left;
+    font-family: TmonMonsori;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    color: rgba(129,129,129,1);
+}
+#_169 {
+    fill: rgba(77,145,105,1);
+}
+._169 {
+    position: absolute;
+    overflow: visible;
+    width: 254px;
+    height: 81px;
+    left: 1591px;
+    top: 1391px;
+}
+#__cb {
+    left: 1623px;
+    top: 1406px;
+    position: absolute;
+    overflow: visible;
+    width: 192px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: TmonMonsori;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    color: rgba(255,255,255,1);
+}
+#_170 {
+    fill: rgba(255,255,255,1);
+}
+._170 {
+    filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+    position: absolute;
+    overflow: visible;
+    width: 1763px;
+    height: 250px;
+    left: 88px;
+    top: 1494px;
+}
+#_3_cc {
+    position: absolute;
+    width: 199px;
+    height: 199px;
+    left: 108px;
+    top: 1511px;
+    overflow: visible;
+}
+#____cd {
+    left: 325px;
+    top: 1539px;
+    position: absolute;
+    overflow: visible;
+    width: 1151px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: TmonMonsori;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 50px;
+    color: rgba(0,0,0,1);
+}
+#___________22__com_____________ce {
+    left: 325px;
+    top: 1607px;
+    position: absolute;
+    overflow: visible;
+    width: 1437px;
+    height: 99px;
+    text-align: left;
+    font-family: TmonMonsori;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    color: rgba(129,129,129,1);
+}
+#_171 {
+    fill: rgba(77,145,105,1);
+}
+._171 {
+    position: absolute;
+    overflow: visible;
+    width: 254px;
+    height: 81px;
+    left: 1591px;
+    top: 1673px;
+}
+#__cg {
+    left: 1623px;
+    top: 1689px;
+    position: absolute;
+    overflow: visible;
+    width: 192px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: TmonMonsori;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    color: rgba(255,255,255,1);
+}
+#_172 {
+    fill: rgba(129,129,129,1);
+}
+._172 {
+    position: absolute;
+    overflow: visible;
+    width: 16px;
+    height: 90px;
+    left: 1845px;
+    top: 1212px;
+}

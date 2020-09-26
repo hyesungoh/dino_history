@@ -17,7 +17,7 @@ class ProblemMultiForm(MultiModelForm):
         'problem' : ProblemForm,
         'example' : ExampleForm,
     }
-       
+
 class SigninForm(forms.ModelForm):
     class Meta:
         model = Student
@@ -33,4 +33,3 @@ class UserForm(forms.ModelForm):
             'username': None,
         }
         fields = ['username', 'password', 'email', 'b_date', 'phone_num']
-
