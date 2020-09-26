@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+ .hr0 {
+=======
 .hr0 {
   height: 65%;
   width: 1px;
@@ -5,6 +8,7 @@
   margin: 12px auto;
 }
 hr {
+>>>>>>> f7e64b1b366848d37bc759ce0c1071818d3ae0ee
   height: 70%;
   width: 1px;
   border-left: 1px solid;
