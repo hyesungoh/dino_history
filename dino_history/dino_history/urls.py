@@ -27,7 +27,8 @@ urlpatterns = [
     # heritage_app
     path('', heritage.views.main, name='main'),
     path('map/', heritage.views.map, name='map'),
-
+    path('save_heritage/', heritage.views.save_heritage, name='save'),
+    path('result/', heritage.views.result, name='result'),
     # user_app
     path('mypage/', user.views.mypage, name='mypage'),
     path('ranking/', user.views.ranking, name='ranking'),
@@ -35,7 +36,6 @@ urlpatterns = [
     path('anew/create/', user.views.create, name='create'),
     path('update/<int:pk>', user.views.update, name='update'),
     path('delete/<int:pk>', user.views.delete, name='delete'),
-    path('Result_Search/', user.views.Result_Search, name='Result_Search'),
     path('login/', user.views.login, name='login'),
     path('signup/', user.views.signup, name='signup'),
 
@@ -47,4 +47,3 @@ urlpatterns = [
     path('accounts/profile/', user.views.profile, name='profiles')
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-

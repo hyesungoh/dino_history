@@ -1,7 +1,23 @@
-{% extends 'user/base.html' %}
+{% extends 'heritage/base.html' %}
 {% load static %}
 {% block header %}
 
+{% if heritages.count == 0 %}
+<h1>NONE</h1>
+
+{% else %}
+	{% for heritage in heritages %}
+		<h4>문화재 이름 : {{ heritage.name }}</h4>
+		<p>지역 : {{ heritage.location }}</p>
+		<p>시대 : {{ heritage.dynasty }}</p>
+		<p>내용 : {{ heritage.content }}</p>
+		<p>경도 : {{ heritage.longitude }} / 위도 : {{ heritage.latitude }}</p>
+		<img src="{{ heritage.img_url }}">
+		<hr/>
+	{% endfor %}
+
+{% endif %}
+<!-- <something>
 	<svg class="_10">
 		<rect id="_10" rx="43" ry="43" x="0" y="0" width="1500" height="731">
 		</rect>
@@ -154,5 +170,6 @@
 		</rect>
 	</svg>
 </div>
-<script type="text/javascript" src="{% static 'user/js/Result_Search.js' %}"></script> 
+<script type="text/javascript" src="{% static 'user/js/Result_Search.js' %}"></script>
+</something> -->
 {% endblock %}
