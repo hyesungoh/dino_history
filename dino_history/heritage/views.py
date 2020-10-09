@@ -16,10 +16,10 @@ def result(request):
     # 검색창에 무언가를 썼을 때
     if name:
         # 문화재 모델의 이름 기준으로 무언가가 포함된 오브젝트들을 가지고 옴
-        heritages = Heritage.objects.filter(name__contains=name)
+        heritages = Heritage.objects.filter(name__contains=name)[0:5]
     else:
         # 무언가를 안썼을 때 상위 10개만 가지고 옴
-        heritages = Heritage.objects.all()[0:10]
+        heritages = Heritage.objects.all()[0:5]
     return render(request, 'heritage/result.html', {'heritages': heritages})
 
 def save_heritage(request):
