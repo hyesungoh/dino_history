@@ -6,14 +6,23 @@
   <div style="background-color: #FEF9F3; height: 635px; width: 100%;">
     <img src="/static/heritage/img/dino_ch.png" width="380px" height="370px" style="float: right; margin-top: 120px; margin-right: 35%;">
     <!--<img src="/static/heritage/img/back_dino.svg.png" width="340px" height="450px" style="float: right ; margin-left: 50%; margin-bottom: 50px;"> -->
-    <img src="/static/heritage/img/1gg.png" width="210px" height="200px" style="position: absolute; left: 73%; top: 15%">
-    <img src="/static/heritage/img/2gg.png" width="210px" height="200px" style="position: absolute; left: 73%; top: 42%">
-    <img src="/static/heritage/img/3gg.png" width="210px" height="200px" style="position: absolute; left: 73%; top: 70%">
-    <p style="padding-top: 120px; padding-left: 160px; font-size: 50px; display: inline-block;">윤동열짱</p> 
+
+    <!-- 여기가 통째로 이미지라서 랭킹에 따라 변화가 안되네 -->
+    <!-- 그냥 서비스 소개용 이미지를 넣어야할 듯? -->
+    <img src="/static/heritage/img/1hj.png" width="210px" height="200px" style="position: absolute; left: 73%; top: 15%">
+    <img src="/static/heritage/img/2de.png" width="245px" height="200px" style="position: absolute; left: 73%; top: 42%">
+    <img src="/static/heritage/img/3hj.png" width="295px" height="200px" style="position: absolute; left: 73%; top: 70%">
+
+    <!-- 유저 이름 글자 수 제한보다 길어지면 아래로 내려지게 부탁하자 .. -->
+    <p style="padding-top: 120px; padding-left: 160px; font-size: 50px; display: inline-block;">{{ user_now.username }}</p>
+
+    <!-- 유저에 레벨 넣어야됨 -->
     <p style="color: gray; font-size: 20px; padding-left: 15px; display:inline-block;">LV.2</p>
+
+    <!-- 유저에 푼 문제넣고 > 문제 푼 수에 따라 진화도 시켜야되네? -->
     <p style="color: grey; padding-left: 160px; font-size: 20px;">지금까지 23개의 문제를 맞추셨어용<br>7개를 더 맞추면 윤동열씨가 더 커져용</p>
     <div id="medla" style="padding-top: 10px;">
-      <img src="/static/heritage/img/star.png" style="padding-left: 150px;"> 
+      <img src="/static/heritage/img/star.png" style="padding-left: 150px;">
       <img src="/static/heritage/img/star.png" style="padding-left: 13px;">
       <img src="/static/heritage/img/star.png" style="padding-left: 13px;">
       <p style="padding-left: 158px; padding-top: 20px; font-size: 15px;">전체 100등&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서울시 50등 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 현대사 11등</p>
@@ -24,7 +33,7 @@
 <section style="margin: 20px;">
   <div style="background-color: #F3FEF3; height: 635px; width: 100%;">
     <img src="/static/heritage/img/map.png" height="500px" style="float: left; margin-top: 32px ; margin-left: 160px;">
-    <p style="padding-top: 120px; padding-left: 42%; font-size: 50px;">여긴 어떤게 있을까?</p> 
+    <p style="padding-top: 120px; padding-left: 42%; font-size: 50px;">여긴 어떤게 있을까?</p>
     <p style="color: grey; padding-left: 42%; font-size: 20px;">지도를 이용해 원하는 지역의 문화재와 역사를 알아볼 수 있어용</p>
     <!-- Example single danger button -->
 <!-- Large button groups (default and split) -->
@@ -50,30 +59,8 @@
 
 <section style="margin: 20px;">
   <div style="background-color: #FDFEF3; height: 635px; width: 100%;">
-  <!--  <img src="/static/heritage/img/input_main.png" width="50%" style="margin-top:10%; margin-left: 10%;"> -->
-    <div>
-      <form>
-
-        <input class="question" type="search" aria-label="Search" style="width:48%; height: 15%; border: 1px solid #B5B5B5; border-radius: 10px; position: absolute; margin-left: 10%; margin-top: 9%;">
-        <div class="btn-group" style="padding-left: 7%; padding-bottom: 15px; margin-top: 140px;">
-          <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style=" border-radius: 10px; height: 105px; width: 193px; position: absolute; margin-left:52px; font-size: 30px; ">
-          시대 선택
-            </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">선사 시대</a> <!--구석기~신석기~청동기-->
-              <a class="dropdown-item" href="#">삼국 시대</a> <!--고대(3세기)~-->
-              <a class="dropdown-item" href="#">남북극 시대</a> <!--고대-->
-              <a class="dropdown-item" href="#">후삼국 시대</a> <!--고대-->
-              <a class="dropdown-item" href="#">고려 시대</a> <!--중세(고려시대 10세기초 ~ 14세기말 (936~1392)-->
-              <a class="dropdown-item" href="#">조선 시대</a> <!-- 근세는 조선시대 개국부터 고종 즉위에 따른 흥선대원군 집권 전까지인 15세기부터 19세기 중엽까지(1392~1864)   대한제국까지-->
-              <a class="dropdown-item" href="#">일제강점기</a> <!--근대는 조선시대 흥선대원군 집권부터 대한제국 및 일제강점기와 대한민국 임시정부를 거쳐 광복까지인 19세기 중엽부터 20세기 중엽까지(1864~1945)-->
-              <a class="dropdown-item" href="#">현대</a> <!--현대는 광복 후부터 지금까지인 20세기 중엽 이후(1945~ )-->
-             </div>
-            </div>
-      </form>
-    </div>
-
-    <p style="font-size: 50px; padding-left: 45%; padding-top: 170px;">궁금한 게 있으면 물어봐 !</p>
+    <img src="/static/heritage/img/input_main.png" width="50%" style="margin-top:10%; margin-left: 10%;">
+    <p style="font-size: 50px; padding-left: 45%; padding-top: 20px;">궁금한 게 있으면 물어봐 !</p>
     <p style="color:gray; font-size: 20px; padding-left: 45%;">궁금한 문화재, 키워드를 시대별로 검색 할 수 있어 !!</p>
   </div>
 </section>
@@ -83,8 +70,8 @@
     <a href="problem/">
   <img src="/static/heritage/img/quiz_dino.png" width="700" style="float: right; margin-right: 20px; margin-top: 7%;">
     </a>
-  <p style="font-size: 50px; padding-top: 150px; padding-left: 150px;">윤동열짱을 키워줘 !</p>
-  <p style="color: gray; font-size: 20px; padding-left: 150px;">문제를 풀어서 윤동열짱을 키워줘 ! <br> 푸는 문제에 따라 어떻게 커질 지 모른다구 ?!</p>
+  <p style="font-size: 50px; padding-top: 150px; padding-left: 150px;">{{ user_now.username }}을 키워줘 !</p>
+  <p style="color: gray; font-size: 20px; padding-left: 150px;">문제를 풀어서 {{ user_now.username }}을 키워줘 ! <br> 푸는 문제에 따라 어떻게 커질 지 모른다구 ?!</p>
   </div>
 </section>
 

@@ -1,12 +1,17 @@
 from django.shortcuts import render
 from .models import Heritage
+from user.models import Student
 # from django.contrib.staticfiles.templatetags.staticfiles import static
 # from django.contrib.staticfiles.storage import staticfiles_storage
 import os
 
 # Create your views here.
 def main(request):
-    return render(request, 'heritage/main.html')
+    if request.user.is_authenticated:
+        user_now = request.user
+        return render(request, 'heritage/main.html', {'user_now': user_now})
+    else:
+        return render(request, 'heritage/main_nosigned.html')
 
 def map(request):
     return render(request, 'heritage/map.html')

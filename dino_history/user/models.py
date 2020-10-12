@@ -11,8 +11,10 @@ class Student(AbstractUser):
     b_date = models.DateField(default=date.today)
     phone_num = models.CharField(max_length=45)
     cor_num = models.IntegerField(default=0)
-    dino_level = models.CharField(max_length=10)
-    
+    dino_level = models.IntegerField(default=0)
+
+# 레벨업은 view에서 문제를 풀었을 때 알고리즘 적으로 해결하자
+
 
 class Problem(models.Model):
     def __str__(self):
