@@ -33,6 +33,8 @@ urlpatterns = [
     path('mypage/', user.views.mypage, name='mypage'),
     path('ranking/', user.views.ranking, name='ranking'),
     path('problem/', user.views.problem, name='problem'),
+    path('solve/<int:pk>', user.views.solve, name='solve'),
+
     path('anew/create/', user.views.create, name='create'),
     path('update/<int:pk>', user.views.update, name='update'),
     path('delete/<int:pk>', user.views.delete, name='delete'),
