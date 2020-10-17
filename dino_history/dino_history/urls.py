@@ -30,7 +30,7 @@ urlpatterns = [
     path('save_heritage/', heritage.views.save_heritage, name='save'),
     path('result/', heritage.views.result, name='result'),
     # user_app
-    path('mypage/', user.views.mypage, name='mypage'),
+    path('mypage/<str:name>', user.views.mypage, name='mypage'),
     path('ranking/', user.views.ranking, name='ranking'),
     path('problem/', user.views.problem, name='problem'),
     path('solve/<int:pk>', user.views.solve, name='solve'),

@@ -6,37 +6,72 @@ from django.db.models import Q
 from django.contrib.auth import login, authenticate
 from django.http import HttpResponse, HttpResponseRedirect
 # Create your views here.
-def mypage(request):
-    return render(request, 'user/mypage.html')
+def mypage(request, name):
+    current_user = Student.objects.get(username = name)
+    correct_problem = Correct.objects.filter(student = current_user)
+    wrong_problem = Wrong.objects.filter(student = current_user)
+
+    return render(request, 'user/mypage.html', {'u': current_user, 'exp_range': range(current_user.exp),
+    'correct_problem': correct_problem,
+    'wrong_problem': wrong_problem})
 
 def ranking(request):
     users = Student.objects.all().order_by('-cor_num')
     return render(request, 'user/ranking.html', {'users': users})
 
 def problem(request):
+    if not request.user.is_active: # 로그인 안했을 때
+        # error view로 에러메세지와 함께 보냄
+        return error(request, "로그인을 해야 문제를 풀 수 있어용")
     p = Problem.objects.all()
     return render(request, 'user/problem.html', {'p':p})
 
 def solve(request, pk):
+    exp_for_lv_up = [1, 3, 5, 10]
+
+    if not request.user.is_active: # 로그인 안했을 때
+        # error view로 에러메세지와 함께 보냄
+        return error(request, "로그인을 해야 문제를 풀 수 있어용")
+
     if request.method == 'POST':
-        current_user = Student.objects.get(id = request.user.id)
-        current_problem = Problem.objects.get(id=pk)
-        passing_answer = request.POST['example']
+        current_user = Student.objects.get(id = request.user.id) # 현재 유저
+        current_problem = Problem.objects.get(id=pk) # 현재 문제
 
-        # pk 문제의 정답과 사용자가 선택한 정답이 동일할 때 (문자열 비교)
-        if current_problem.answer == passing_answer:
-            current_user.cor_num += 1 # 현재 유저의 맞은 정답 수 + 1
-            current_user.save() # 업데이트 사항을 저장
+        try: # 만약 푼 문제를 또 풀었다면?
+            Correct.objects.get(student=current_user, problem=current_problem)
+            return render(request, 'user/solve_test.html', {'p': current_problem, 'u': current_user})
 
-            c = Correct() # 유저와 맞은 문제의 관계를 저장하는 모델
-            c.student = current_user
-            c.problem = current_problem
-            c.save()
-        else:
-            w = Wrong() # 유저와 틀린 문제의 관계를 저장하는 모델
-            w.student = current_user
-            w.problem = current_problem
-            w.save()
+        except:
+            passing_answer = request.POST['example'] # 유저가 선택한 답
+
+            # pk 문제의 정답과 사용자가 선택한 정답이 동일할 때 (문자열 비교)
+            if current_problem.answer == passing_answer:
+                try: # 틀렸다가 맞았으면 해당 Wrong 모델 삭제
+                    Wrong.objects.get(student=current_user, problem=current_problem).delete()
+                except:
+                    pass
+
+                current_user.cor_num += 1 # 현재 유저의 맞은 정답 수 + 1
+                current_user.exp += 1
+
+                if exp_for_lv_up[current_user.dino_level] <= current_user.exp:
+                    current_user.dino_level += 1
+                    current_user.exp = 0
+
+                current_user.save() # 업데이트 사항을 저장
+
+                c = Correct() # 유저와 맞은 문제의 관계를 저장하는 모델
+                c.student = current_user
+                c.problem = current_problem
+                c.save()
+            else:
+                try: # 틀렸는데 또 틀리면 생성 안함
+                    Wrong.objects.get(student=current_user, problem=current_problem)
+                except:
+                    w = Wrong() # 유저와 틀린 문제의 관계를 저장하는 모델
+                    w.student = current_user
+                    w.problem = current_problem
+                    w.save()
 
 
         # return render(request, 'user/solve_test.html', {'p': current_problem, 'ans': passing_answer, 'u': current_user})
@@ -127,3 +162,6 @@ def Result_Search(request):
 
 def profile(request):
     return render(request, 'user/main.html')
+
+def error(request, error_msg):
+    return render(request, 'user/error.html', {'error_msg': error_msg})

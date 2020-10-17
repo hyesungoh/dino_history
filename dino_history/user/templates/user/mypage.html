@@ -6,24 +6,36 @@
 <section style="margin: 20px;">
     <div style="background-color: #FEF9F3; height: 635px; width: 100%;">
       <img src="/static/heritage/img/dino_ch.png" width="470px" height="470px" style="float: right; margin-top: 100px; margin-right: 8%;">
-      <p style="padding-top: 55px; padding-left: 5%; font-size: 50px; display: inline-block;">윤동열짱</p> 
-      <p style="color: #818181; font-size: 20px; padding-left: 10px; display:inline-block;">LV.2</p>
+      <p style="padding-top: 55px; padding-left: 5%; font-size: 50px; display: inline-block;">{{ u.username }}</p>
+      <p style="color: #818181; font-size: 20px; padding-left: 10px; display:inline-block;">LV.{{ u.dino_level }}</p>
 
       <div id="level" style="background-color: #FFFFFF; height: 50px; width: 50%; margin-left: 5%; margin-bottom: 20px;">
-        <p style=" font-size:25px; color: #85B598;  padding-top: 7px; ">경험치!!</p>
+        <p style=" font-size:25px; color: #85B598;  padding-top: 7px; padding-left: 7px;">
+
+          {% for exp in exp_range %}
+          I
+          {% endfor %}
+        </p>
       </div>
 
       <p style=" font-size:25px; padding-left: 5%; padding-top: 15px; ">지금까지 푼 문제</p>
       <div  class="scroll" id="quiz" style="background-color: #FFFFFF; overflow: auto; height: 150px; width: 50%; margin-left: 5%; margin-bottom: 20px;" >
-        <p style="color: #818181; font-size: 20px;padding-top: 7px;">1번&nbsp;2번&nbsp;3번</p>
-        <p style="color: #818181; font-size: 20px;padding-top: 7px;">1번&nbsp;2번&nbsp;3번</p>
-        <p style="color: #818181; font-size: 20px;padding-top: 7px;">1번&nbsp;2번&nbsp;3번</p>
-        <p style="color: #818181; font-size: 20px;padding-top: 7px;">1번&nbsp;2번&nbsp;3번</p>
+        <p style="color: #818181; font-size: 20px;padding-top: 7px; padding-left: 7px">
+          {% for problem in correct_problem %}
+            {{ problem.problem.id }}번&nbsp;
+          {% endfor %}
+        </p>
+
+
       </div>
 
       <p style=" font-size:25px; padding-left: 5%; padding-top: 15px;">실패한 문제</p>
       <div class="scroll" id="failed-quiz" style="background-color: #FFFFFF;  overflow: auto; height: 45px; width: 50%; margin-left: 5%;">
-        <p style=" font-size:20px; color:#818181;padding-top: 7px;"> 4번&nbsp;5번&nbsp;6번</p>
+        <p style="color: #818181; font-size: 20px;padding-top: 8px; padding-left: 7px">
+          {% for problem in wrong_problem %}
+            {{ problem.problem.id }}번&nbsp;
+          {% endfor %}
+        </p>
       </div>
 
     </div>
@@ -32,7 +44,7 @@
 <section style="margin: 20px;">
   <div style="background-color: #F3FEF3; height: 635px; width: 100%;">
     <div id="mypage_info">
-      <p style="padding-top: 3%; padding-left: 5%; font-size: 50px; display: inline-block;">내 정보</p> 
+      <p style="padding-top: 3%; padding-left: 5%; font-size: 50px; display: inline-block;">내 정보</p>
       <div id="mypage_rank" style="color: #464E45;">
         <hr style="width:16%; border:solid 2px; color: gray; margin-left: 5%;">
         <p style="margin-left: 6%; font-size: 25px;">전체 랭킹&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;23</p>
@@ -51,22 +63,22 @@
     </div>
     <div style="font-size: 30px; color: #818181;">
     <div id="my_name" style="width: 50%; height: 52px; background-color: white; position: absolute; left: 28%; top: 121%;">
-      &nbsp; 이름: {{ user.username }}
+      &nbsp; 이름: {{ u.username }}
     </div>
     <div id="my_local" style="width: 50%; height: 52px; background-color: white; position: absolute; left: 28%; top: 131%;">
-      <p style="padding-top: 6px;">&nbsp; 거주 지역: 서울시 구로구</p>        
+      <p style="padding-top: 6px;">&nbsp; 거주 지역: 서울시 구로구</p>
     </div>
     <div id="my_mail" style="width: 50%; height: 52px; background-color: white; position: absolute; left: 28%; top: 141%;">
-      &nbsp; 이메일: {{ user.email }}        
+      &nbsp; 이메일: {{ u.email }}
     </div>
     <div id="my_pet" style="width: 50%; height: 52px; background-color: white; position: absolute; left: 28%; top: 151%;">
-      <p style="padding-top: 6px;">&nbsp; 공룡 이름: 윤동열씨</p>         
+      <p style="padding-top: 6px;">&nbsp; 공룡 이름: {{ u.username }}</p>
     </div>
     <div id="my_etc1" style="width: 50%; height: 52px; background-color: white; position: absolute; left: 28%; top: 161%;">
-      <p style="padding-top: 6px;">&nbsp; 밍</p>
+      <p style="padding-top: 6px;">&nbsp; 총 맞은 문제 : {{ u.cor_num }}</p>
     </div>
     <div id="my_etc2" style="width: 50%; height: 52px; background-color: white; position: absolute; left: 28%; top: 171%;">
-      <p style="padding-top: 6px;"> &nbsp; 먕</p>        
+      <p style="padding-top: 6px;"> &nbsp; 먕</p>
     </div>
   </div>
   </div>

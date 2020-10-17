@@ -20,8 +20,9 @@ class Student(AbstractUser):
         return self.username
     b_date = models.DateField(default=date.today)
     phone_num = models.CharField(max_length=45)
-    dino_level = models.IntegerField(default=0) # 공룡 레벨
-    cor_num = models.IntegerField(default=0) # 맞은 문제의 수
+    exp = models.IntegerField(default=int(0)) # 경험치
+    dino_level = models.IntegerField(default=int(0)) # 공룡 레벨
+    cor_num = models.IntegerField(default=int(0)) # 맞은 문제의 수
 
 class Correct(models.Model):
     student = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="student", on_delete=models.CASCADE)
