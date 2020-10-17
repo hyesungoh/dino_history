@@ -5,6 +5,8 @@ from django.db.models import Q
 
 from django.contrib.auth import login, authenticate
 from django.http import HttpResponse, HttpResponseRedirect
+
+from random import randint
 # Create your views here.
 def mypage(request, name):
     current_user = Student.objects.get(username = name)
