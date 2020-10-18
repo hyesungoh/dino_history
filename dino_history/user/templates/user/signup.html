@@ -1,0 +1,14 @@
+{% extends 'user/base.html' %}
+{% load static %}
+
+{% block header %}
+
+<form method="POST" action="">
+  {% csrf_token %}
+  {{ form.as_p }}
+      <button type="submit">
+          Sign In
+      </button>
+</form>
+
+{% endblock %}

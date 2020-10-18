@@ -10,8 +10,7 @@ class Problem(models.Model):
     def __str__(self):
         return self.p_title
 
-    p_title = models.CharField(max_length=45)
-    p_sort = models.CharField(max_length=20, null=True)
+    p_era = models.CharField(max_length=45)
     p_content = models.TextField()
     answer = models.CharField(max_length=20)
 
@@ -23,7 +22,12 @@ class Student(AbstractUser):
     exp = models.IntegerField(default=int(0)) # 경험치
     dino_level = models.IntegerField(default=int(0)) # 공룡 레벨
     dino_class = models.IntegerField(default=int(0)) # 공룡 이미지를 구분하기 위해
+
     cor_num = models.IntegerField(default=int(0)) # 맞은 문제의 수
+    gh_num = models.IntegerField(default=int(0)) # 근현대사 맞은 문제의 수
+    chs_num = models.IntegerField(default=int(0)) # 조선시대 맞은 문제의 수
+    sg_num = models.IntegerField(default=int(0)) # 삼국시대 맞은 문제의 수
+    ss_num = models.IntegerField(default=int(0)) # 선사시대 맞은 문제의 수
 
 class Correct(models.Model):
     student = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="student", on_delete=models.CASCADE)

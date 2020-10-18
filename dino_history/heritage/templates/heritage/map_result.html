@@ -1,0 +1,65 @@
+{% extends 'heritage/base.html' %}
+{% load static %}
+{% block header %}
+
+{% if heritages.count == 0 %}
+<h1>NONE</h1>
+
+{% else %}
+
+<section style="margin: 20px;">
+  <div style="background-color: #F3FEF3; height: 635px; width: 80%; margin: auto;">
+    <br><br>
+    <h1 style="color: teal; text-align: center;">{{ location }}의 유적지</h1>
+    <br>
+    <div class="heritages" style="padding: 50px;">
+      <div class="h_nav">
+        <hr class="h_hr">
+        순서
+        <hr class="h_hr">
+        종목
+        <hr class="h_hr">
+        명칭
+        <hr class="h_hr">
+      </div>
+      <br>
+      {% for heritage in heritages %}
+      {{heritage}}
+      <hr style="width: 90%;">
+      {% endfor %}
+
+      <!-- &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+      &emsp;1
+      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;보물 제10호
+      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;강화 장정리 오층석탑(江華 長井里 五層石塔) -->
+
+    </div>
+  </div>
+</section>
+
+{% for heritage in heritages %}
+<section style="margin: 20px;">
+  <div class="history">
+    <br>
+    <h3 style="text-align: center; color: gray;">보물 제10호</h3>
+    <h1 style="text-align: center; color: rgb(24, 153, 24);">강화 장정리 오층석탑(江華 長井里 五層石塔)</h1>
+    <br>
+    <div style="float:left; width: 40%; margin: auto;">
+      <img class="he_img" src="{{ heritage.img_url }}">
+      <br><br>
+    </div>
+    <div class="his_txt">
+      <h5>시대 - {{ heritage.dynasty }}</h5>
+      <h5>위치 - {{ heritage.location }}</h5>
+      <hr class="hr">
+      <p>{{ heritage.content }}</p>
+      </div>
+  </div>
+</section>
+
+	{% endfor %}
+
+{% endif %}
+{% endblock %}

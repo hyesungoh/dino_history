@@ -29,6 +29,8 @@ urlpatterns = [
     path('map/', heritage.views.map, name='map'),
     path('save_heritage/', heritage.views.save_heritage, name='save'),
     path('result/', heritage.views.result, name='result'),
+    path('map_result/', heritage.views.map_result, name='map_result'),
+
     # user_app
     path('mypage/<str:name>', user.views.mypage, name='mypage'),
     path('ranking/', user.views.ranking, name='ranking'),
@@ -41,6 +43,7 @@ urlpatterns = [
     path('login/', user.views.login, name='login'),
     path('signup/', user.views.signup, name='signup'),
 
+    path('', include('django.contrib.auth.urls')),
     #social login test
      # 로그인
     path('account/', include('rest_auth.urls')),

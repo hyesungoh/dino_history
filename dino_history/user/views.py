@@ -3,7 +3,8 @@ from .models import Student, Problem, Example, Correct, Wrong
 from .forms import SigninForm, UserForm, ProblemForm, ExampleForm, ProblemMultiForm
 from django.db.models import Q
 
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import authenticate
+from django.contrib.auth import login as auth_login
 from django.http import HttpResponse, HttpResponseRedirect
 
 from random import randint # 레벨에 따른 이미지 랜덤으로 사용하기 위해
@@ -18,9 +19,33 @@ def mypage(request, name):
     'wrong_problem': wrong_problem,
     'dino_url': dino_url})
 
+def return_ranking():
+    total = Student.objects.all().order_by('-cor_num')[0:10]
+    gh = Student.objects.all().order_by('-gh_num')[0:10]
+    chs = Student.objects.all().order_by('-chs_num')[0:10]
+    sg = Student.objects.all().order_by('-sg_num')[0:10]
+    ss = Student.objects.all().order_by('-ss_num')[0:10]
+
+    d = {}
+    d['총'] = total
+    d['근현대'] = gh
+    d['조선시대'] = chs
+    d['삼국시대'] = sg
+    d['선사시대'] = ss
+
+    return d
+
 def ranking(request):
-    users = Student.objects.all().order_by('-cor_num')
-    return render(request, 'user/ranking.html', {'users': users})
+    # total = Student.objects.all().order_by('-cor_num')[0:10]
+    rank_dict = return_ranking()
+    total = rank_dict['총']
+    gh = rank_dict['근현대']
+    chs = rank_dict['조선시대']
+    sg = rank_dict['삼국시대']
+    ss = rank_dict['선사시대']
+
+    return render(request, 'user/ranking.html', {'total': total,
+    'gh': gh, 'chs': chs, 'sg': sg, 'ss': ss})
 
 def problem(request):
     if not request.user.is_active: # 로그인 안했을 때
@@ -46,6 +71,7 @@ def random_problem_without_correct(user):
         except: # 아직 안 푼 문제는 return
             if temp_problem:
                 return temp_problem
+
 
 def solve(request, pk):
     exp_for_lv_up = [1, 3, 5, 10]
@@ -83,6 +109,16 @@ def solve(request, pk):
                     if current_user.dino_level == 2 or current_user.dino_level == 3:
                         current_user.dino_class = randint(0, 2) # 이미지 분류를 위해 랜덤
 
+                # 시대 구분하여 현재 유저의 점수에 추가
+                if current_problem.p_era == '근현대':
+                    current_user.gh_num += 1
+                elif current_problem.p_era == '조선시대':
+                    current_user.chs_num += 1
+                elif current_problem.p_era == '삼국시대':
+                    current_user.sg_num += 1
+                elif current_problem.p_era == '선사시대':
+                    current_user.ss_num += 1
+
                 current_user.save() # 업데이트 사항을 저장
 
                 c = Correct() # 유저와 맞은 문제의 관계를 저장하는 모델
@@ -111,8 +147,7 @@ def create(request):
         form = ProblemMultiForm(request.POST)
         if form.is_valid():
             temp_problem = Problem()
-            temp_problem.p_title = form['problem'].cleaned_data['p_title']
-            temp_problem.p_sort = form['problem'].cleaned_data['p_sort']
+            temp_problem.p_era = form['problem'].cleaned_data['p_era']
             temp_problem.p_content = form['problem'].cleaned_data['p_content']
             temp_problem.answer = form['problem'].cleaned_data['answer']
             temp_problem.save()
@@ -125,7 +160,7 @@ def create(request):
             temp_example.e4 = form['example'].cleaned_data['e4']
             temp_example.save()
 
-            return redirect('problem')
+            return redirect('create')
     else:
         form = ProblemMultiForm()
         return render(request, 'user/anew.html', {'form':form})
@@ -161,7 +196,7 @@ def login(request):
         user = authenticate(username = username, password = password)
 
         if user is not None:
-            login(request, user)
+            auth_login(request, user)
             return redirect('main')
         else:
             return HttpResponse("로그인 실패. 다시 시도하세요.")
@@ -172,15 +207,17 @@ def signup(request):
     if request.method == "POST":
         form = UserForm(request.POST)
         if form.is_valid():
-            new_user = CustomUser.objects.create_user(username=form.cleaned_data['username'],
+            new_user = Student.objects.create_user(username=form.cleaned_data['username'],
             email = form.cleaned_data['email'],
             password = form.cleaned_data['password'])
-            b_date = form.cleaned_data['b_date'],
-            login(request, new_user)
-            return redirect('main')
+            # auth_login(request, new_user)
+            return redirect('login')
+        else:
+            return error(request, 'Fail to Sign-Up')
     else:
         form = UserForm()
         return render(request, 'user/signup.html', {'form': form})
+
 
 def Result_Search(request):
     return render(request, 'user/Result_Search.html')

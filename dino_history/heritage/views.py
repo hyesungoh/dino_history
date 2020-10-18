@@ -28,6 +28,16 @@ def result(request):
         heritages = Heritage.objects.all()[0:5]
     return render(request, 'heritage/result.html', {'heritages': heritages})
 
+def map_result(request):
+    location = request.GET["location"]
+
+    if location:
+        heritages = Heritage.objects.filter(location__contains=location)[0:10]
+    else:
+        heritages = Heritage.objects.all()[0:10]
+    return render(request, 'heritage/map_result.html', {'location': location, 'heritages': heritages})
+
+
 def save_heritage(request):
     # txt_file_url = static('heritage/txt/heritage.txt')
     # txt_file_url = staticfiles_storage.url('heritage/txt/heritage.txt')
