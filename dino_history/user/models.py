@@ -22,6 +22,7 @@ class Student(AbstractUser):
     phone_num = models.CharField(max_length=45)
     exp = models.IntegerField(default=int(0)) # 경험치
     dino_level = models.IntegerField(default=int(0)) # 공룡 레벨
+    dino_class = models.IntegerField(default=int(0)) # 공룡 이미지를 구분하기 위해
     cor_num = models.IntegerField(default=int(0)) # 맞은 문제의 수
 
 class Correct(models.Model):

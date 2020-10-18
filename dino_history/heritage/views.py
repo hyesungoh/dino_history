@@ -9,7 +9,8 @@ import os
 def main(request):
     if request.user.is_authenticated:
         user_now = request.user
-        return render(request, 'heritage/main.html', {'user_now': user_now})
+        dino_url = dino_img(user_now.dino_level, user_now.dino_class)
+        return render(request, 'heritage/main.html', {'user_now': user_now, 'dino_url': dino_url})
     else:
         return render(request, 'heritage/main_nosigned.html')
 
@@ -56,3 +57,10 @@ def save_heritage(request):
             temp_heritage.save()
 
     return render(request, 'heritage/save_test.html')
+
+def dino_img(level, cls):
+    if level == 0 or level == 1:
+        return level
+    else:
+        u = str(level) + '_' + str(cls)
+        return u

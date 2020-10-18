@@ -6,16 +6,17 @@ from django.db.models import Q
 from django.contrib.auth import login, authenticate
 from django.http import HttpResponse, HttpResponseRedirect
 
-from random import randint
+from random import randint # 레벨에 따른 이미지 랜덤으로 사용하기 위해
 # Create your views here.
 def mypage(request, name):
     current_user = Student.objects.get(username = name)
     correct_problem = Correct.objects.filter(student = current_user)
     wrong_problem = Wrong.objects.filter(student = current_user)
-
+    dino_url = dino_img(current_user.dino_level, current_user.dino_class)
     return render(request, 'user/mypage.html', {'u': current_user, 'exp_range': range(current_user.exp),
     'correct_problem': correct_problem,
-    'wrong_problem': wrong_problem})
+    'wrong_problem': wrong_problem,
+    'dino_url': dino_url})
 
 def ranking(request):
     users = Student.objects.all().order_by('-cor_num')
@@ -25,8 +26,26 @@ def problem(request):
     if not request.user.is_active: # 로그인 안했을 때
         # error view로 에러메세지와 함께 보냄
         return error(request, "로그인을 해야 문제를 풀 수 있어용")
-    p = Problem.objects.all()
-    return render(request, 'user/problem.html', {'p':p})
+
+    current_user = request.user
+    problem_list = []
+    for _ in range(5):
+        problem_list.append(random_problem_without_correct(current_user))
+
+    return render(request, 'user/problem.html', {'p': problem_list})
+
+
+def random_problem_without_correct(user):
+    max_id = len(Problem.objects.all())-1
+    while True:
+        pk = randint(1, max_id)
+        temp_problem = Problem.objects.filter(pk=pk).first()
+
+        try: # 푼 문제는 return을 안하기 위해
+            Correct.objects.get(student=user, problem=pk)
+        except: # 아직 안 푼 문제는 return
+            if temp_problem:
+                return temp_problem
 
 def solve(request, pk):
     exp_for_lv_up = [1, 3, 5, 10]
@@ -59,6 +78,10 @@ def solve(request, pk):
                 if exp_for_lv_up[current_user.dino_level] <= current_user.exp:
                     current_user.dino_level += 1
                     current_user.exp = 0
+
+                    # 레벨업 해서 2나 3일 때
+                    if current_user.dino_level == 2 or current_user.dino_level == 3:
+                        current_user.dino_class = randint(0, 2) # 이미지 분류를 위해 랜덤
 
                 current_user.save() # 업데이트 사항을 저장
 
@@ -164,6 +187,13 @@ def Result_Search(request):
 
 def profile(request):
     return render(request, 'user/main.html')
+
+def dino_img(level, cls):
+    if level == 0 or level == 1:
+        return level
+    else:
+        u = str(level) + '_' + str(cls)
+        return u
 
 def error(request, error_msg):
     return render(request, 'user/error.html', {'error_msg': error_msg})

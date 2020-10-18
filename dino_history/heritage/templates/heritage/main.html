@@ -4,7 +4,7 @@
 
 <section style="margin: 20px;">
   <div style="background-color: #FEF9F3; height: 635px; width: 100%;">
-    <img src="/static/heritage/img/dino_ch.png" width="380px" height="370px" style="float: right; margin-top: 120px; margin-right: 35%;">
+    <img src="/static/heritage/img/{{ dino_url }}.png" width="380px" height="370px" style="float: right; margin-top: 120px; margin-right: 35%;">
     <!--<img src="/static/heritage/img/back_dino.svg.png" width="340px" height="450px" style="float: right ; margin-left: 50%; margin-bottom: 50px;"> -->
 
     <!-- 여기가 통째로 이미지라서 랭킹에 따라 변화가 안되네 -->
@@ -17,10 +17,10 @@
     <p style="padding-top: 120px; padding-left: 160px; font-size: 50px; display: inline-block;">{{ user_now.username }}</p>
 
     <!-- 유저에 레벨 넣어야됨 -->
-    <p style="color: gray; font-size: 20px; padding-left: 15px; display:inline-block;">LV.2</p>
+    <p style="color: gray; font-size: 20px; padding-left: 15px; display:inline-block;">LV.{{ user_now.dino_level }}</p>
 
     <!-- 유저에 푼 문제넣고 > 문제 푼 수에 따라 진화도 시켜야되네? -->
-    <p style="color: grey; padding-left: 160px; font-size: 20px;">지금까지 23개의 문제를 맞추셨어용<br>7개를 더 맞추면 윤동열씨가 더 커져용</p>
+    <p style="color: grey; padding-left: 160px; font-size: 20px;">지금까지 {{ user_now.cor_num }}개의 문제를 맞추셨어용<br>7개를 더 맞추면 윤동열씨가 더 커져용</p>
     <div id="medla" style="padding-top: 10px;">
       <img src="/static/heritage/img/star.png" style="padding-left: 150px;">
       <img src="/static/heritage/img/star.png" style="padding-left: 13px;">
