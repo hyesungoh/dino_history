@@ -25,7 +25,7 @@
       <img src="/static/heritage/img/star.png" style="padding-left: 150px;">
       <img src="/static/heritage/img/star.png" style="padding-left: 13px;">
       <img src="/static/heritage/img/star.png" style="padding-left: 13px;">
-      <p style="padding-left: 158px; padding-top: 20px; font-size: 15px;">전체 100등&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서울시 50등 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 현대사 11등</p>
+      <p style="padding-left: 158px; padding-top: 20px; font-size: 15px;">전체 {{ total }}등&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 근현대 {{ gh }}등 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 조선시대 {{ chs }}등</p>
       </div>
   </div>
 </section>
@@ -38,22 +38,24 @@
     <!-- Example single danger button -->
 <!-- Large button groups (default and split) -->
   <div class="btn-group" style="padding-left: 4%; padding-top: 15px;">
-    <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    지역 선택
-      </button>
-      <img src="/static/heritage/img/button2.jpg" alt="search" width="50px">
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">서울</a>
-        <a class="dropdown-item" href="#">경기도</a>
-        <a class="dropdown-item" href="#">강원도</a>
-        <a class="dropdown-item" href="#">경상도</a>
-        <a class="dropdown-item" href="#">전라도</a>
-        <a class="dropdown-item" href="#">제주도</a>
-        <a class="dropdown-item" href="#">모르</a>
-        <a class="dropdown-item" href="#">게따</a>
-       </div>
-      </div>
+    <form action='/map_result' method='get'>
+      <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      지역 선택
+        </button>
+        <img src="/static/heritage/img/button2.jpg" alt="search" width="50px">
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="/map_result/?location=서울">서울</a>
+          <a class="dropdown-item" href="/map_result/?location=경기">경기도</a>
+          <a class="dropdown-item" href="/map_result/?location=강원">강원도</a>
+          <a class="dropdown-item" href="/map_result/?location=경북">경상북도</a>
+          <a class="dropdown-item" href="/map_result/?location=경남">경상남도</a>
+          <a class="dropdown-item" href="/map_result/?location=전북">전라북도</a>
+          <a class="dropdown-item" href="/map_result/?location=전남">전라남도</a>
+          <a class="dropdown-item" href="/map_result/?location=제주">제주도</a>
+         </div>
+     </form>
     </div>
+  </div>
 
 </section>
 

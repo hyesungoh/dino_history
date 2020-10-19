@@ -10,9 +10,40 @@ def main(request):
     if request.user.is_authenticated:
         user_now = request.user
         dino_url = dino_img(user_now.dino_level, user_now.dino_class)
-        return render(request, 'heritage/main.html', {'user_now': user_now, 'dino_url': dino_url})
+        rank_dict = return_my_ranking(user_now)
+        return render(request, 'heritage/main.html', {'user_now': user_now,
+        'dino_url': dino_url,
+        'total': rank_dict['총'],
+        'gh': rank_dict['근현대'],
+        'chs': rank_dict['조선시대']
+        })
     else:
         return render(request, 'heritage/main_nosigned.html')
+
+def return_my_ranking(current_user):
+    total_list = Student.objects.all().order_by('-cor_num')
+    total = list(total_list).index(current_user) + 1
+
+    gh_list = Student.objects.all().order_by('-gh_num')
+    gh = list(gh_list).index(current_user) + 1
+
+    chs_list = Student.objects.all().order_by('-chs_num')
+    chs = list(chs_list).index(current_user) + 1
+
+    sg_list = Student.objects.all().order_by('-sg_num')
+    sg = list(sg_list).index(current_user) + 1
+
+    ss_list = Student.objects.all().order_by('-ss_num')
+    ss = list(ss_list).index(current_user) + 1
+
+    rank_dict = {}
+    rank_dict['총'] = total
+    rank_dict['근현대'] = gh
+    rank_dict['조선시대'] = chs
+    rank_dict['삼국시대'] = sg
+    rank_dict['선사시대'] = ss
+
+    return rank_dict
 
 def map(request):
     return render(request, 'heritage/map.html')

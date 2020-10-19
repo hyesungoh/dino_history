@@ -47,37 +47,38 @@
       <p style="padding-top: 3%; padding-left: 5%; font-size: 50px; display: inline-block;">내 정보</p>
       <div id="mypage_rank" style="color: #464E45;">
         <hr style="width:16%; border:solid 2px; color: gray; margin-left: 5%;">
-        <p style="margin-left: 6%; font-size: 25px;">전체 랭킹&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;23</p>
+        <p style="margin-left: 6%; font-size: 25px;">전체 랭킹&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ total }}</p>
         <hr style="width:16%; border:solid 2px; color: gray; margin-left: 5%;">
-        <p style="margin-left: 6%; font-size: 25px;">지역 랭킹&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;25</p>
+        <!-- <p style="margin-left: 6%; font-size: 25px;">지역 랭킹&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;25</p>
+        <hr style="width:16%; border:solid 2px; color: gray; margin-left: 5%;"> -->
+        <p style="margin-left: 6%; font-size: 25px;">근현대 랭킹&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ gh }}</p>
         <hr style="width:16%; border:solid 2px; color: gray; margin-left: 5%;">
-        <p style="margin-left: 6%; font-size: 25px;">근현대 랭킹&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;222</p>
+        <p style="margin-left: 6%; font-size: 25px;">조선시대 랭킹&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ chs }}</p>
         <hr style="width:16%; border:solid 2px; color: gray; margin-left: 5%;">
-        <p style="margin-left: 6%; font-size: 25px;">조선시대 랭킹&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;232</p>
+        <p style="margin-left: 6%; font-size: 25px;">삼국시대 랭킹&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ sg }}</p>
         <hr style="width:16%; border:solid 2px; color: gray; margin-left: 5%;">
-        <p style="margin-left: 6%; font-size: 25px;">삼국시대 랭킹&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;23</p>
-        <hr style="width:16%; border:solid 2px; color: gray; margin-left: 5%;">
-        <p style="margin-left: 6%; font-size: 25px;">선사시대 랭킹&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;234</p>
+        <p style="margin-left: 6%; font-size: 25px;">선사시대 랭킹&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ ss }}</p>
         <hr style="width:16%; border:solid 2px; color: gray; margin-left: 5%;">
        </div>
     </div>
+
     <div style="font-size: 30px; color: #818181;">
-    <div id="my_name" style="width: 50%; height: 52px; background-color: white; position: absolute; left: 28%; top: 121%;">
+    <div id="my_name" style="width: 50%; height: 52px; background-color: white; position: absolute; left: 28%; top: 110%;">
       &nbsp; 이름: {{ u.username }}
     </div>
-    <div id="my_local" style="width: 50%; height: 52px; background-color: white; position: absolute; left: 28%; top: 131%;">
+    <div id="my_local" style="width: 50%; height: 52px; background-color: white; position: absolute; left: 28%; top: 120%;">
       <p style="padding-top: 6px;">&nbsp; 거주 지역: 서울시 구로구</p>
     </div>
-    <div id="my_mail" style="width: 50%; height: 52px; background-color: white; position: absolute; left: 28%; top: 141%;">
+    <div id="my_mail" style="width: 50%; height: 52px; background-color: white; position: absolute; left: 28%; top: 130%;">
       &nbsp; 이메일: {{ u.email }}
     </div>
-    <div id="my_pet" style="width: 50%; height: 52px; background-color: white; position: absolute; left: 28%; top: 151%;">
+    <div id="my_pet" style="width: 50%; height: 52px; background-color: white; position: absolute; left: 28%; top: 140%;">
       <p style="padding-top: 6px;">&nbsp; 공룡 이름: {{ u.username }}</p>
     </div>
-    <div id="my_etc1" style="width: 50%; height: 52px; background-color: white; position: absolute; left: 28%; top: 161%;">
+    <div id="my_etc1" style="width: 50%; height: 52px; background-color: white; position: absolute; left: 28%; top: 150%;">
       <p style="padding-top: 6px;">&nbsp; 총 맞은 문제 : {{ u.cor_num }}</p>
     </div>
-    <div id="my_etc2" style="width: 50%; height: 52px; background-color: white; position: absolute; left: 28%; top: 171%;">
+    <div id="my_etc2" style="width: 50%; height: 52px; background-color: white; position: absolute; left: 28%; top: 160%;">
       <p style="padding-top: 6px;"> &nbsp; 먕</p>
     </div>
   </div>

@@ -14,10 +14,44 @@ def mypage(request, name):
     correct_problem = Correct.objects.filter(student = current_user)
     wrong_problem = Wrong.objects.filter(student = current_user)
     dino_url = dino_img(current_user.dino_level, current_user.dino_class)
+
+    rank_dict = return_my_ranking(current_user)
+
     return render(request, 'user/mypage.html', {'u': current_user, 'exp_range': range(current_user.exp),
     'correct_problem': correct_problem,
     'wrong_problem': wrong_problem,
-    'dino_url': dino_url})
+    'dino_url': dino_url,
+    'total': rank_dict['총'],
+    'gh': rank_dict['근현대'],
+    'chs': rank_dict['조선시대'],
+    'sg': rank_dict['삼국시대'],
+    'ss': rank_dict['선사시대']
+    })
+
+def return_my_ranking(current_user):
+    total_list = Student.objects.all().order_by('-cor_num')
+    total = list(total_list).index(current_user) + 1
+
+    gh_list = Student.objects.all().order_by('-gh_num')
+    gh = list(gh_list).index(current_user) + 1
+
+    chs_list = Student.objects.all().order_by('-chs_num')
+    chs = list(chs_list).index(current_user) + 1
+
+    sg_list = Student.objects.all().order_by('-sg_num')
+    sg = list(sg_list).index(current_user) + 1
+
+    ss_list = Student.objects.all().order_by('-ss_num')
+    ss = list(ss_list).index(current_user) + 1
+
+    rank_dict = {}
+    rank_dict['총'] = total
+    rank_dict['근현대'] = gh
+    rank_dict['조선시대'] = chs
+    rank_dict['삼국시대'] = sg
+    rank_dict['선사시대'] = ss
+
+    return rank_dict
 
 def return_ranking():
     total = Student.objects.all().order_by('-cor_num')[0:10]
@@ -44,8 +78,18 @@ def ranking(request):
     sg = rank_dict['삼국시대']
     ss = rank_dict['선사시대']
 
+    if request.user.is_active:
+        my_rank_dict = return_my_ranking(request.user)
+        my_total = my_rank_dict['총']
+        my_gh = my_rank_dict['근현대']
+        my_chs = my_rank_dict['조선시대']
+        my_sg = my_rank_dict['삼국시대']
+        my_ss = my_rank_dict['선사시대']
+
     return render(request, 'user/ranking.html', {'total': total,
-    'gh': gh, 'chs': chs, 'sg': sg, 'ss': ss})
+    'gh': gh, 'chs': chs, 'sg': sg, 'ss': ss,
+    'my_total': my_total, 'my_gh': my_gh, 'my_chs': my_chs,
+    'my_sg': my_sg, 'my_ss': my_ss})
 
 def problem(request):
     if not request.user.is_active: # 로그인 안했을 때
