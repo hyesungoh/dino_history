@@ -1,5 +1,6 @@
 {% extends 'heritage/base.html' %}
 {% load static %}
+{% load text_cutter %}
 {% block header %}
 
 {% if heritages.count == 0 %}
@@ -47,7 +48,8 @@
       <h5>시대 - {{ heritage.dynasty }}</h5>
       <h5>위치 - {{ heritage.location }}</h5>
       <hr class="hr">
-      <p>{{ heritage.content }}</p>
+      {% text_cutter heritage.content as text %}
+			<p>{{ text }}</p>
       </div>
   </div>
 </section>

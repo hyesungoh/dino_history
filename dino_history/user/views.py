@@ -127,7 +127,11 @@ def problem_search(request):
         # error view로 에러메세지와 함께 보냄
         return error(request, "로그인을 해야 문제를 풀 수 있어용")
     name = request.GET["name"]
-    problem_list = Problem.objects.filter(p_content__contains=name)[0:5]
+    problem_list = Problem.objects.filter(p_content__contains=name)[0:8]
+
+    if len(problem_list) == 0:
+        msg = str(name) + "이/가 들어간 문제는 없어용 ㅠ"
+        return error(request, msg)
     return render(request, 'user/problem_search.html', {'name': name, 'p': problem_list})
 
 def problem_era(request):
@@ -235,6 +239,8 @@ def anew(request):
     return render(request, 'user/anew.html')
 
 def create(request):
+    if request.user.id != 1:
+        return redirect('main')
 
     if request.method == 'POST':
         form = ProblemMultiForm(request.POST)

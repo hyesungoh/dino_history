@@ -1,1 +1,14 @@
-{{ error_msg }}
+{% extends 'heritage/base.html' %}
+
+{% block header %}
+
+<section style="margin: 20px;">
+  <div style="background-color: #FEF9F3;  height: 635px; width: 100%; border-radius: 2em;">
+    <a href="problem/">
+  <img src="/static/user/img/error.png" style="float: right; margin-right: 150px; margin-top: 20px; width: 600px;">
+    </a>
+  <p style="font-size: 50px; padding-top: 150px; padding-left: 150px;"> !! ERROR !!</p>
+  <p style="color: gray; font-size: 30px; padding-left: 150px;">{{ error_msg }}</p>
+  </div>
+</section>
+{% endblock %}
