@@ -8,7 +8,7 @@ from datetime import date
 
 class Problem(models.Model):
     def __str__(self):
-        return self.p_title
+        return self.p_content
 
     p_era = models.CharField(max_length=45)
     p_content = models.TextField()

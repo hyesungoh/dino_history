@@ -35,7 +35,12 @@ urlpatterns = [
     path('mypage/<str:name>', user.views.mypage, name='mypage'),
     path('ranking/', user.views.ranking, name='ranking'),
     path('problem/', user.views.problem, name='problem'),
+    path('problem/<int:pk>', user.views.problem_detail, name='problem_detail'),
+    path('problem_search/', user.views.problem_search, name='problem_search'),
+    path('problem_era/', user.views.problem_era, name='problem_era'),
     path('solve/<int:pk>', user.views.solve, name='solve'),
+    path('correct/<int:pk>', user.views.correct, name='correct'),
+    path('wrong/<int:pk>', user.views.wrong, name='wrong'),
 
     path('anew/create/', user.views.create, name='create'),
     path('update/<int:pk>', user.views.update, name='update'),

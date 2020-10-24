@@ -1,3 +1,4 @@
+
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Student, Problem, Example, Correct, Wrong
 from .forms import SigninForm, UserForm, ProblemForm, ExampleForm, ProblemMultiForm
@@ -8,16 +9,23 @@ from django.contrib.auth import login as auth_login
 from django.http import HttpResponse, HttpResponseRedirect
 
 from random import randint # 레벨에 따른 이미지 랜덤으로 사용하기 위해
+
 # Create your views here.
 def mypage(request, name):
+    exp_for_lv_up = [1, 5, 10, 20, 100]
+    max = 47
+
     current_user = Student.objects.get(username = name)
+    percent = current_user.cor_num * 100 // exp_for_lv_up[current_user.dino_level]
+    gauge = percent * max // 100
+
     correct_problem = Correct.objects.filter(student = current_user)
     wrong_problem = Wrong.objects.filter(student = current_user)
     dino_url = dino_img(current_user.dino_level, current_user.dino_class)
 
     rank_dict = return_my_ranking(current_user)
 
-    return render(request, 'user/mypage.html', {'u': current_user, 'exp_range': range(current_user.exp),
+    return render(request, 'user/mypage.html', {'u': current_user, 'exp_range': range(gauge),
     'correct_problem': correct_problem,
     'wrong_problem': wrong_problem,
     'dino_url': dino_url,
@@ -86,10 +94,21 @@ def ranking(request):
         my_sg = my_rank_dict['삼국시대']
         my_ss = my_rank_dict['선사시대']
 
+        return render(request, 'user/ranking.html', {'total': total,
+        'gh': gh, 'chs': chs, 'sg': sg, 'ss': ss,
+        'my_total': my_total, 'my_gh': my_gh, 'my_chs': my_chs,
+        'my_sg': my_sg, 'my_ss': my_ss})
+
     return render(request, 'user/ranking.html', {'total': total,
-    'gh': gh, 'chs': chs, 'sg': sg, 'ss': ss,
-    'my_total': my_total, 'my_gh': my_gh, 'my_chs': my_chs,
-    'my_sg': my_sg, 'my_ss': my_ss})
+    'gh': gh, 'chs': chs, 'sg': sg, 'ss': ss})
+
+def problem_detail(request, pk):
+    if not request.user.is_active: # 로그인 안했을 때
+        # error view로 에러메세지와 함께 보냄
+        return error(request, "로그인을 해야 문제를 풀 수 있어용")
+
+    p = Problem.objects.get(id=pk)
+    return render(request, 'user/problem_detail.html', {'p': p})
 
 def problem(request):
     if not request.user.is_active: # 로그인 안했을 때
@@ -101,6 +120,23 @@ def problem(request):
     for _ in range(5):
         problem_list.append(random_problem_without_correct(current_user))
 
+    return render(request, 'user/problem.html', {'p': problem_list})
+
+def problem_search(request):
+    if not request.user.is_active: # 로그인 안했을 때
+        # error view로 에러메세지와 함께 보냄
+        return error(request, "로그인을 해야 문제를 풀 수 있어용")
+    name = request.GET["name"]
+    problem_list = Problem.objects.filter(p_content__contains=name)[0:5]
+    return render(request, 'user/problem_search.html', {'name': name, 'p': problem_list})
+
+def problem_era(request):
+    if not request.user.is_active: # 로그인 안했을 때
+        # error view로 에러메세지와 함께 보냄
+        return error(request, "로그인을 해야 문제를 풀 수 있어용")
+
+    era = request.GET["era"]
+    problem_list = Problem.objects.filter(p_era__contains=era)[0:5]
     return render(request, 'user/problem.html', {'p': problem_list})
 
 
@@ -118,7 +154,7 @@ def random_problem_without_correct(user):
 
 
 def solve(request, pk):
-    exp_for_lv_up = [1, 3, 5, 10]
+    exp_for_lv_up = [1, 5, 10, 20, 100]
 
     if not request.user.is_active: # 로그인 안했을 때
         # error view로 에러메세지와 함께 보냄
@@ -169,24 +205,37 @@ def solve(request, pk):
                 c.student = current_user
                 c.problem = current_problem
                 c.save()
+                return correct(request, current_problem.id)
             else:
                 try: # 틀렸는데 또 틀리면 생성 안함
                     Wrong.objects.get(student=current_user, problem=current_problem)
+                    return wrong(request, current_problem.id)
                 except:
                     w = Wrong() # 유저와 틀린 문제의 관계를 저장하는 모델
                     w.student = current_user
                     w.problem = current_problem
                     w.save()
+                    return wrong(request, current_problem.id)
 
 
         # return render(request, 'user/solve_test.html', {'p': current_problem, 'ans': passing_answer, 'u': current_user})
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
+def correct(request, pk):
+    return render(request, 'user/correct.html')
+
+def wrong(request, pk):
+    p = Problem.objects.get(id=pk)
+    return render(request, 'user/wrong.html', {'p': p})
+
+
+
 def anew(request):
     return render(request, 'user/anew.html')
 
 def create(request):
+
     if request.method == 'POST':
         form = ProblemMultiForm(request.POST)
         if form.is_valid():

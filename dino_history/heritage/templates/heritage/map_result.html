@@ -27,30 +27,23 @@
       {{heritage}}
       <hr style="width: 90%;">
       {% endfor %}
-
-      <!-- &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-      &emsp;1
-      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;보물 제10호
-      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;강화 장정리 오층석탑(江華 長井里 五層石塔) -->
-
     </div>
   </div>
 </section>
+
 
 {% for heritage in heritages %}
 <section style="margin: 20px;">
   <div class="history">
     <br>
-    <h3 style="text-align: center; color: gray;">보물 제10호</h3>
-    <h1 style="text-align: center; color: rgb(24, 153, 24);">강화 장정리 오층석탑(江華 長井里 五層石塔)</h1>
     <br>
-    <div style="float:left; width: 40%; margin: auto;">
+    <h1 style="text-align: center; color: rgb(24, 153, 24);">  {{heritage}}</h1>
+    <br>
+    <div style="float:left; width: 30%; margin-right: 60px;">
       <img class="he_img" src="{{ heritage.img_url }}">
       <br><br>
     </div>
-    <div class="his_txt">
+    <div class="his_txt" style=" float:left; margin:auto; padding-left: 90px;">
       <h5>시대 - {{ heritage.dynasty }}</h5>
       <h5>위치 - {{ heritage.location }}</h5>
       <hr class="hr">
@@ -59,7 +52,7 @@
   </div>
 </section>
 
-	{% endfor %}
+   {% endfor %}
 
 {% endif %}
 {% endblock %}

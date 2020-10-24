@@ -1,12 +1,23 @@
 {% extends 'user/base.html' %}
 {% load static %}
-
-=======
+{% load problems_num %}
 {% block header %}
 
 <head>
   <meta charset="UTF-8">
   <style>
+    header {
+       position: relative;
+       margin: 0 auto;
+      display: flex;
+    }
+
+    .search {
+      position: relative;
+      margin: 2 auto;
+      justify-content: center;
+    }
+
     .hr0 {
       height: 65%;
       width: 1px;
@@ -23,14 +34,14 @@ border-left: 1px solid;
 margin: 20px auto;
 } */
     .hr1 {
-      height: 30%;
+      height: 15%;
       width: 1px;
       border-left: 1px solid;
       margin: 20px auto;
     }
 
     .container {
-      height: 290px;
+      height: 210px;
       margin-bottom: 10px;
       background-color: #FEF9F3;
       margin: 0 auto;
@@ -67,17 +78,21 @@ flex-basis: 10%;
 } */
     #items {
       flex-basis: 10%;
+      margin-top: 20px;
+      text-align: center;
     }
 
     #quiz {
       font-size: 35px;
       flex-basis: 50%;
+      margin-top: 15px;
+      text-align: center;
     }
 
     #answers {
       position: relative;
       top: 70px;
-      right: 70px;
+      right: 130px;
       flex-basis: 55%;
     }
 
@@ -95,59 +110,182 @@ flex-basis: 10%;
       height: 42px;
       border: 0.5px solid #5D9169;
       border-radius: 10px 10px 10px 10px;
+      display:inline-block;
+    }
+    .ans {
+      float: left;
+      width: 400px;
+      height: 42px;
+      border: 0.5px solid #5D9169;
+      border-radius: 10px 10px 10px 10px;
+      background-color: white;
+}
+
+    .click-pro {
+      width: 100%;
+      height:100%;
+      display: inline;
     }
 
     .click-answer {
-      width: 100px;
+      float: right;
+      width: 30%;
+      height: 41px;
       background-color: #5D9169;
       color: white;
+      /* margin-left: 85%; */
+      display: inline;
     }
+
+    .h_button {
+      width: 70px;
+      height: 40px;
+      border-radius: 10px 10px 10px 10px ;
+      background-color: #f5d659d5;
+      border: #f5d659d5;
+    }
+    .options {
+      width: 150px;
+      height: 40px;
+      border-radius: 10px 10px 10px 10px ;
+      background-color: #f5d659d5;
+      border: #f5d659d5;
+      text-align-last: center;
+      justify-content: center;
+    }
+    input[type='radio'] {
+      margin-top: -1px;
+      vertical-align: middle;
+      margin-right: 3px;
+}
+    .form-control {
+      width: 80%;
+      height:100%;
+      border:none;
+      font-size:1em;
+      padding-left: 5px;
+      display:inline;
+      outline:none;
+      box-sizing: border-box;
+      color:black;
+}
+    .search_icon {
+      width: 20%;
+      height:100%;
+      background-color: lightgray;
+      float: right;
+      border:none;
+      border-radius: 10px 10px 10px 10px ;
+      background-color:#53a867;
+      font-size:1em;
+      color:white;
+      outline:none;
+      display:inline;
+      margin-left: -10px;
+      box-sizing: border-box;
+}
   </style>
-  <!-- <script>
-    function myFucntion() {
-      if (form.kingName[2].checked == true)
-        document.getElementById("check").innerHTML = "정답입니다.";
-      else
-        document.getElementById("check").innerHTML = "오답입니다.";
-    }
+  <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="jquery.fittext.js"></script>
+<script>
+  jQuery("#responsive_headline").fitText(container);
+  jQuery("#responsive_headline").fitText(ans);
+</script>
   </script> -->
 
 </head>
-
+<header>
+  <div class="search" style="display:table; width:1140px; height:80px; background-color: #F3FEF3; margin: 30px auto; display: table-cell; vertical-align: middle;">
+    <div style="float:left; margin-left: 200px; margin-right:50px; text-align: center;">
+      <h2 style="margin-top:20px; text-align: center; vertical-align: middle;">문제 검색하기</h2>
+    </div>
+    <div style="margin-top:20px; float:left; width: 550px; height: 35px; background-color: white;">
+      <form method='GET' action='/problem_search/'>
+        <input class="form-control mr-sm-2" name="name" type="search" placeholder="검색" aria-label="Search" size="20">
+        <button class="search_icon" type="submit">
+          <svg width="2em" height="2em" viewBox="0 0 20 20" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+            <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+    </div>
+  </div>
+</header>
 <body>
+  <div style="text-align:center; width: 1140px; margin: 0 auto; margin-bottom: 15px;">
+    <div style="float:left; margin-right:10px;">
+      <button class="h_button" type="submit" onclick="h_b()">전체</button>
+    </div>
+    <form method='get' action="/problem_era">
+    <div style="float:left; margin-right:10px;">
+      <select class="options" type="submit" onclick="h_b()" name="era"></button>
+        <option>시대별</option>
+        <option value="선사시대">선사시대</option>
+        <option value="삼국시대">삼국시대</option>
+        <option value="조선시대">조선시대</option>
+        <option value="근현대">근현대</option>
+    </select>
+    </div>
+    <div style="float:left;">
+      <button class="options" type="submit">검색하기</button>
+    </div>
+    </form>
+    <!-- <div style="float: right;">
+      <select class="options" type="submit" onclick="h_b()"></button>
+        <option>분류</option>
+        <option value="a">구석기</option>
+        <option value="b">신석기</option>
+        <option value="c">삼국</option>
+        <option value="d">조선</option>
+        <option value="e">근현대</option>
+    </select>
+    </div> -->
+    <br>
+</div>
   <br>
   {% for x in p %}
-
   <div class="container">
-
     <div class="item" id="items">{{x.id}}</div>
     <hr class="hr0">
-    <div class="item" id="quiz">{{x.p_content}}</div>
+    <div class="item" id="quiz" style="font-size: 30px;">{{x.p_content}}</div>
     <hr class="hr1">
-    <div class="item" id="items">{{x.p_sort}}</div>
+    <div class="item" id="items" style="font-size: 15px;">{{x.p_era}}</div>
     <hr class="hr1">
-    <div class="item" id="items">1</div>
+
+    {% return_cor_num x.id as correct_people %}
+    <div class="item" id="items">{{ correct_people }}</div>
     <hr class="hr1">
-    <div class="item" id="items">3</div>
+    {% return_tried_num x.id as tried_people %}
+    <div class="item" id="items">{{ tried_people }}</div>
     <hr class="hr1">
-    <div class="item" id="items">33%</div>
+    {% return_percent correct_people tried_people as percent %}
+    <div class="item" id="items">{{ percent }}%</div>
     <div id="answers">
 
       <br><br>
+      <div class="ans">
       <span>
-        <form method='POST' action="/solve/{{ x.id }}">
+
+        <form class="click-pro" name="form" method="POST" action="/solve/{{ x.id }}">
           {% csrf_token %}
           {% for y in x.problem.all %}
-            <input type="radio" name="example" value="{{y.e1}}" style=" font-size:17px; width:23px;height:23px">{{y.e1}}<br>
-            <input type="radio" name="example" value="{{y.e2}}" style=" font-size:17px; width:23px;height:23px">{{y.e2}}<br>
-            <input type="radio" name="example" value="{{y.e3}}" style=" font-size:17px; width:23px;height:23px">{{y.e3}}<br>
-            <input type="radio" name="example" value="{{y.e4}}" style=" font-size:17px; width:23px;height:23px">{{y.e4}}<br>
-          {% endfor %}
+          <td colspan="2">&nbsp;&nbsp;
+            <input type="radio" name="example" value="{{y.e1}}" checked="">&nbsp;{{y.e1}}&nbsp;&nbsp;</input>
+            <input type="radio" name="example" value="{{y.e2}}">&nbsp;{{y.e2}}&nbsp;&nbsp;</input>
+            <input type="radio" name="example" value="{{y.e3}}">&nbsp;{{y.e3}}&nbsp;&nbsp;</input>
+            <input type="radio" name="example" value="{{y.e4}}">&nbsp;{{y.e4}}</input>
+          </td>
+            <!-- {{y.p_num}} //문제 고유번호-->
+            {% endfor %}
           &nbsp;
           <input type="submit" class="click-answer" value="정답확인" onclick="myFucntion()">
-
         </form>
+
+
       </span>
+      </div>
     </div>
   </div>
   <br>

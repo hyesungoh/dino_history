@@ -63,9 +63,9 @@ def map_result(request):
     location = request.GET["location"]
 
     if location:
-        heritages = Heritage.objects.filter(location__contains=location)[0:10]
+        heritages = Heritage.objects.filter(location__contains=location)[0:7]
     else:
-        heritages = Heritage.objects.all()[0:10]
+        heritages = Heritage.objects.all()[0:7]
     return render(request, 'heritage/map_result.html', {'location': location, 'heritages': heritages})
 
 
