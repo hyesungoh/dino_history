@@ -29,16 +29,26 @@ urlpatterns = [
     path('map/', heritage.views.map, name='map'),
     path('save_heritage/', heritage.views.save_heritage, name='save'),
     path('result/', heritage.views.result, name='result'),
+    path('map_result/', heritage.views.map_result, name='map_result'),
+
     # user_app
-    path('mypage/', user.views.mypage, name='mypage'),
+    path('mypage/<str:name>', user.views.mypage, name='mypage'),
     path('ranking/', user.views.ranking, name='ranking'),
     path('problem/', user.views.problem, name='problem'),
+    path('problem/<int:pk>', user.views.problem_detail, name='problem_detail'),
+    path('problem_search/', user.views.problem_search, name='problem_search'),
+    path('problem_era/', user.views.problem_era, name='problem_era'),
+    path('solve/<int:pk>', user.views.solve, name='solve'),
+    path('correct/<int:pk>', user.views.correct, name='correct'),
+    path('wrong/<int:pk>', user.views.wrong, name='wrong'),
+
     path('anew/create/', user.views.create, name='create'),
     path('update/<int:pk>', user.views.update, name='update'),
     path('delete/<int:pk>', user.views.delete, name='delete'),
     path('login/', user.views.login, name='login'),
     path('signup/', user.views.signup, name='signup'),
 
+    path('', include('django.contrib.auth.urls')),
     #social login test
      # 로그인
     path('account/', include('rest_auth.urls')),

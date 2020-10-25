@@ -1,0 +1,45 @@
+{% extends 'user/base.html' %}
+{% load static %}
+
+{% block header %}
+
+<head>
+  <meta charset="UTF-8">
+  <style>
+    .img_box {
+      text-align: center;
+      max-width: 100%;
+    }
+    .back_img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class='img_box'>
+    <div style="position: absolute;">
+      <div style="position: relative; top: 400px; left: 600px;">
+        <a href="/mypage/{{ user.username }}">
+        <img style="max-width: 70%;" src="/static/user/img/gomenu.png"></img>
+        </a>
+      </div>
+    </div>
+
+    <div style="position: absolute;">
+      <div style="position: relative; top: 540px; left: 600px;">
+        <a href="/problem">
+        <img style="max-width: 70%;" src="/static/user/img/goother.png"></img>
+        </a>
+      </div>
+    </div>
+
+    <img class='back_img' src="/static/user/img/correct.png">
+
+
+  </div>
+
+
+</body>
+
+{% endblock %}

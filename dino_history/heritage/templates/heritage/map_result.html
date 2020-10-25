@@ -1,0 +1,60 @@
+{% extends 'heritage/base.html' %}
+{% load static %}
+{% load text_cutter %}
+{% block header %}
+
+{% if heritages.count == 0 %}
+<h1>NONE</h1>
+
+{% else %}
+
+<section style="margin: 20px;">
+  <div style="background-color: #F3FEF3; height: 635px; width: 80%; margin: auto;">
+    <br><br>
+    <h1 style="color: teal; text-align: center;">{{ location }}의 유적지</h1>
+    <br>
+    <div class="heritages" style="padding: 50px;">
+      <div class="h_nav">
+        <hr class="h_hr">
+        순서
+        <hr class="h_hr">
+        종목
+        <hr class="h_hr">
+        명칭
+        <hr class="h_hr">
+      </div>
+      <br>
+      {% for heritage in heritages %}
+      {{heritage}}
+      <hr style="width: 90%;">
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+{% for heritage in heritages %}
+<section style="margin: 20px;">
+  <div class="history">
+    <br>
+    <br>
+    <h1 style="text-align: center; color: rgb(24, 153, 24);">  {{heritage}}</h1>
+    <br>
+    <div style="float:left; width: 30%; margin-right: 60px;">
+      <img class="he_img" src="{{ heritage.img_url }}">
+      <br><br>
+    </div>
+    <div class="his_txt" style=" float:left; margin:auto; padding-left: 90px;">
+      <h5>시대 - {{ heritage.dynasty }}</h5>
+      <h5>위치 - {{ heritage.location }}</h5>
+      <hr class="hr">
+      {% text_cutter heritage.content as text %}
+			<p>{{ text }}</p>
+      </div>
+  </div>
+</section>
+
+   {% endfor %}
+
+{% endif %}
+{% endblock %}

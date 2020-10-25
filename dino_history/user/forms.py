@@ -1,3 +1,4 @@
+
 from django import forms
 from .models import Student, Problem, Example
 from betterforms.multiform import MultiModelForm
@@ -5,7 +6,7 @@ from betterforms.multiform import MultiModelForm
 class ProblemForm(forms.ModelForm):
     class Meta:
         model = Problem
-        fields = ['p_title', 'p_sort', 'p_content', 'answer']
+        fields = ['p_content', 'answer', 'p_era']
 
 class ExampleForm(forms.ModelForm):
     class Meta:
@@ -32,4 +33,4 @@ class UserForm(forms.ModelForm):
         help_texts = {
             'username': None,
         }
-        fields = ['username', 'password', 'email', 'b_date', 'phone_num']
+        fields = ['username', 'password', 'email', 'phone_num']

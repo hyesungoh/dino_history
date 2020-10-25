@@ -1,16 +1,8 @@
+
 {% extends 'user/base.html' %}
 {% load static %}
 
 {% block header %}
-
-<div>
-    {% for x in users.all %}
-
-    {{ x.username }}
-    <br>
-    {% endfor %}
-</div>
-
 <head>
     <link rel="stylesheet" type="text/css" href="{% static 'user/css/ranking.css' %}">
     <style>
@@ -20,12 +12,12 @@
     display: table;
     margin: 20px auto;
 }
-.flex > div { 
+.flex > div {
     float:left;
-    box-sizing:border-box; /* border 또한 위치값을 갖기에 div크기가 더 커짐을 방지하기 위한 */
+    box-sizing:border-box; /* div크기가 더 커짐을 방지하기 위한 */
 }
 .flex > div:nth-child(3) {
-    clear:both; /* float:left 의 줄바꿈을 위한 */
+    clear:both; /* float:left 줄바꿈 */
 }
 #circle1 {
     position: relative;
@@ -123,15 +115,15 @@
     width: 1px;
     border-left: solid;
     margin: 20px;
-    margin-bottom: 0.5em;  
+    margin-bottom: 0.5em;
 }
 .hrhr2 {
     display: block;
-    margin-top: 0.5em; 
-    margin-bottom: 0.5em;  
-    margin-left: auto; 
-    margin-right: auto;  
-    border-style: solid;  
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: solid;
     border-width: 1px;
 }
 .item_rank {
@@ -169,15 +161,10 @@
     border-radius: 8px;
     background-color: #818181;
   }
-    /* .flex-2 {
-        position:relative;
-        display: table;
-        margin: 5px auto;
-    } */
-
     </style>
 </head>
 <div class="flex">
+    <!-- 전체 -->
     <div class="rank1">
         <form>
             <br>
@@ -188,9 +175,11 @@
                 <div id="circle2">
                     <img src="/static/user/img/sing.png" width="70%" style=" margin-top:10%;">
                     <div class="names"
-                        style="margin-left: 30px; width: 80px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
+                    style="margin-left: 10px; width: 120px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
                         <span style="color: #DDDDDB; display: inline;">2등</span>
-                        <span style="font-size:15px; color:rgba(0,0,0,1); display: inline;"> 오혜성</span>
+                        <span style="font-size:15px; color:rgba(0,0,0,1); display: inline;">
+                          {{ total.1 }}
+                        </span>
                     </div>
                     <div class="box" style="top:5px;">
                         <p style="font-size:30px; color:#DDDDDB;">2</p>
@@ -200,9 +189,10 @@
                     <img src="/static/user/img/dinosaur.png" width="70%" style="margin-top:10%; margin-right: 5px;">
                     <br>
                     <div class="names"
-                        style="margin-left: 40px; width: 80px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
+                    style="margin-left: 25px; width: 120px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
                         <span style="color: #EED880">1등</span><span style="font-size:15px; color:rgba(0,0,0,1);">
-                            윤동열</span>
+                          {{ total.0 }}
+                        </span>
                     </div>
                     <div class="box1" style="top:2px;">
                         <p style="font-size:45px; color:#EED880;">1</p>
@@ -211,9 +201,11 @@
                 <div id="circle3">
                     <img src="/static/user/img/dinosaur (1).png" width="70%" style="margin-top:10%;">
                     <div class="names"
-                        style="margin-left: 30px; width: 80px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
-                        <span style="color: #CD9859">3등</span><span style="font-size:15px; color:rgba(0,0,0,1);">
-                            한희정</span>
+                    style="margin-left: 10px; width: 120px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
+                        <span style="color: #CD9859">3등</span>
+                        <span style="font-size:15px; color:rgba(0,0,0,1);">
+                          {{ total.2 }}
+                        </span>
                     </div>
                     <div class="box" style="top:5px;">
                         <p style="font-size:30px; color:#CD9859;">3</p>
@@ -230,108 +222,42 @@
                 <div class="item_rank" id="id_pro">푼 문제</div>
             </div>
             <br>
-            <!-- <hr class="hrhr2"> -->
             <div class="scroll" style="overflow:auto; width:450px; height:250px;">
-                <div style="font-size: 20px; color: rgba(129,129,129,1); padding-left: 1.6em">
-                    <p>1 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;윤동열&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 543</p>
-                    <p>2 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;오혜성&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 432</p>
-                    <p>3 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;한희정&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 321</p>
-                    <p>4 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;유혜지&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 210</p>
-                    <p>5 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;박다은&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 100</p>
+                <div style="line-height:200%; font-size: 20px; color: rgba(129,129,129,1); padding-left: 1.6em">
+                  {% for student in total %}
+                    <div style="width: 20px; float:left; margin-right:70px; text-align: center;">{{ forloop.counter }}</div>
+                    <div style="width: 130px; float:left; margin-right:100px; text-align: center;">{{ student }} </div>
+                    <div style="width: 50px; float:left; text-align: center;">{{ student.cor_num }}</div>
                     <br>
-                    <p>23 &emsp;&emsp;&emsp;&emsp;&emsp;토마토&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 80</p>
+                  {% endfor %}
                 </div>
             </div>
-            <p style="font-size: 20px; color: black; padding-left: 1.7em">234
-                &emsp;&emsp;&emsp;&emsp;박박디라라&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 10</p>
+            {% if user.is_authenticated %}
+            <span style="line-height:50%; overflow:auto; width:450px; height:250px; font-size: 20px; color: black; padding-left: 1.7em; word-spacing : 100px;"><br>
+                <div style="width: 20px; float:left; margin-left:30px; margin-right:70px; text-align: center;"> {{ my_total }}</div>
+                <div style="width: 130px; float:left; margin-right:100px; text-align: center;"> {{ user.username }} </div>
+                <div style="width: 50px; float:left; text-align: center;">{{user.cor_num}}</div>
+            </span>
+            {% else %}
+            {% endif %}
         </div>
     </div>
+    <!-- 근현대 -->
     <div class="rank1">
         <form>
             <br>
-            <h2>&nbsp;
-                <select name="where">
-                    <option value="s">서울특별시 구로구</option>
-                    <option value="i">인천광역시 중구</option>
-                    <option value="k">경기도 수원시</option>
-                    <option value="j">제주도 서귀포시</option>
-                </select>
-                랭킹</h2>
-        </form>
-
-        <div class="circles">
-            <div id="circle2">
-                <img src="/static/user/img/sing.png" width="70%" style=" margin-top:10%;">
-                <div class="names"
-                    style="margin-left: 30px; width: 80px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
-                    <span style="color: #DDDDDB; display: inline;">2등</span>
-                    <span style="font-size:15px; color:rgba(0,0,0,1); display: inline;"> 오혜성</span>
-                </div>
-                <div class="box" style="top:5px;">
-                    <p style="font-size:30px; color:#DDDDDB;">2</p>
-                </div>
-            </div>
-            <div id="circle1">
-                <img src="/static/user/img/dinosaur.png" width="70%" style="margin-top:10%;">
-                <br>
-                <div class="names"
-                    style="margin-left: 40px; width: 80px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
-                    <span style="color: #EED880">1등</span><span style="font-size:15px; color:rgba(0,0,0,1);"> 윤동열</span>
-                </div>
-                <div class="box1" style="top:2px;">
-                    <p style="font-size:45px; color:#EED880;">1</p>
-                </div>
-            </div>
-            <div id="circle3">
-                <img src="/static/user/img/dinosaur (1).png" width="70%" style="margin-top:10%;">
-                <div class="names"
-                    style="margin-left: 30px; width: 80px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
-                    <span style="color: #CD9859">3등</span><span style="font-size:15px; color:rgba(0,0,0,1);"> 한희정</span>
-                </div>
-                <div class="box" style="top:5px;">
-                    <p style="font-size:30px; color:#CD9859;">3</p>
-                </div>
-            </div>
-        </div>
-        <br><br><br>
-        <div class="rank2">
-            <div class="item_rank" id="id_rank">순위
-                <hr class="hrhr">
-                <div class="item_rank" id="id_nick">닉네임</div>
-                <hr class="hrhr">
-                <div class="item_rank" id="id_pro">푼 문제</div>
-            </div>
-            <br>
-            <!-- <hr class="hrhr2"> -->
-            <div class="scroll" style="overflow:auto; width:450px; height:250px;">
-                <div style="font-size: 20px; color: rgba(129,129,129,1); padding-left: 1.6em">
-                    <p>1 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;윤동열&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 543</p>
-                    <p>2 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;오혜성&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 432</p>
-                    <p>3 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;한희정&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 321</p>
-                    <p>4 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;유혜지&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 210</p>
-                    <p>5 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;박다은&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 100</p>
-                    <br>
-                    <p>23 &emsp;&emsp;&emsp;&emsp;&emsp;토마토&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 80</p>
-                </div>
-            </div>
-            <p style="font-size: 20px; color: black; padding-left: 1.7em">234
-                &emsp;&emsp;&emsp;&emsp;박박디라라&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 10</p>
-        </div>
-    </div>
-
-    <div class="rank1">
-        <form>
-            <br>
-            <h2>&nbsp;근현대 랭킹</h2>
+            <h2>&nbsp;근현대사 문제 랭킹</h2>
         </form>
         <div class="flex-2">
             <div class="circles">
                 <div id="circle2">
                     <img src="/static/user/img/sing.png" width="70%" style=" margin-top:10%;">
                     <div class="names"
-                        style="margin-left: 30px; width: 80px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
+                    style="margin-left: 10px; width: 120px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
                         <span style="color: #DDDDDB; display: inline;">2등</span>
-                        <span style="font-size:15px; color:rgba(0,0,0,1); display: inline;"> 오혜성</span>
+                        <span style="font-size:15px; color:rgba(0,0,0,1); display: inline;">
+                          {{ gh.1 }}
+                        </span>
                     </div>
                     <div class="box" style="top:5px;">
                         <p style="font-size:30px; color:#DDDDDB;">2</p>
@@ -341,9 +267,10 @@
                     <img src="/static/user/img/dinosaur.png" width="70%" style="margin-top:10%; margin-right: 5px;">
                     <br>
                     <div class="names"
-                        style="margin-left: 40px; width: 80px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
+                    style="margin-left: 25px; width: 120px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
                         <span style="color: #EED880">1등</span><span style="font-size:15px; color:rgba(0,0,0,1);">
-                            윤동열</span>
+                          {{ gh.0 }}
+                        </span>
                     </div>
                     <div class="box1" style="top:2px;">
                         <p style="font-size:45px; color:#EED880;">1</p>
@@ -352,9 +279,11 @@
                 <div id="circle3">
                     <img src="/static/user/img/dinosaur (1).png" width="70%" style="margin-top:10%;">
                     <div class="names"
-                        style="margin-left: 30px; width: 80px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
-                        <span style="color: #CD9859">3등</span><span style="font-size:15px; color:rgba(0,0,0,1);">
-                            한희정</span>
+                    style="margin-left: 10px; width: 120px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
+                        <span style="color: #CD9859">3등</span>
+                        <span style="font-size:15px; color:rgba(0,0,0,1);">
+                          {{ gh.2 }}
+                        </span>
                     </div>
                     <div class="box" style="top:5px;">
                         <p style="font-size:30px; color:#CD9859;">3</p>
@@ -373,57 +302,71 @@
             <br>
             <!-- <hr class="hrhr2"> -->
             <div class="scroll" style="overflow:auto; width:450px; height:250px;">
-                <div style="font-size: 20px; color: rgba(129,129,129,1); padding-left: 1.6em">
-                    </ <p>1 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;윤동열&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 543</p>
-                    <p>2 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;오혜성&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 432</p>
-                    <p>3 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;한희정&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 321</p>
-                    <p>4 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;유혜지&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 210</p>
-                    <p>5 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;박다은&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 100</p>
-                    <br>
-                    <p>23 &emsp;&emsp;&emsp;&emsp;&emsp;토마토&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 80</p>
+                <div style="line-height:200%; font-size: 20px; color: rgba(129,129,129,1); padding-left: 1.6em">
+                  {% for student in gh %}
+                  <div style="width: 20px; float:left; margin-right:70px; text-align: center;">{{ forloop.counter }}</div>
+                  <div style="width: 130px; float:left; margin-right:100px; text-align: center;">{{ student }} </div>
+                  <div style="width: 50px; float:left; text-align: center;">{{ student.gh_num}}</div>
+                  <br>
+                  {% endfor %}
                 </div>
             </div>
-            <p style="font-size: 20px; color: black; padding-left: 1.7em">234
-                &emsp;&emsp;&emsp;&emsp;박박디라라&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 10</p>
+            {% if user.is_authenticated %}
+            <span style="line-height:50%; overflow:auto; width:450px; height:250px; font-size: 20px; color: black; padding-left: 1.7em; word-spacing : 100px;"><br>
+                <div style="width: 20px; float:left; margin-left:30px; margin-right:70px; text-align: center;"> {{ my_gh }}</div>
+                <div style="width: 130px; float:left; margin-right:100px; text-align: center;"> {{ user.username }} </div>
+                <div style="width: 50px; float:left; text-align: center;">{{user.gh_num}}</div>
+            </span>
+            {% else %}
+            {% endif %}
         </div>
     </div>
+    <!-- 조선 -->
     <div class="rank1">
         <form>
             <br>
-            <h2>&nbsp;조선시대 랭킹</h2>
+            <h2>&nbsp;조선시대 문제 랭킹</h2>
         </form>
-
-        <div class="circles">
-            <div id="circle2">
-                <img src="/static/user/img/sing.png" width="70%" style=" margin-top:10%;">
-                <div class="names"
-                    style="margin-left: 30px; width: 80px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
-                    <span style="color: #DDDDDB; display: inline;">2등</span>
-                    <span style="font-size:15px; color:rgba(0,0,0,1); display: inline;"> 오혜성</span>
+        <div class="flex-2">
+            <div class="circles">
+                <div id="circle2">
+                    <img src="/static/user/img/sing.png" width="70%" style=" margin-top:10%;">
+                    <div class="names"
+                    style="margin-left: 10px; width: 120px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
+                        <span style="color: #DDDDDB; display: inline;">2등</span>
+                        <span style="font-size:15px; color:rgba(0,0,0,1); display: inline;">
+                          {{ chs.1 }}
+                        </span>
+                    </div>
+                    <div class="box" style="top:5px;">
+                        <p style="font-size:30px; color:#DDDDDB;">2</p>
+                    </div>
                 </div>
-                <div class="box" style="top:5px;">
-                    <p style="font-size:30px; color:#DDDDDB;">2</p>
+                <div id="circle1">
+                    <img src="/static/user/img/dinosaur.png" width="70%" style="margin-top:10%; margin-right: 5px;">
+                    <br>
+                    <div class="names"
+                    style="margin-left: 25px; width: 120px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
+                        <span style="color: #EED880">1등</span><span style="font-size:15px; color:rgba(0,0,0,1);">
+                          {{ chs.0 }}
+                        </span>
+                    </div>
+                    <div class="box1" style="top:2px;">
+                        <p style="font-size:45px; color:#EED880;">1</p>
+                    </div>
                 </div>
-            </div>
-            <div id="circle1">
-                <img src="/static/user/img/dinosaur.png" width="70%" style="margin-top:10%;">
-                <br>
-                <div class="names"
-                    style="margin-left: 40px; width: 80px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
-                    <span style="color: #EED880">1등</span><span style="font-size:15px; color:rgba(0,0,0,1);"> 윤동열</span>
-                </div>
-                <div class="box1" style="top:2px;">
-                    <p style="font-size:45px; color:#EED880;">1</p>
-                </div>
-            </div>
-            <div id="circle3">
-                <img src="/static/user/img/dinosaur (1).png" width="70%" style="margin-top:10%;">
-                <div class="names"
-                    style="margin-left: 30px; width: 80px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
-                    <span style="color: #CD9859">3등</span><span style="font-size:15px; color:rgba(0,0,0,1);"> 한희정</span>
-                </div>
-                <div class="box" style="top:5px;">
-                    <p style="font-size:30px; color:#CD9859;">3</p>
+                <div id="circle3">
+                    <img src="/static/user/img/dinosaur (1).png" width="70%" style="margin-top:10%;">
+                    <div class="names"
+                    style="margin-left: 10px; width: 120px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
+                        <span style="color: #CD9859">3등</span>
+                        <span style="font-size:15px; color:rgba(0,0,0,1);">
+                          {{ chs.2 }}
+                        </span>
+                    </div>
+                    <div class="box" style="top:5px;">
+                        <p style="font-size:30px; color:#CD9859;">3</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -438,18 +381,103 @@
             <br>
             <!-- <hr class="hrhr2"> -->
             <div class="scroll" style="overflow:auto; width:450px; height:250px;">
-                <div style="font-size: 20px; color: rgba(129,129,129,1); padding-left: 1.6em">
-                    </ <p>1 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;윤동열&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 543</p>
-                    <p>2 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;오혜성&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 432</p>
-                    <p>3 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;한희정&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 321</p>
-                    <p>4 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;유혜지&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 210</p>
-                    <p>5 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;박다은&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 100</p>
+                <div style="line-height:200%; font-size: 20px; color: rgba(129,129,129,1); padding-left: 1.6em">
+                  {% for student in chs %}
+                    <div style="width: 20px; float:left; margin-right:70px; text-align: center;">{{ forloop.counter }}</div>
+                    <div style="width: 130px; float:left; margin-right:100px; text-align: center;">{{ student }} </div>
+                    <div style="width: 50px; float:left; text-align: center;">{{ student.chs_num }}</div>
                     <br>
-                    <p>23 &emsp;&emsp;&emsp;&emsp;&emsp;토마토&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 80</p>
+                  {% endfor %}
                 </div>
             </div>
-            <p style="font-size: 20px; color: black; padding-left: 1.7em">234
-                &emsp;&emsp;&emsp;&emsp;박박디라라&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 10</p>
+            {% if user.is_authenticated %}
+            <span style="line-height:50%; overflow:auto; width:450px; height:250px; font-size: 20px; color: black; padding-left: 1.7em; word-spacing : 100px;"><br>
+                <div style="width: 20px; float:left; margin-left:30px; margin-right:70px; text-align: center;"> {{ my_chs }}</div>
+                <div style="width: 130px; float:left; margin-right:100px; text-align: center;"> {{ user.username }} </div>
+                <div style="width: 50px; float:left; text-align: center;">{{user.chs_num}}</div>
+            </span>
+            {% else %}
+            {% endif %}
         </div>
-
+    </div>
+    <!-- 삼국 -->
+    <div class="rank1">
+        <form>
+            <br>
+            <h2>&nbsp;삼국시대 문제 랭킹</h2>
+        </form>
+        <div class="flex-2">
+            <div class="circles">
+                <div id="circle2">
+                    <img src="/static/user/img/sing.png" width="70%" style=" margin-top:10%;">
+                    <div class="names"
+                    style="margin-left: 10px; width: 120px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
+                        <span style="color: #DDDDDB; display: inline;">2등</span>
+                        <span style="font-size:15px; color:rgba(0,0,0,1); display: inline;">
+                          {{ sg.1 }}
+                        </span>
+                    </div>
+                    <div class="box" style="top:5px;">
+                        <p style="font-size:30px; color:#DDDDDB;">2</p>
+                    </div>
+                </div>
+                <div id="circle1">
+                    <img src="/static/user/img/dinosaur.png" width="70%" style="margin-top:10%; margin-right: 5px;">
+                    <br>
+                    <div class="names"
+                    style="margin-left: 25px; width: 120px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
+                        <span style="color: #EED880">1등</span><span style="font-size:15px; color:rgba(0,0,0,1);">
+                          {{ sg.0 }}
+                        </span>
+                    </div>
+                    <div class="box1" style="top:2px;">
+                        <p style="font-size:45px; color:#EED880;">1</p>
+                    </div>
+                </div>
+                <div id="circle3">
+                    <img src="/static/user/img/dinosaur (1).png" width="70%" style="margin-top:10%;">
+                    <div class="names"
+                    style="margin-left: 10px; width: 120px; height: 20px; background-color:white; border-radius: 5px 5px 5px 5px;">
+                        <span style="color: #CD9859">3등</span>
+                        <span style="font-size:15px; color:rgba(0,0,0,1);">
+                          {{ sg.2 }}
+                        </span>
+                    </div>
+                    <div class="box" style="top:5px;">
+                        <p style="font-size:30px; color:#CD9859;">3</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+        <div class="rank2">
+            <div class="item_rank" id="id_rank">순위
+                <hr class="hrhr">
+                <div class="item_rank" id="id_nick">닉네임</div>
+                <hr class="hrhr">
+                <div class="item_rank" id="id_pro">푼 문제</div>
+            </div>
+            <br>
+            <!-- <hr class="hrhr2"> -->
+            <div class="scroll" style="overflow:auto; width:450px; height:250px;">
+                <div style="line-height:200%; font-size: 20px; color: rgba(129,129,129,1); padding-left: 1.6em">
+                  {% for student in sg %}
+                    <div style="width: 20px; float:left; margin-right:70px; text-align: center;">{{ forloop.counter }}</div>
+                    <div style="width: 130px; float:left; margin-right:100px; text-align: center;">{{ student }} </div>
+                    <div style="width: 50px; float:left; text-align: center;">{{ student.sg_num }}</div>
+                    <br>
+                  {% endfor %}
+                </div>
+            </div>
+            {% if user.is_authenticated %}
+            <span style="line-height:50%; overflow:auto; width:450px; height:250px; font-size: 20px; color: black; padding-left: 1.7em; word-spacing : 100px;"><br>
+                <div style="width: 20px; float:left; margin-left:30px; margin-right:70px; text-align: center;"> {{ my_total }}</div>
+                <div style="width: 130px; float:left; margin-right:100px; text-align: center;"> {{ user.username }} </div>
+                <div style="width: 50px; float:left; text-align: center;">{{ser.sg_num}}</div>
+            </span>
+            {% else %}
+            {% endif %}
+        </div>
+    </div>
+</div>
         {% endblock %}

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
@@ -20,7 +19,7 @@
   <link rel="stylesheet" type="text/css" href="{% static 'heritage/css/text.css' %}">
   <!-- Custom styles for this template -->
   <link href="{% static 'heritage/css/landing-page.min.css' %}" rel="stylesheet">
-
+  <link href="{% static 'heritage/css/map.css' %}" rel="stylesheet">
 </head>
 
 <body>
@@ -39,9 +38,12 @@
       <li class="nav-item">
         <a class="nav-link" href="{% url 'main' %}">홈 </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'mypage' %}">내 정보</a>
-      </li>
+
+      {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'mypage' name=user.username %}">내 정보</a>
+        </li>
+      {% endif %}
       <li class="nav-item">
         <a class="nav-link" href="{% url 'map' %}">지도</a>
       </li>
@@ -51,21 +53,27 @@
       <li class="nav-item">
         <a class="nav-link" href="{% url 'problem' %}">문제</a>
       </li>
-      <li class="nav-item" style="padding-left: 700px;">
-        <a class="nav-link" href="{% url 'login' %}">로그인</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'signup' %}">회원가입</a>
-      </li>
+
+      {% if user.is_authenticated %}
+        <li class="nav-item" style="padding-left: 700px;">
+          <a class="nav-link" href="{% url 'logout' %}">로그아웃</a>
+        </li>
+      {% else %}
+        <li class="nav-item" style="padding-left: 700px;">
+          <a class="nav-link" href="{% url 'login' %}">로그인</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'signup' %}">회원가입</a>
+        </li>
+      {% endif %}
+
     </ul>
 
-    <!-- 여기부터 -->
-   <form action="{% url 'result' %}" method="get" class="form-inline my-2 my-lg-0" >
-     <input class="form-control mr-sm-2" name="name" type="search" placeholder="뭐든지 물어봐!" aria-label="Search" size="20">
-     <input type="image" src="/static/heritage/img/button2.jpg" alt="search" width="35px" />
-   </form>
-   <!-- 여기까지 혜성이가 수정함 -->
-
+    <!-- 검색하여 result view로  -->
+    <form action="{% url 'result' %}" method="get" class="form-inline my-2 my-lg-0" >
+      <input class="form-control mr-sm-2" name="name" type="search" placeholder="뭐든지 물어봐!" aria-label="Search" size="46" style="position: absolute; left: 38%;">
+      <input type="image" src="/static/heritage/img/button2.jpg" alt="search" width="35px" style="position: absolute; left: 66.8%; bottom: 14px; height: 35px;"/>
+    </form>
 
   </div>
 </nav>
@@ -73,8 +81,8 @@
 {% endblock %}
 
 
- <footer class="footer bg-light" style="margin-top:200px; margin-bottom: 20px; margin-right: 20px;">
-
+<footer class="footer bg-light" style="margin-top:200px; margin-bottom: 20px; margin-right: 20px;">
+  <p class="text-muted small mb-4 mb-lg-0" style="margin-top: 10px; text-align: right;">icon from <a href="https://www.flaticon.com/kr/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/kr/" title="Flaticon">www.flaticon.com</a></p>
   <p class="text-muted small mb-4 mb-lg-0" style="text-align: right"> Copyright &copy; 2020 gong-ah-york</p>
 
 </footer>
