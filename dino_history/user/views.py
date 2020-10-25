@@ -239,8 +239,8 @@ def anew(request):
     return render(request, 'user/anew.html')
 
 def create(request):
-    if request.user.id != 1:
-        return redirect('main')
+    # if request.user.id != 1:
+    #     return redirect('main')
 
     if request.method == 'POST':
         form = ProblemMultiForm(request.POST)

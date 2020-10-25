@@ -84,8 +84,10 @@ def save_heritage(request):
     if len(Heritage.objects.all()) > 10:
         pass
     else:
+        # module_dir = os.path.dirname(__file__)
+        # file_path = os.path.join(module_dir, '/Users/ohyeseong/Documents/django/dino_history/dino_history/heritage/heritage.txt')
         module_dir = os.path.dirname(__file__)
-        file_path = os.path.join(module_dir, '/Users/ohyeseong/Documents/django/dino_history/dino_history/heritage/heritage.txt')
+        file_path = os.path.join(module_dir, 'heritage.txt')
         heritage_txt = open(file_path, 'r')
 
         while True:
