@@ -117,8 +117,17 @@ def problem(request):
 
     current_user = request.user
     problem_list = []
-    for _ in range(5):
-        problem_list.append(random_problem_without_correct(current_user))
+    for p in Problem.objects.all():
+        if len(problem_list) > 5:
+            break
+        try: # 푼 문제는 return을 안하기 위해
+            Correct.objects.get(student=current_user, problem=p)
+        except: # 아직 안 푼 문제는 return
+            problem_list.append(p)
+
+    # problem_list = []
+    # for _ in range(5):
+    #     problem_list.append(random_problem_without_correct(current_user))
 
     return render(request, 'user/problem.html', {'p': problem_list})
 
@@ -146,12 +155,11 @@ def problem_era(request):
 
 def random_problem_without_correct(user):
     max_id = len(Problem.objects.all())-1
-    while True:
-        pk = randint(1, max_id)
-        temp_problem = Problem.objects.filter(pk=pk).first()
+    for i in range(max_id):
+        temp_problem = Problem.objects.filter(pk=i).first()
 
         try: # 푼 문제는 return을 안하기 위해
-            Correct.objects.get(student=user, problem=pk)
+            Correct.objects.get(student=user, problem=i)
         except: # 아직 안 푼 문제는 return
             if temp_problem:
                 return temp_problem
@@ -239,8 +247,8 @@ def anew(request):
     return render(request, 'user/anew.html')
 
 def create(request):
-    # if request.user.id != 1:
-    #     return redirect('main')
+    if request.user.username != 'haesungoh':
+        return redirect('main')
 
     if request.method == 'POST':
         form = ProblemMultiForm(request.POST)
