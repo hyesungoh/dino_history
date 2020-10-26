@@ -81,7 +81,9 @@ Back-end로 참여했으며 문제 작성과 배포를 제외한 모든 부분�
 
 
 - 문제를 풀었을 때는 문자열 값을 비교하여 연산
+
 <br>
+
 - 문제를 맞거나 틀렸을 때 관계형 모델을 이용하여 저장
   ``` Python
   # user/models.py 32
@@ -94,6 +96,7 @@ Back-end로 참여했으며 문제 작성과 배포를 제외한 모든 부분�
       problem = models.ForeignKey(Problem, related_name="w_problem", on_delete=models.CASCADE)
 
   ```
+  
   <br>
 
 
