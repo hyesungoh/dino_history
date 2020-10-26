@@ -5,14 +5,20 @@ Back-end : 2명
 총 4명으로 진행된 프로젝트
 Back-end로 참여했으며 문제 작성과 배포를 제외한 모든 부분에 참여
 <hr>
+
 ## 프로젝트 소개
 ###### Django-version == 2.2.4
 ###### Python-version == 3.7.4
+
+
 ![공아역1](https://user-images.githubusercontent.com/26461307/97166080-00d83700-17c8-11eb-9cca-3e026e2deffc.jpg)
+
+
 
 ![공아역2](https://user-images.githubusercontent.com/26461307/97166088-03d32780-17c8-11eb-8d60-6853100e4dfd.jpg)
 
 - 문제를 맞출 수록 exp가 늘며, 리스트로 관리되는 각 레벨업에 필요되는 exp에 충당될 시 레벨업되게 구현
+
   ```Python
   # user/views.py 196번 줄
   if exp_for_lv_up[current_user.dino_level] <= current_user.exp:
@@ -50,8 +56,12 @@ Back-end로 참여했으며 문제 작성과 배포를 제외한 모든 부분�
 ![공아역3](https://user-images.githubusercontent.com/26461307/97166096-07ff4500-17c8-11eb-8bb6-b241f8bef2ca.jpg)
 
 - 시간관계상 문제들을 모아둔 txt 파일을 읽는 작업을 구현하지 못하고 만들어둔 `betterforms.multiform`을 사용한 crud 작업을 이용하여 문제를 추가
+
 <br>
+
 - Problem model과 Example model을 1대1 관계 설정, multiform을 이용한 값을 받아와 해당되는 값들을 할당하여 구현
+
+
   ``` Python
   # user/views.py 249번 줄
   temp_problem = Problem()
@@ -65,7 +75,11 @@ Back-end로 참여했으며 문제 작성과 배포를 제외한 모든 부분�
   ...
   temp_example.save()
   ```
+
+
   <br>
+
+
 - 문제를 풀었을 때는 문자열 값을 비교하여 연산
 <br>
 - 문제를 맞거나 틀렸을 때 관계형 모델을 이용하여 저장
@@ -81,19 +95,37 @@ Back-end로 참여했으며 문제 작성과 배포를 제외한 모든 부분�
 
   ```
   <br>
+
+
 - 풀었는 데 또 풀었을 때 관계형 모델이 생산되거나 총 푼 문제 수가 늘면 안되며 틀렸는데 다시 풀었을 때 관계형 모델이 삭제 및 생성되야 한다.  `try`, `except`를 사용하여 objects.get하여 예외처리
+
+
 <br>
+
+
 - 문제 맞은, 틀린 사람과 그 비율은 views에서 render로 넘겨주지 않고 `Custom Template Filter`를 사용
+
+
 <br>
 
 ![공아역4](https://user-images.githubusercontent.com/26461307/97166105-0a619f00-17c8-11eb-8b46-d341382e47ae.jpg)
 - 지역 선택 및 검색 시에 문화재 정보를 보여줘야함
-<br>
-- 필요할 때 마다 문화재청 api를 호출하지 않고 모든 문화재 정보를 파싱하여 txt 파일로 저장 후 view에서 읽어 model object로 저장하는 연산을 수행
-<br>
-- [자세한 사항은 링크에 설명되어 있음](https://github.com/hyesungoh/Cultural_Heritage_Administration_API)
+
 
 <br>
+
+
+- 필요할 때 마다 문화재청 api를 호출하지 않고 모든 문화재 정보를 파싱하여 txt 파일로 저장 후 view에서 읽어 model object로 저장하는 연산을 수행
+
+
+<br>
+
+
+- [자세한 사항은 링크에 설명되어 있음](https://github.com/hyesungoh/Cultural_Heritage_Administration_API)
+
+
+<br>
+
 
 ![공아역5](https://user-images.githubusercontent.com/26461307/97166118-0f265300-17c8-11eb-842d-3855fe7ee720.jpg)
 
@@ -128,8 +160,12 @@ Back-end로 참여했으며 문제 작성과 배포를 제외한 모든 부분�
   ```
 
 <hr>
+
+
 ## 프로젝트로 배운 점
 1. MultiModelForm을 사용하여 두가지 모델의 정보를 입력받을 수 있는 form을 사용할 수 있다는 것을 알게 됨
+
+
 ```Python
 # user/model.py
 from betterforms.multiform import MultiModelForm
@@ -150,7 +186,10 @@ class ProblemMultiForm(MultiModelForm):
         'example' : ExampleForm,
     }
 ```
+
+
 <br>
+
 
 - views에서 데이터를 읽을 때는 아래와 같이 사용 가능
 ```Python
@@ -168,7 +207,10 @@ if request.method == 'POST':
         ...
         temp_example.save()
 ```
+
+
 <br>
+
 
 2. Custom Template Filter를 사용하여 Template에 조금 더 자유롭고 가독성이 좋게 데이터를 보낼 수 있게 됨
 ```Python
@@ -210,9 +252,13 @@ def return_percent(correct, tried):
     except:
         return 0
 ```
+
+
 <br>
 
+
 - Template에서는 아래와 같이 사용
+
 ```Django
 {% return_cor_num x.id as correct_people %}
 <div class="item" id="items">{{ correct_people }}</div>
@@ -224,7 +270,10 @@ def return_percent(correct, tried):
 <div class="item" id="items">{{ percent }}%</div>
 ```
 
+
 <hr>
+
+
 ## 더 배울 점
 - 조금 더 클린한 코드 짜기
   - 함수명은 동사로
